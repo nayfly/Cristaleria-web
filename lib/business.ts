@@ -1,0 +1,205 @@
+// Datos reales de la empresa. Fuente única: cambia aquí y se propaga
+// a metadatos SEO, structured data (JSON-LD) y todas las páginas.
+
+export const business = {
+  name: "Cristalería y Aluminios Torrox Costa",
+  shortName: "Cristalería y Aluminios",
+  foundedYear: 1986,
+  phone: "+34683117711",
+  phoneDisplay: "683 11 77 11",
+  whatsapp: "https://wa.me/34683117711",
+  email: "alucrisvr@gmail.com",
+  address: {
+    street: "Av. de Andalucía, n°24, bj",
+    postalCode: "29793",
+    locality: "Torrox Costa",
+    region: "Málaga",
+    country: "ES",
+  },
+  geo: {
+    lat: 36.7307142,
+    lng: -3.9619791,
+  },
+  hours: {
+    display: "Lunes a sábado: 10:30–13:30 · Domingo: cerrado",
+    openingHoursSpec: [
+      {
+        days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "10:30",
+        closes: "13:30",
+      },
+    ],
+  },
+  social: {
+    facebook: "https://www.facebook.com/profile.php?id=100064627428354",
+    youtube: "https://www.youtube.com/@cristaleriayaluminios.torr7231",
+  },
+  rating: {
+    value: 4.8,
+    count: 100, // actualizar con la cifra exacta de Google Business cuando se confirme
+  },
+  siteUrl: "https://www.cristaleriayaluminiostorroxcosta.com",
+  story: {
+    intro:
+      "Somos un negocio familiar de Torrox Costa. Desde 1986 fabricamos e instalamos carpintería de aluminio, PVC y cristalería, atendiendo a vecinos y negocios de toda la zona.",
+    paragraphs: [
+      "Empezamos como un pequeño taller de barrio y, casi 40 años después, seguimos siendo eso: gente de aquí arreglando y fabricando para gente de aquí. Conocemos las casas, los edificios y el clima de la Costa del Sol, y eso se nota en cada trabajo que sale del taller.",
+      "No subcontratamos la fabricación: cortamos, montamos e instalamos nosotros mismos, así que respondemos de principio a fin de cada presupuesto. Si algo falla, no tienes que perseguir a nadie: nos llamas y venimos.",
+      "Preferimos explicarte las cosas claras antes que venderte de más. Si un arreglo pequeño te soluciona el problema, te lo decimos, aunque una instalación nueva nos convenga más a nosotros.",
+    ],
+  },
+  values: [
+    {
+      title: "Trato cercano",
+      description: "Te atendemos nosotros mismos, sin intermediarios ni comerciales de paso.",
+    },
+    {
+      title: "Fabricación propia",
+      description: "Cortamos y montamos en nuestro propio taller, con control total de cada pieza.",
+    },
+    {
+      title: "Presupuesto claro",
+      description: "Sin sorpresas ni letra pequeña: lo que se habla es lo que se cobra.",
+    },
+    {
+      title: "Aquí toda la vida",
+      description: "Casi 40 años en Torrox Costa. Si algo falla después, seguimos aquí para arreglarlo.",
+    },
+  ],
+} as const;
+
+export type Service = {
+  slug: string;
+  tag: string;
+  title: string;
+  shortDescription: string;
+  description: string;
+  bullets: string[];
+  photoLabel: string;
+};
+
+export const services: Service[] = [
+  {
+    slug: "canceles-y-puertas",
+    tag: "Carpintería",
+    title: "Canceles y puertas",
+    shortDescription: "Puertas acorazadas, correderas y de paso a medida.",
+    description:
+      "Puertas acorazadas, correderas, abatibles y de paso, fabricadas a medida en aluminio o PVC con acabados de alta seguridad.",
+    bullets: [
+      "Puertas acorazadas certificadas",
+      "Sistemas correderos y plegables",
+      "Herrajes y cerraduras de seguridad",
+    ],
+    photoLabel: "Puertas acorazadas",
+  },
+  {
+    slug: "toldos-y-persianas",
+    tag: "Exterior",
+    title: "Toldos y persianas",
+    shortDescription: "Toldos, pérgolas bioclimáticas y persianas motorizadas.",
+    description:
+      "Toldos, pérgolas bioclimáticas y persianas motorizadas para proteger tu terraza o fachada del sol y la lluvia todo el año.",
+    bullets: [
+      "Pérgolas bioclimáticas",
+      "Toldos de brazo y punto recto",
+      "Persianas motorizadas y manuales",
+    ],
+    photoLabel: "Toldos y persianas",
+  },
+  {
+    slug: "cortinas-de-vidrio-panoramicas",
+    tag: "Cristalería",
+    title: "Cortinas de vidrio panorámicas",
+    shortDescription: "Cerramientos panorámicos que se pliegan sin perder vistas.",
+    description:
+      "Cerramientos de vidrio plegables sin perfiles verticales que interrumpan la vista, ideales para terrazas y balcones.",
+    bullets: [
+      "Máxima transparencia, mínimo perfil",
+      "Plegado lateral 100%",
+      "Vidrio templado de seguridad",
+    ],
+    photoLabel: "Cortina de vidrio panorámica",
+  },
+  {
+    slug: "mamparas-de-bano",
+    tag: "Baño",
+    title: "Mamparas de baño",
+    shortDescription: "Mamparas a medida en vidrio templado, todos los estilos.",
+    description:
+      "Mamparas de ducha y bañera a medida, en vidrio templado, en todos los estilos: fijas, correderas o abatibles.",
+    bullets: [
+      "Medidas exactas para tu baño",
+      "Vidrio templado de 6-8mm",
+      "Tratamiento anti-cal opcional",
+    ],
+    photoLabel: "Mampara de baño",
+  },
+  {
+    slug: "cerramientos-de-terrazas",
+    tag: "Exterior",
+    title: "Cerramientos de terrazas",
+    shortDescription: "Gana espacio útil todo el año con cerramientos de aluminio.",
+    description:
+      "Gana un espacio útil todo el año cerrando tu terraza o balcón con estructuras de aluminio y vidrio a medida.",
+    bullets: [
+      "Estructuras de aluminio ligero",
+      "Paneles fijos o correderos",
+      "Aislamiento térmico y acústico",
+    ],
+    photoLabel: "Terraza cerrada",
+  },
+  {
+    slug: "enmarcado-de-cuadros",
+    tag: "Cristalería",
+    title: "Enmarcado de cuadros",
+    shortDescription: "Cristal y marcos a medida para tus cuadros y espejos.",
+    description:
+      "Corte de vidrio y marcos a medida para cuadros, espejos y escaparates, desde una pieza suelta hasta un pedido completo.",
+    bullets: ["Corte de vidrio al momento", "Marcos a medida", "Reparación de piezas sueltas"],
+    photoLabel: "Cuadro enmarcado",
+  },
+  {
+    slug: "mosquiteras",
+    tag: "Confort",
+    title: "Mosquiteras",
+    shortDescription: "Mosquiteras fijas, enrollables y correderas a medida.",
+    description:
+      "Mosquiteras fijas, enrollables y correderas a medida, compatibles con la mayoría de ventanas y puertas existentes.",
+    bullets: [
+      "A medida para cualquier hueco",
+      "Fijas, correderas o enrollables",
+      "Instalación rápida y limpia",
+    ],
+    photoLabel: "Mosquitera",
+  },
+  {
+    slug: "proteccion-de-viviendas",
+    tag: "Seguridad",
+    title: "Protección de viviendas y locales",
+    shortDescription: "Rejas y cerramientos de seguridad para tu tranquilidad.",
+    description:
+      "Rejas, cerramientos de seguridad y persianas reforzadas para proteger tu vivienda o local comercial.",
+    bullets: [
+      "Rejas fijas y abatibles",
+      "Persianas de seguridad reforzadas",
+      "Soluciones a medida para locales",
+    ],
+    photoLabel: "Protección de vivienda",
+  },
+];
+
+export const reviews = [
+  {
+    text: "Servicio y rapidez inmejorables. Reparación resuelta enseguida, trato muy amable y profesional.",
+    who: "Cliente en Torrox Costa",
+  },
+  {
+    text: "Puntuales, profesionales y buena calidad de producto. Ante cualquier imprevisto, siempre dan buena solución.",
+    who: "Cliente habitual",
+  },
+  {
+    text: "Vinieron rápido a solucionar un problema con la persiana, con mucha amabilidad y buenos consejos.",
+    who: "Cliente residente en la zona",
+  },
+];
