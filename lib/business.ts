@@ -76,6 +76,8 @@ export type Service = {
   description: string;
   bullets: string[];
   photoLabel: string;
+  // Foto de stock provisional (ver README) — sustituir por foto real del trabajo cuando se tenga.
+  photoUrl: string;
 };
 
 export const services: Service[] = [
@@ -92,6 +94,8 @@ export const services: Service[] = [
       "Herrajes y cerraduras de seguridad",
     ],
     photoLabel: "Puertas acorazadas",
+    photoUrl:
+      "https://images.unsplash.com/photo-1770786174932-293eaf17f919?auto=format&fit=crop&w=1200&q=75",
   },
   {
     slug: "toldos-y-persianas",
@@ -106,6 +110,8 @@ export const services: Service[] = [
       "Persianas motorizadas y manuales",
     ],
     photoLabel: "Toldos y persianas",
+    photoUrl:
+      "https://images.unsplash.com/photo-1725794440337-a8b6035c3a62?auto=format&fit=crop&w=1200&q=75",
   },
   {
     slug: "cortinas-de-vidrio-panoramicas",
@@ -120,6 +126,8 @@ export const services: Service[] = [
       "Vidrio templado de seguridad",
     ],
     photoLabel: "Cortina de vidrio panorámica",
+    photoUrl:
+      "https://images.unsplash.com/photo-1613324061338-19d4528a5be9?auto=format&fit=crop&w=1200&q=75",
   },
   {
     slug: "mamparas-de-bano",
@@ -134,6 +142,8 @@ export const services: Service[] = [
       "Tratamiento anti-cal opcional",
     ],
     photoLabel: "Mampara de baño",
+    photoUrl:
+      "https://images.unsplash.com/photo-1722764372202-b8ae35e7d424?auto=format&fit=crop&w=1200&q=75",
   },
   {
     slug: "cerramientos-de-terrazas",
@@ -148,6 +158,8 @@ export const services: Service[] = [
       "Aislamiento térmico y acústico",
     ],
     photoLabel: "Terraza cerrada",
+    photoUrl:
+      "https://images.unsplash.com/photo-1758862528822-b0094ae44705?auto=format&fit=crop&w=1200&q=75",
   },
   {
     slug: "enmarcado-de-cuadros",
@@ -158,6 +170,8 @@ export const services: Service[] = [
       "Corte de vidrio y marcos a medida para cuadros, espejos y escaparates, desde una pieza suelta hasta un pedido completo.",
     bullets: ["Corte de vidrio al momento", "Marcos a medida", "Reparación de piezas sueltas"],
     photoLabel: "Cuadro enmarcado",
+    photoUrl:
+      "https://images.unsplash.com/photo-1626846116799-ad61f874f99d?auto=format&fit=crop&w=1200&q=75",
   },
   {
     slug: "mosquiteras",
@@ -172,6 +186,8 @@ export const services: Service[] = [
       "Instalación rápida y limpia",
     ],
     photoLabel: "Mosquitera",
+    photoUrl:
+      "https://images.unsplash.com/photo-1758998222336-d48b2390a686?auto=format&fit=crop&w=1200&q=75",
   },
   {
     slug: "proteccion-de-viviendas",
@@ -186,6 +202,8 @@ export const services: Service[] = [
       "Soluciones a medida para locales",
     ],
     photoLabel: "Protección de vivienda",
+    photoUrl:
+      "https://images.unsplash.com/photo-1767522248510-d9c2a1117cb9?auto=format&fit=crop&w=1200&q=75",
   },
 ];
 

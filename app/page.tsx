@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { PhotoSlot } from "@/components/PhotoSlot";
+import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { business, services, reviews } from "@/lib/business";
 
 export const metadata: Metadata = {
@@ -80,7 +81,7 @@ export default function HomePage() {
                 key={s.slug}
                 className="overflow-hidden rounded-2xl border border-line bg-white transition hover:-translate-y-1 hover:shadow-xl"
               >
-                <PhotoSlot label={s.photoLabel} className="aspect-[4/3]" />
+                <PhotoSlot label={s.photoLabel} src={s.photoUrl} className="aspect-[4/3]" />
                 <div className="p-5">
                   <h3 className="mb-1.5 text-[16.5px] font-semibold">{s.title}</h3>
                   <p className="text-[13.5px] leading-relaxed text-muted">{s.shortDescription}</p>
@@ -150,15 +151,7 @@ export default function HomePage() {
               basado en más de {business.rating.count} reseñas de Google
             </span>
           </div>
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-            {reviews.map((r) => (
-              <div key={r.who} className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <div className="mb-3 text-[15px] tracking-widest text-warm">★★★★★</div>
-                <p className="mb-4 text-[14.5px] leading-relaxed text-white/90">«{r.text}»</p>
-                <div className="text-sm font-semibold">{r.who}</div>
-              </div>
-            ))}
-          </div>
+          <ReviewsCarousel reviews={reviews} />
           <div className="mt-9 text-center">
             <Link
               href="/galeria"

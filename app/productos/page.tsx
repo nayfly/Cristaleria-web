@@ -42,7 +42,7 @@ export default function ProductosPage() {
               i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
             }`}
           >
-            <PhotoSlot label={s.photoLabel} className="aspect-[4/3] rounded-2xl" />
+            <PhotoSlot label={s.photoLabel} src={s.photoUrl} className="aspect-[4/3] rounded-2xl" />
             <div>
               <p className="text-[12.5px] font-bold uppercase tracking-wide text-muted">{s.tag}</p>
               <h2 className="mt-2.5 font-display text-[28px] font-bold leading-tight">{s.title}</h2>
