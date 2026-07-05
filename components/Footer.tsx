@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="bg-ink py-14 text-white/75">
       <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-11 px-5 sm:px-8 md:grid-cols-[1.2fr_0.8fr_1fr_1fr]">
         <div>
-          <h4 className="mb-3.5 text-[13.5px] font-semibold uppercase tracking-wide text-white">
+          <h4 className="mb-3.5 text-[13.5px] font-semibold uppercase text-white">
             {business.shortName}
           </h4>
           <p className="text-[14.5px] leading-[1.8]">
@@ -16,7 +16,7 @@ export function Footer() {
           </p>
         </div>
         <div>
-          <h4 className="mb-3.5 text-[13.5px] font-semibold uppercase tracking-wide text-white">
+          <h4 className="mb-3.5 text-[13.5px] font-semibold uppercase text-white">
             Navegación
           </h4>
           <ul className="grid gap-2 text-[14.5px] leading-[1.8]">
@@ -48,7 +48,7 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <h4 className="mb-3.5 text-[13.5px] font-semibold uppercase tracking-wide text-white">
+          <h4 className="mb-3.5 text-[13.5px] font-semibold uppercase text-white">
             Horario
           </h4>
           <p className="text-[14.5px] leading-[1.8]">
@@ -58,7 +58,7 @@ export function Footer() {
           </p>
         </div>
         <div>
-          <h4 className="mb-3.5 text-[13.5px] font-semibold uppercase tracking-wide text-white">
+          <h4 className="mb-3.5 text-[13.5px] font-semibold uppercase text-white">
             Contacto
           </h4>
           <p className="text-[14.5px] leading-[1.8]">

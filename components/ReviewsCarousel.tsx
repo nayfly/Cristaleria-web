@@ -34,8 +34,8 @@ export function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="relative rounded-2xl border border-white/10 bg-white/5 p-8 sm:p-10">
-        <div className="mb-4 text-lg tracking-widest text-warm">★★★★★</div>
+      <div className="relative rounded-md border border-white/10 bg-white/5 p-8 sm:p-10">
+        <div className="mb-4 text-lg text-warm">★★★★★</div>
         <p className="min-h-[96px] text-[17px] leading-relaxed text-white/90">«{current.text}»</p>
         <div className="mt-5 text-sm font-semibold">{current.who}</div>
 

@@ -4,11 +4,13 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   background-color: theme(colors.bg);
   color: theme(colors.ink);
+  overflow-x: hidden;
 }
 
 a:focus-visible,

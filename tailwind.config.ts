@@ -5,14 +5,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "oklch(97.5% 0.014 75)",
-        panel: "oklch(94.5% 0.022 70)",
-        ink: "oklch(24% 0.024 50)",
-        muted: "oklch(46% 0.03 55)",
-        line: "oklch(88% 0.022 65)",
-        accent: "oklch(56% 0.16 40)",
-        "accent-dark": "oklch(43% 0.14 35)",
-        warm: "oklch(74% 0.13 75)",
+        bg: "oklch(98% 0.006 230)",
+        panel: "oklch(95.5% 0.012 235)",
+        ink: "oklch(20% 0.025 245)",
+        muted: "oklch(45% 0.025 245)",
+        line: "oklch(88% 0.012 235)",
+        accent: "oklch(54% 0.14 235)",
+        "accent-dark": "oklch(36% 0.12 240)",
+        warm: "oklch(68% 0.16 55)",
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],

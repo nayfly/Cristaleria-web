@@ -22,22 +22,22 @@ export function Header({
   return (
     <>
       <div className="bg-ink text-white text-[13px]">
-        <div className="mx-auto flex max-w-[1180px] items-center justify-between gap-4 px-5 py-2 sm:px-8">
-          <span>
+        <div className="mx-auto flex max-w-[1180px] items-center justify-between gap-3 px-4 py-2 sm:px-8">
+          <span className="min-w-0 truncate">
             {business.address.locality}, {business.address.region} · {business.phoneDisplay}
           </span>
-          <a href={`mailto:${business.email}`} className="opacity-85 hover:opacity-100">
+          <a href={`mailto:${business.email}`} className="hidden min-w-0 truncate opacity-85 hover:opacity-100 sm:block">
             {business.email}
           </a>
         </div>
       </div>
 
       <header className="sticky top-0 z-50 border-b border-line bg-white/90 backdrop-blur">
-        <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
+        <div className="mx-auto max-w-[1180px] px-4 sm:px-8">
           <nav className="flex items-center justify-between py-4">
-            <Link href="/" className="font-display text-xl font-bold leading-tight text-ink">
+            <Link href="/" className="min-w-0 font-display text-lg font-bold leading-tight text-ink sm:text-xl">
               {business.shortName}
-              <span className="block font-body text-xs font-medium uppercase tracking-wide text-muted">
+              <span className="block truncate font-body text-xs font-medium uppercase text-muted">
                 {business.address.locality} · desde {business.foundedYear}
               </span>
             </Link>
