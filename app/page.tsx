@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -7,9 +6,6 @@ import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { PhotoSlot } from "@/components/PhotoSlot";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { business, services, reviews, type Service } from "@/lib/business";
-
-const heroImage =
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=82";
 
 const featuredServices = services.slice(0, 4);
 
@@ -27,26 +23,28 @@ export default function HomePage() {
 
       <section id="top" className="relative overflow-hidden bg-ink text-white">
         <div className="absolute inset-0">
-          <Image
-            src={heroImage}
-            alt="Cerramiento acristalado moderno en una vivienda luminosa"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,oklch(17%_0.025_245/0.96)_0%,oklch(17%_0.025_245/0.82)_43%,oklch(17%_0.025_245/0.34)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,oklch(18%_0.03_245)_0%,oklch(27%_0.04_228)_48%,oklch(70%_0.08_72)_100%)]" />
+          <div className="absolute inset-y-0 right-0 hidden w-[52%] border-l border-white/10 bg-white/[0.04] md:block">
+            <div className="grid h-full grid-cols-3 gap-px opacity-45">
+              {Array.from({ length: 18 }).map((_, index) => (
+                <span key={index} className="bg-white/10" />
+              ))}
+            </div>
+          </div>
+          <div className="absolute right-8 top-8 hidden w-[360px] border border-dashed border-white/35 p-6 text-center text-[12px] font-semibold uppercase tracking-[0.18em] text-white/60 md:block">
+            Foto real de trabajo pendiente
+          </div>
         </div>
 
-        <div className="relative mx-auto grid min-h-[calc(100vh-108px)] max-w-[1180px] grid-cols-1 items-end gap-10 px-5 py-12 sm:px-8 md:grid-cols-[1.04fr_0.96fr] md:py-16">
-          <div className="min-w-0 max-w-[720px] pb-4">
+        <div className="relative mx-auto grid min-h-[640px] max-w-[1180px] grid-cols-1 items-end gap-10 px-5 py-12 sm:px-8 md:grid-cols-[1.04fr_0.96fr] md:py-16">
+          <div className="w-full min-w-0 max-w-[calc(100vw-40px)] pb-4 sm:max-w-[720px]">
             <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-warm">
               Taller propio en {business.address.locality}
             </p>
             <h1 className="mt-4 max-w-[12ch] font-display text-[40px] font-bold leading-[1.03] sm:text-6xl lg:text-7xl">
               Cerramientos que se notan por cómo encajan
             </h1>
-            <p className="mt-6 max-w-[46ch] text-[16.5px] leading-relaxed text-white/86 sm:text-lg">
+            <p className="mt-6 max-w-[calc(100vw-40px)] text-[16.5px] leading-relaxed text-white/86 sm:max-w-[46ch] sm:text-lg">
               Fabricamos e instalamos aluminio, PVC, vidrio, toldos y persianas a medida. Sin
               intermediarios, con presupuesto claro y respuesta cercana.
             </p>
@@ -95,16 +93,16 @@ export default function HomePage() {
 
       <section id="servicios" className="bg-bg py-16 sm:py-20">
         <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
-          <div className="grid gap-8 md:grid-cols-[0.8fr_1.2fr] md:items-end">
-            <div>
+          <div className="grid min-w-0 gap-8 md:grid-cols-[0.8fr_1.2fr] md:items-end">
+            <div className="min-w-0">
               <p className="text-[13px] font-bold uppercase tracking-[0.16em] text-accent">
                 Servicios principales
               </p>
-              <h2 className="mt-3 font-display text-3xl font-bold leading-tight sm:text-4xl">
+              <h2 className="mt-3 max-w-[18ch] font-display text-3xl font-bold leading-tight sm:max-w-none sm:text-4xl">
                 Lo que más se pide cuando una casa necesita funcionar mejor
               </h2>
             </div>
-            <p className="max-w-[58ch] text-[15.5px] leading-relaxed text-muted md:justify-self-end">
+            <p className="min-w-0 max-w-full text-[15.5px] leading-relaxed text-muted sm:max-w-[58ch] md:justify-self-end">
               Ventanas que aíslan, terrazas que se aprovechan, baños que quedan limpios y exteriores
               preparados para el sol de la costa. Medimos el hueco, proponemos opciones y dejamos el
               trabajo instalado.
@@ -133,15 +131,7 @@ export default function HomePage() {
 
       <section className="bg-white py-16 sm:py-20">
         <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-10 px-5 sm:px-8 lg:grid-cols-[1fr_1fr] lg:gap-16">
-          <div className="relative min-h-[420px] overflow-hidden rounded-md">
-            <Image
-              src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1400&q=78"
-              alt="Taller de fabricación y montaje"
-              fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover"
-            />
-          </div>
+          <ProjectPlaceholder label="Foto del taller o instalación pendiente" />
           <div className="self-center">
             <p className="text-[13px] font-bold uppercase tracking-[0.16em] text-accent">
               Cómo trabajamos
@@ -221,6 +211,25 @@ export default function HomePage() {
       <Footer />
       <WhatsAppFloat />
     </>
+  );
+}
+
+function ProjectPlaceholder({ label }: { label: string }) {
+  return (
+    <div
+      className="relative min-h-[420px] overflow-hidden rounded-md border border-dashed border-line bg-panel"
+      role="img"
+      aria-label={label}
+    >
+      <div className="absolute inset-0 grid grid-cols-4 gap-px opacity-80">
+        {Array.from({ length: 20 }).map((_, index) => (
+          <span key={index} className="bg-white" />
+        ))}
+      </div>
+      <div className="absolute inset-6 flex items-center justify-center border border-dashed border-line bg-panel/90 px-6 text-center text-xs font-semibold uppercase tracking-[0.14em] text-muted">
+        {label}
+      </div>
+    </div>
   );
 }
 

@@ -1,6 +1,3 @@
-// Marcador de foto. Si se pasa `src` (foto de stock provisional o real),
-// se muestra la imagen; si no, se muestra el marcador 📷 para rellenar luego.
-
 import Image from "next/image";
 
 export function PhotoSlot({
@@ -12,21 +9,27 @@ export function PhotoSlot({
   className?: string;
   src?: string;
 }) {
-  if (src) {
+  if (src?.startsWith("/")) {
     return (
       <div className={`relative overflow-hidden ${className}`}>
-        <Image src={src} alt={label} fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover" />
+        <Image
+          src={src}
+          alt={label}
+          fill
+          sizes="(min-width: 1024px) 33vw, 100vw"
+          className="object-cover"
+        />
       </div>
     );
   }
 
   return (
     <div
-      className={`flex items-center justify-center border border-dashed border-line bg-panel px-3 text-center text-xs leading-relaxed text-muted ${className}`}
+      className={`flex items-center justify-center border border-dashed border-line bg-panel px-3 text-center text-xs font-semibold uppercase tracking-[0.12em] text-muted ${className}`}
       role="img"
       aria-label={label}
     >
-      📷 {label}
+      Foto pendiente: {label}
     </div>
   );
 }
