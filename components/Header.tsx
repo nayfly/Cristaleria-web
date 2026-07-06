@@ -34,8 +34,8 @@ export function Header({
 
       <header className="sticky top-0 z-50 border-b border-line bg-white/90 backdrop-blur">
         <div className="mx-auto max-w-[1180px] px-4 sm:px-8">
-          <nav className="flex items-center justify-between py-4">
-            <Link href="/" className="min-w-0 font-display text-lg font-bold leading-tight text-ink sm:text-xl">
+          <nav className="flex min-w-0 items-center justify-between gap-4 py-4">
+            <Link href="/" className="min-w-0 flex-1 font-display text-lg font-bold leading-tight text-ink sm:text-xl lg:flex-none">
               {business.shortName}
               <span className="block truncate font-body text-xs font-medium uppercase text-muted">
                 {business.address.locality} · desde {business.foundedYear}
@@ -64,7 +64,7 @@ export function Header({
               onClick={() => setOpen((v) => !v)}
               aria-label={open ? "Cerrar menú" : "Abrir menú"}
               aria-expanded={open}
-              className="flex h-10 w-10 items-center justify-center rounded-lg border border-line lg:hidden"
+              className="flex h-10 w-10 flex-none items-center justify-center rounded-lg border border-line lg:hidden"
             >
               <span className="relative block h-[14px] w-[18px]">
                 <span
