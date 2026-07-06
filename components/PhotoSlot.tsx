@@ -4,10 +4,14 @@ export function PhotoSlot({
   label,
   className = "",
   src,
+  sizes = "(min-width: 1024px) 33vw, 100vw",
+  priority = false,
 }: {
   label: string;
   className?: string;
   src?: string;
+  sizes?: string;
+  priority?: boolean;
 }) {
   if (src?.startsWith("/")) {
     return (
@@ -16,7 +20,8 @@ export function PhotoSlot({
           src={src}
           alt={label}
           fill
-          sizes="(min-width: 1024px) 33vw, 100vw"
+          sizes={sizes}
+          priority={priority}
           className="object-cover"
         />
       </div>

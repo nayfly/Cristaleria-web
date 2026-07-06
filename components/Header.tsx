@@ -23,10 +23,10 @@ export function Header({
     <>
       <div className="bg-ink text-white text-[12.5px] font-bold">
         <div className="mx-auto flex max-w-[1180px] items-center justify-between gap-3 px-4 py-2 sm:px-8">
-          <span className="min-w-0 truncate">
+          <span className="min-w-0 flex-1 truncate">
             {business.hours.shortDisplay} · {business.address.locality}
           </span>
-          <div className="flex flex-none items-center gap-3.5">
+          <div className="hidden flex-none items-center gap-3.5 sm:flex">
             <a href={`tel:${business.phone}`} className="hidden sm:inline">
               📞 {business.phoneDisplay}
             </a>
@@ -45,8 +45,12 @@ export function Header({
       <header className="sticky top-0 z-50 border-b border-line bg-cream/95 backdrop-blur">
         <div className="mx-auto max-w-[1180px] px-4 sm:px-8">
           <nav className="flex min-w-0 items-center justify-between gap-4 py-4">
-            <Link href="/" className="min-w-0 flex-1 font-display text-lg font-bold leading-tight text-ink sm:text-xl lg:flex-none">
-              {business.shortName}
+            <Link href="/" className="flex min-w-0 flex-1 items-center lg:flex-none">
+              <img
+                src="/images/brand/logo.png"
+                alt={business.name}
+                className="h-12 w-[56px] object-contain sm:h-14 sm:w-[65px]"
+              />
             </Link>
             <ul className="hidden gap-8 text-[14px] font-semibold text-[#3a3226] lg:flex">
               {navItems.map((item) => (

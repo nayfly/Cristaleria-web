@@ -63,6 +63,16 @@ export default function HomePage() {
           </p>
         </div>
 
+        <div className="mx-auto mt-9 max-w-[1180px] px-5 sm:px-8">
+          <PhotoSlot
+            label="Terraza con cerramiento de vidrio en Torrox Costa"
+            src="/images/gallery/hero-home.webp"
+            sizes="(min-width: 1180px) 1180px, 100vw"
+            priority
+            className="aspect-[16/7] rounded-md"
+          />
+        </div>
+
         {/* TRUST */}
         <div className="mx-auto mt-9 grid max-w-[1180px] grid-cols-1 gap-3.5 px-5 pb-8 sm:px-8 sm:grid-cols-2 lg:grid-cols-4">
           <TrustCard icon="★" value="4.8 / 5" label={`${business.rating.count} reseñas Google`} />
@@ -128,7 +138,12 @@ export default function HomePage() {
       {/* STORY */}
       <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
         <div className="grid grid-cols-1 items-center gap-9 rounded-[20px] bg-ink p-8 text-white sm:p-10 md:grid-cols-[0.9fr_1.1fr]">
-          <PhotoSlot label="Foto del taller" className="aspect-square rounded-md" />
+          <PhotoSlot
+            label="Taller de aluminio y cristaleria"
+            src="/images/gallery/tienda-taller.webp"
+            sizes="(min-width: 768px) 45vw, 100vw"
+            className="aspect-square rounded-md"
+          />
           <div>
             <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-warm">
               Cómo trabajamos

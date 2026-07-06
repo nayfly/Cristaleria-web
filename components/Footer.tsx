@@ -6,7 +6,11 @@ export function Footer() {
     <footer className="bg-ink2 py-11 text-white/75">
       <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-8 px-5 sm:px-8 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
-          <span className="font-display text-lg font-bold text-white">{business.shortName}</span>
+          <img
+            src="/images/brand/logo.png"
+            alt={business.name}
+            className="h-20 w-[92px] object-contain"
+          />
           <p className="mt-2.5 max-w-[34ch] text-[13.5px] leading-[1.6]">
             Negocio familiar en {business.address.locality} desde {business.foundedYear}.
             Fabricación e instalación propia de aluminio, PVC y cristalería.

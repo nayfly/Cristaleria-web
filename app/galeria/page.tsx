@@ -39,7 +39,12 @@ export default function GaleriaPage() {
                 key={item.slug}
                 className="overflow-hidden rounded-md border border-line bg-white transition hover:-translate-y-[3px]"
               >
-                <PhotoSlot label={item.photoLabel} className="aspect-[4/3]" />
+                <PhotoSlot
+                  label={item.photoLabel}
+                  src={item.photoUrl}
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="aspect-[4/3]"
+                />
                 <div className="p-4">
                   <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-accent">
                     {item.tag}
