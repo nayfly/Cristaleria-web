@@ -36,8 +36,10 @@ export const business = {
   },
   rating: {
     value: 4.8,
-    count: 100, // actualizar con la cifra exacta de Google Business cuando se confirme
+    count: 101,
   },
+  googleReviewsUrl:
+    "https://www.google.com/search?q=Cristaleria+y+Aluminios+Torrox+Costa+rese%C3%B1as",
   siteUrl: "https://www.cristaleriayaluminiostorroxcosta.com",
   story: {
     intro:
@@ -209,15 +211,39 @@ export const services: Service[] = [
 
 export const reviews = [
   {
-    text: "Servicio y rapidez inmejorables. Reparación resuelta enseguida, trato muy amable y profesional.",
-    who: "Cliente en Torrox Costa",
+    text: "Destaca la rapidez, el buen trabajo realizado y el trato amable y profesional.",
+    who: "Mari Carmen Rodríguez García",
+    date: "Julio 2023",
+    rating: 5,
   },
   {
-    text: "Puntuales, profesionales y buena calidad de producto. Ante cualquier imprevisto, siempre dan buena solución.",
-    who: "Cliente habitual",
+    text: "Valora la puntualidad, la calidad del producto y la buena solución ante imprevistos.",
+    who: "Sonia García Ruiz",
+    date: "Junio 2023",
+    rating: 5,
   },
   {
-    text: "Vinieron rápido a solucionar un problema con la persiana, con mucha amabilidad y buenos consejos.",
-    who: "Cliente residente en la zona",
+    text: "Repite con ellos por la rapidez al resolver una persiana y el buen asesoramiento.",
+    who: "Begoña Fernandez",
+    date: "Junio 2023",
+    rating: 5,
+  },
+  {
+    text: "Recomienda la empresa por un servicio rápido, eficiente, educado y muy resolutivo.",
+    who: "Marilla Stevens",
+    date: "Junio 2023",
+    rating: 5,
+  },
+  {
+    text: "Subraya un acabado cuidado, trato agradable y ejecución rápida del trabajo.",
+    who: "Karin Pontén",
+    date: "Abril 2023",
+    rating: 5,
+  },
+  {
+    text: "Resume la experiencia como profesional, perfecta y entregada en la fecha acordada.",
+    who: "francisco alcalde",
+    date: "Marzo 2023",
+    rating: 5,
   },
 ];

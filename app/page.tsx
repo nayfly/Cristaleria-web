@@ -84,7 +84,7 @@ export default function HomePage() {
 
       <section className="border-b border-line bg-white">
         <div className="mx-auto grid max-w-[1180px] grid-cols-2 gap-6 px-5 py-8 sm:px-8 md:grid-cols-4">
-          <Stat value="4.8/5" label={`+${business.rating.count} reseñas de Google`} />
+          <Stat value="4.8/5" label={`${business.rating.count} reseñas de Google`} />
           <Stat value="100%" label="Fabricación propia" />
           <Stat value="Torrox" label="Costa y alrededores" />
           <Stat value="A medida" label="Sin soluciones de catálogo" />
@@ -152,7 +152,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-ink py-16 text-white sm:py-20">
+      <section id="resenas" className="bg-ink py-16 text-white sm:py-20">
         <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
           <div className="mb-9 max-w-[44ch]">
             <p className="text-[13px] font-bold uppercase tracking-[0.16em] text-warm">
@@ -172,7 +172,12 @@ export default function HomePage() {
               basado en más de {business.rating.count} reseñas de Google
             </span>
           </div>
-          <ReviewsCarousel reviews={reviews} />
+          <ReviewsCarousel
+            reviews={reviews}
+            rating={business.rating.value}
+            count={business.rating.count}
+            url={business.googleReviewsUrl}
+          />
         </div>
       </section>
 
