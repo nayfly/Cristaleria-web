@@ -29,14 +29,14 @@ export default function HomePage() {
           <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-accent">
             {business.address.locality} · Desde {business.foundedYear}
           </p>
-          <h1 className="mt-4 font-display text-[34px] font-bold leading-[1.06] text-ink sm:text-5xl">
+          <h1 className="mx-auto mt-4 max-w-[12ch] font-display text-[30px] font-bold leading-[1.08] text-ink sm:max-w-none sm:text-5xl">
             Cerramientos que se notan por cómo encajan
           </h1>
           <p className="mx-auto mt-[18px] max-w-[52ch] text-[16.5px] leading-relaxed text-muted">
             Fabricamos e instalamos aluminio, PVC, vidrio, toldos y persianas a medida.
             Presupuesto claro en 24–48h, sin intermediarios.
           </p>
-          <div className="mt-[26px] flex flex-wrap justify-center gap-3">
+          <div className="mx-auto mt-[26px] grid w-full max-w-[330px] grid-cols-1 justify-center gap-3 sm:max-w-none sm:grid-cols-none sm:flex sm:flex-wrap">
             <a
               href={business.whatsapp}
               target="_blank"
@@ -79,7 +79,7 @@ export default function HomePage() {
             <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-accent">
               Lo más pedido
             </p>
-            <h2 className="mt-2.5 font-display text-[28px] font-bold leading-tight text-ink sm:text-3xl">
+            <h2 className="mx-auto mt-2.5 max-w-[13ch] font-display text-[26px] font-bold leading-tight text-ink sm:max-w-none sm:text-3xl">
               Los trabajos que más piden en la costa
             </h2>
             <p className="mt-2.5 text-[14.5px] leading-relaxed text-muted">
