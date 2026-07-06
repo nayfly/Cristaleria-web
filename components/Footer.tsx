@@ -13,7 +13,7 @@ export function Footer() {
           />
           <p className="mt-2.5 max-w-[34ch] text-[13.5px] leading-[1.6]">
             Negocio familiar en {business.address.locality} desde {business.foundedYear}.
-            Fabricación e instalación propia de aluminio, PVC y cristalería.
+            Instalación y fabricación propia de aluminio, PVC y cristalería.
           </p>
         </div>
         <div>
@@ -37,6 +37,11 @@ export function Footer() {
             <li>
               <Link href="/productos#mamparas-de-bano" className="hover:text-white">
                 Mamparas de baño
+              </Link>
+            </li>
+            <li>
+              <Link href="/tejidos" className="hover:text-white">
+                Tejidos para toldos
               </Link>
             </li>
           </ul>

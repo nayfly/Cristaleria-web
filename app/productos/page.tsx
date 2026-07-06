@@ -25,8 +25,8 @@ export default function ProductosPage() {
             Todo lo que hacemos en aluminio, PVC y cristal
           </h1>
           <p className="mt-2 max-w-[60ch] text-[15.5px] leading-relaxed text-muted">
-            Fabricación e instalación propia, de principio a fin. Pide presupuesto para cualquiera
-            de estos trabajos y te respondemos en 24–48h.
+            Instalación propia de principio a fin, fabricando a medida en nuestro taller lo que
+            podemos. Pide presupuesto para cualquiera de estos trabajos y te respondemos en 24–48h.
           </p>
         </div>
       </section>

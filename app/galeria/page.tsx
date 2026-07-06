@@ -26,7 +26,7 @@ export default function GaleriaPage() {
           </h1>
           <p className="mt-2 max-w-[60ch] text-[15.5px] leading-relaxed text-muted">
             Una muestra de proyectos reales en hogares y negocios de la zona. Cada trabajo lleva
-            nuestra fabricación e instalación de principio a fin.
+            nuestra instalación de principio a fin, y fabricación propia cuando el trabajo lo permite.
           </p>
         </div>
       </section>

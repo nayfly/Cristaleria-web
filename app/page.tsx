@@ -14,7 +14,7 @@ const featuredServices = featuredServiceSlugs
 export const metadata: Metadata = {
   title: `${business.name} | Carpintería de aluminio, PVC y cristalería en Torrox Costa`,
   description:
-    "Ventanas, toldos, persianas, mosquiteras y cristalería a medida en Torrox Costa, Málaga. Fabricación propia desde 1986. Pide presupuesto gratis por WhatsApp o llamada.",
+    "Ventanas, toldos, persianas, mosquiteras y cristalería a medida en Torrox Costa, Málaga. Instalación y fabricación propia desde 1986. Pide presupuesto gratis por WhatsApp o llamada.",
   alternates: { canonical: "/" },
 };
 
@@ -33,8 +33,8 @@ export default function HomePage() {
             Cerramientos que se notan por cómo encajan
           </h1>
           <p className="mx-auto mt-[18px] max-w-[52ch] text-[16.5px] leading-relaxed text-muted">
-            Fabricamos e instalamos aluminio, PVC, vidrio, toldos y persianas a medida.
-            Presupuesto claro en 24–48h, sin intermediarios.
+            Instalamos aluminio, PVC, vidrio, toldos y persianas a medida, fabricando en
+            nuestro taller lo que podemos. Presupuesto claro en 24–48h, sin intermediarios.
           </p>
           <div className="mx-auto mt-[26px] grid w-full max-w-[330px] grid-cols-1 justify-center gap-3 sm:max-w-none sm:grid-cols-none sm:flex sm:flex-wrap">
             <a
@@ -77,7 +77,7 @@ export default function HomePage() {
         <div className="mx-auto mt-9 grid max-w-[1180px] grid-cols-1 gap-3.5 px-5 pb-8 sm:px-8 sm:grid-cols-2 lg:grid-cols-4">
           <TrustCard icon="★" value="4.8 / 5" label={`${business.rating.count} reseñas Google`} />
           <TrustCard icon="39" value={`Desde ${business.foundedYear}`} label="Casi 40 años en la zona" />
-          <TrustCard icon="⚒" value="Fabricación propia" label="Cortamos y montamos nosotros" />
+          <TrustCard icon="⚒" value="Instalación propia" label="Medimos y montamos nosotros mismos" />
           <TrustCard icon="⏱" value="24–48h" label="Respuesta habitual" />
         </div>
       </section>
@@ -152,8 +152,9 @@ export default function HomePage() {
               Oficio de taller, trato de barrio
             </h2>
             <p className="mt-3 text-[14.5px] leading-[1.7] text-white/82">
-              Somos un negocio familiar de {business.address.locality}. Desde {business.foundedYear} fabricamos
-              e instalamos nosotros mismos, sin subcontratar: si algo falla, nos llamas y venimos.
+              Somos un negocio familiar de {business.address.locality}. Desde {business.foundedYear} instalamos
+              nosotros mismos, sin subcontratar, y fabricamos a medida lo que sale de nuestro
+              taller: si algo falla, nos llamas y venimos.
             </p>
             <p className="mt-2.5 text-[14.5px] leading-[1.7] text-white/82">
               Preferimos explicarte las cosas claras antes que venderte de más.

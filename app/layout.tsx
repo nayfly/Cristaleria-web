@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: `%s | ${business.shortName}`,
   },
   description:
-    "Fabricación e instalación de persianas, toldos, mosquiteras, cristalería y cerrajería en Torrox Costa, Málaga. Más de 30 años de experiencia. Presupuesto gratis.",
+    "Instalación y fabricación propia de persianas, toldos, mosquiteras, cristalería y cerrajería en Torrox Costa, Málaga. Más de 30 años de experiencia. Presupuesto gratis.",
   keywords: [
     "cristalería Torrox Costa",
     "aluminios Torrox Costa",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     siteName: business.name,
     title: `${business.name} | Carpintería de aluminio, PVC y cristalería`,
     description:
-      "Fabricación e instalación de persianas, toldos, mosquiteras, cristalería y cerrajería en Torrox Costa, Málaga desde 1986.",
+      "Instalación y fabricación propia de persianas, toldos, mosquiteras, cristalería y cerrajería en Torrox Costa, Málaga desde 1986.",
   },
   robots: {
     index: true,

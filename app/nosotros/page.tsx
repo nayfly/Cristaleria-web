@@ -9,7 +9,7 @@ import { business } from "@/lib/business";
 export const metadata: Metadata = {
   title: "Quiénes somos",
   description:
-    "Conoce a Cristalería y Aluminios Torrox Costa: negocio familiar desde 1986, fabricación propia e instalación de carpintería de aluminio, PVC y cristalería en la Costa del Sol.",
+    "Conoce a Cristalería y Aluminios Torrox Costa: negocio familiar desde 1986, instalación y fabricación propia de carpintería de aluminio, PVC y cristalería en la Costa del Sol.",
   alternates: { canonical: "/nosotros" },
 };
 

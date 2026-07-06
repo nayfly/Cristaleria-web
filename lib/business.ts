@@ -39,15 +39,17 @@ export const business = {
     value: 4.8,
     count: 101,
   },
+  // Enlace a la ficha real de Google Maps (búsqueda por nombre + dirección
+  // exactos, para llevar siempre a la ficha oficial y sus reseñas).
   googleReviewsUrl:
-    "https://www.google.com/search?q=Cristaleria+y+Aluminios+Torrox+Costa+rese%C3%B1as",
+    "https://www.google.com/maps/search/?api=1&query=Cristaler%C3%ADa+y+Aluminios+Torrox+Costa+Av.+de+Andaluc%C3%ADa+24+Torrox+Costa+M%C3%A1laga",
   siteUrl: "https://www.cristaleriayaluminiostorroxcosta.com",
   story: {
     intro:
-      "Somos un negocio familiar de Torrox Costa. Desde 1986 fabricamos e instalamos carpintería de aluminio, PVC y cristalería, atendiendo a vecinos y negocios de toda la zona.",
+      "Somos un negocio familiar de Torrox Costa. Desde 1986 instalamos carpintería de aluminio, PVC y cristalería para vecinos y negocios de toda la zona: lo que podemos, lo fabricamos en nuestro taller; lo que no, lo traemos de proveedores de confianza.",
     paragraphs: [
-      "Empezamos como un pequeño taller de barrio y, casi 40 años después, seguimos siendo eso: gente de aquí arreglando y fabricando para gente de aquí. Conocemos las casas, los edificios y el clima de la Costa del Sol, y eso se nota en cada trabajo que sale del taller.",
-      "No subcontratamos la fabricación: cortamos, montamos e instalamos nosotros mismos, así que respondemos de principio a fin de cada presupuesto. Si algo falla, no tienes que perseguir a nadie: nos llamas y venimos.",
+      "Empezamos como un pequeño taller de barrio y, casi 40 años después, seguimos siendo eso: gente de aquí arreglando, instalando y fabricando para gente de aquí. Conocemos las casas, los edificios y el clima de la Costa del Sol, y eso se nota en cada trabajo que sale del taller.",
+      "No subcontratamos el trabajo: medimos, instalamos y ajustamos nosotros mismos (y fabricamos a medida lo que sale de nuestro taller), así que respondemos de principio a fin de cada presupuesto. Si algo falla, no tienes que perseguir a nadie: nos llamas y venimos.",
       "Preferimos explicarte las cosas claras antes que venderte de más. Si un arreglo pequeño te soluciona el problema, te lo decimos, aunque una instalación nueva nos convenga más a nosotros.",
     ],
   },
@@ -57,8 +59,8 @@ export const business = {
       description: "Te atendemos nosotros mismos, sin intermediarios ni comerciales de paso.",
     },
     {
-      title: "Fabricación propia",
-      description: "Cortamos y montamos en nuestro propio taller, con control total de cada pieza.",
+      title: "Instalación y fabricación propia",
+      description: "Instalamos nosotros mismos, sin subcontratar; lo que fabricamos, sale de nuestro propio taller.",
     },
     {
       title: "Presupuesto claro",
@@ -149,7 +151,7 @@ export const services: Service[] = [
     title: "Canceles y puertas",
     shortDescription: "Puertas acorazadas, correderas y de paso a medida.",
     description:
-      "Puertas acorazadas, correderas, abatibles y de paso, fabricadas a medida en aluminio o PVC con acabados de alta seguridad.",
+      "Puertas acorazadas, correderas, abatibles y de paso, a medida en aluminio o PVC con acabados de alta seguridad.",
     bullets: [
       "Puertas acorazadas certificadas",
       "Sistemas correderos y plegables",

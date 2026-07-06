@@ -7,6 +7,7 @@ import { business } from "@/lib/business";
 const navItems = [
   { href: "/", label: "Inicio", key: "inicio" },
   { href: "/productos", label: "Servicios", key: "productos" },
+  { href: "/tejidos", label: "Tejidos", key: "tejidos" },
   { href: "/galeria", label: "Galería", key: "galeria" },
   { href: "/nosotros", label: "Nosotros", key: "nosotros" },
   { href: "/contacto", label: "Contacto", key: "contacto" },
@@ -15,7 +16,7 @@ const navItems = [
 export function Header({
   active,
 }: {
-  active: "inicio" | "productos" | "galeria" | "nosotros" | "contacto";
+  active: "inicio" | "productos" | "tejidos" | "galeria" | "nosotros" | "contacto";
 }) {
   const [open, setOpen] = useState(false);
 
