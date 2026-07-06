@@ -22,6 +22,7 @@ export const business = {
   },
   hours: {
     display: "Lunes a sábado: 10:30–13:30 · Domingo: cerrado",
+    shortDisplay: "Lun–Sáb 10:30–13:30",
     openingHoursSpec: [
       {
         days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
@@ -84,20 +85,20 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    slug: "canceles-y-puertas",
-    tag: "Carpintería",
-    title: "Canceles y puertas",
-    shortDescription: "Puertas acorazadas, correderas y de paso a medida.",
+    slug: "cerramientos-de-terrazas",
+    tag: "Exterior",
+    title: "Cerramientos de terrazas",
+    shortDescription: "Gana espacio útil todo el año con cerramientos de aluminio.",
     description:
-      "Puertas acorazadas, correderas, abatibles y de paso, fabricadas a medida en aluminio o PVC con acabados de alta seguridad.",
+      "Gana un espacio útil todo el año cerrando tu terraza o balcón con estructuras de aluminio y vidrio a medida.",
     bullets: [
-      "Puertas acorazadas certificadas",
-      "Sistemas correderos y plegables",
-      "Herrajes y cerraduras de seguridad",
+      "Estructuras de aluminio ligero",
+      "Paneles fijos o correderos",
+      "Aislamiento térmico y acústico",
     ],
-    photoLabel: "Puertas acorazadas",
+    photoLabel: "Terraza cerrada",
     photoUrl:
-      "https://images.unsplash.com/photo-1770786174932-293eaf17f919?auto=format&fit=crop&w=1200&q=75",
+      "https://images.unsplash.com/photo-1758862528822-b0094ae44705?auto=format&fit=crop&w=1200&q=75",
   },
   {
     slug: "toldos-y-persianas",
@@ -148,32 +149,36 @@ export const services: Service[] = [
       "https://images.unsplash.com/photo-1722764372202-b8ae35e7d424?auto=format&fit=crop&w=1200&q=75",
   },
   {
-    slug: "cerramientos-de-terrazas",
-    tag: "Exterior",
-    title: "Cerramientos de terrazas",
-    shortDescription: "Gana espacio útil todo el año con cerramientos de aluminio.",
+    slug: "canceles-y-puertas",
+    tag: "Carpintería",
+    title: "Canceles y puertas",
+    shortDescription: "Puertas acorazadas, correderas y de paso a medida.",
     description:
-      "Gana un espacio útil todo el año cerrando tu terraza o balcón con estructuras de aluminio y vidrio a medida.",
+      "Puertas acorazadas, correderas, abatibles y de paso, fabricadas a medida en aluminio o PVC con acabados de alta seguridad.",
     bullets: [
-      "Estructuras de aluminio ligero",
-      "Paneles fijos o correderos",
-      "Aislamiento térmico y acústico",
+      "Puertas acorazadas certificadas",
+      "Sistemas correderos y plegables",
+      "Herrajes y cerraduras de seguridad",
     ],
-    photoLabel: "Terraza cerrada",
+    photoLabel: "Puertas acorazadas",
     photoUrl:
-      "https://images.unsplash.com/photo-1758862528822-b0094ae44705?auto=format&fit=crop&w=1200&q=75",
+      "https://images.unsplash.com/photo-1770786174932-293eaf17f919?auto=format&fit=crop&w=1200&q=75",
   },
   {
-    slug: "enmarcado-de-cuadros",
-    tag: "Cristalería",
-    title: "Enmarcado de cuadros",
-    shortDescription: "Cristal y marcos a medida para tus cuadros y espejos.",
+    slug: "proteccion-de-viviendas",
+    tag: "Seguridad",
+    title: "Protección de viviendas y locales",
+    shortDescription: "Rejas y cerramientos de seguridad para tu tranquilidad.",
     description:
-      "Corte de vidrio y marcos a medida para cuadros, espejos y escaparates, desde una pieza suelta hasta un pedido completo.",
-    bullets: ["Corte de vidrio al momento", "Marcos a medida", "Reparación de piezas sueltas"],
-    photoLabel: "Cuadro enmarcado",
+      "Rejas, cerramientos de seguridad y persianas reforzadas para proteger tu vivienda o local comercial.",
+    bullets: [
+      "Rejas fijas y abatibles",
+      "Persianas de seguridad reforzadas",
+      "Soluciones a medida para locales",
+    ],
+    photoLabel: "Protección de vivienda",
     photoUrl:
-      "https://images.unsplash.com/photo-1626846116799-ad61f874f99d?auto=format&fit=crop&w=1200&q=75",
+      "https://images.unsplash.com/photo-1767522248510-d9c2a1117cb9?auto=format&fit=crop&w=1200&q=75",
   },
   {
     slug: "mosquiteras",
@@ -192,21 +197,24 @@ export const services: Service[] = [
       "https://images.unsplash.com/photo-1758998222336-d48b2390a686?auto=format&fit=crop&w=1200&q=75",
   },
   {
-    slug: "proteccion-de-viviendas",
-    tag: "Seguridad",
-    title: "Protección de viviendas y locales",
-    shortDescription: "Rejas y cerramientos de seguridad para tu tranquilidad.",
+    slug: "enmarcado-de-cuadros",
+    tag: "Cristalería",
+    title: "Enmarcado de cuadros",
+    shortDescription: "Cristal y marcos a medida para tus cuadros y espejos.",
     description:
-      "Rejas, cerramientos de seguridad y persianas reforzadas para proteger tu vivienda o local comercial.",
-    bullets: [
-      "Rejas fijas y abatibles",
-      "Persianas de seguridad reforzadas",
-      "Soluciones a medida para locales",
-    ],
-    photoLabel: "Protección de vivienda",
+      "Corte de vidrio y marcos a medida para cuadros, espejos y escaparates, desde una pieza suelta hasta un pedido completo.",
+    bullets: ["Corte de vidrio al momento", "Marcos a medida", "Reparación de piezas sueltas"],
+    photoLabel: "Cuadro enmarcado",
     photoUrl:
-      "https://images.unsplash.com/photo-1767522248510-d9c2a1117cb9?auto=format&fit=crop&w=1200&q=75",
+      "https://images.unsplash.com/photo-1626846116799-ad61f874f99d?auto=format&fit=crop&w=1200&q=75",
   },
+];
+
+// Los 3 servicios más pedidos, destacados en la portada.
+export const featuredServiceSlugs = [
+  "cerramientos-de-terrazas",
+  "cortinas-de-vidrio-panoramicas",
+  "toldos-y-persianas",
 ];
 
 export const reviews = [

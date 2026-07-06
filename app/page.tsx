@@ -5,9 +5,11 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { PhotoSlot } from "@/components/PhotoSlot";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
-import { business, services, reviews, type Service } from "@/lib/business";
+import { business, services, featuredServiceSlugs, reviews } from "@/lib/business";
 
-const featuredServices = services.slice(0, 4);
+const featuredServices = featuredServiceSlugs
+  .map((slug) => services.find((s) => s.slug === slug))
+  .filter((s): s is (typeof services)[number] => Boolean(s));
 
 export const metadata: Metadata = {
   title: `${business.name} | Carpintería de aluminio, PVC y cristalería en Torrox Costa`,
@@ -21,197 +23,187 @@ export default function HomePage() {
     <>
       <Header active="inicio" />
 
-      <section id="top" className="relative overflow-hidden bg-ink text-white">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[linear-gradient(135deg,oklch(18%_0.03_245)_0%,oklch(27%_0.04_228)_48%,oklch(70%_0.08_72)_100%)]" />
-          <div className="absolute inset-y-0 right-0 hidden w-[52%] border-l border-white/10 bg-white/[0.04] md:block">
-            <div className="grid h-full grid-cols-3 gap-px opacity-45">
-              {Array.from({ length: 18 }).map((_, index) => (
-                <span key={index} className="bg-white/10" />
-              ))}
-            </div>
+      {/* HERO */}
+      <section className="bg-cream pt-[52px]">
+        <div className="mx-auto max-w-[680px] px-5 text-center sm:px-8">
+          <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-accent">
+            {business.address.locality} · Desde {business.foundedYear}
+          </p>
+          <h1 className="mt-4 font-display text-[34px] font-bold leading-[1.06] text-ink sm:text-5xl">
+            Cerramientos que se notan por cómo encajan
+          </h1>
+          <p className="mx-auto mt-[18px] max-w-[52ch] text-[16.5px] leading-relaxed text-muted">
+            Fabricamos e instalamos aluminio, PVC, vidrio, toldos y persianas a medida.
+            Presupuesto claro en 24–48h, sin intermediarios.
+          </p>
+          <div className="mt-[26px] flex flex-wrap justify-center gap-3">
+            <a
+              href={business.whatsapp}
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center justify-center rounded-md bg-wa px-6 py-3.5 text-[14.5px] font-bold text-ink2 hover:brightness-95"
+            >
+              WhatsApp ahora
+            </a>
+            <a
+              href={`tel:${business.phone}`}
+              className="inline-flex items-center justify-center rounded-md bg-accent px-6 py-3.5 text-[14.5px] font-bold text-white hover:bg-accent-dark"
+            >
+              Llamar {business.phoneDisplay}
+            </a>
+            <Link
+              href="/contacto"
+              className="inline-flex items-center justify-center rounded-md border-[1.5px] border-line bg-white px-6 py-3.5 text-[14.5px] font-bold text-ink hover:bg-cream"
+            >
+              Pedir por formulario
+            </Link>
           </div>
-          <div className="absolute right-8 top-8 hidden w-[360px] border border-dashed border-white/35 p-6 text-center text-[12px] font-semibold uppercase tracking-[0.18em] text-white/60 md:block">
-            Foto real de trabajo pendiente
-          </div>
+          <p className="mt-3.5 text-[12.5px] text-muted/80">
+            Respuesta habitual en 24–48h · Sin compromiso
+          </p>
         </div>
 
-        <div className="relative mx-auto grid min-h-[640px] max-w-[1180px] grid-cols-1 items-end gap-10 px-5 py-12 sm:px-8 md:grid-cols-[1.04fr_0.96fr] md:py-16">
-          <div className="w-full min-w-0 max-w-[calc(100vw-40px)] pb-4 sm:max-w-[720px]">
-            <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-warm">
-              Taller propio en {business.address.locality}
-            </p>
-            <h1 className="mt-4 max-w-[12ch] font-display text-[40px] font-bold leading-[1.03] sm:text-6xl lg:text-7xl">
-              Cerramientos que se notan por cómo encajan
-            </h1>
-            <p className="mt-6 max-w-[calc(100vw-40px)] text-[16.5px] leading-relaxed text-white/86 sm:max-w-[46ch] sm:text-lg">
-              Fabricamos e instalamos aluminio, PVC, vidrio, toldos y persianas a medida. Sin
-              intermediarios, con presupuesto claro y respuesta cercana.
-            </p>
-            <div className="mt-8 flex min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link
-                href="/contacto"
-                className="inline-flex w-full justify-center rounded-md bg-warm px-6 py-3.5 text-[15px] font-semibold text-ink transition hover:bg-white sm:w-auto"
-              >
-                Pedir presupuesto gratis
-              </Link>
-              <a
-                href={`tel:${business.phone}`}
-                className="inline-flex w-full justify-center rounded-md border border-white/45 px-6 py-3.5 text-[15px] font-semibold transition hover:bg-white/10 sm:w-auto"
-              >
-                Llamar {business.phoneDisplay}
-              </a>
-            </div>
-          </div>
-
-          <div className="hidden self-end md:block">
-            <div className="ml-auto grid max-w-[420px] gap-3">
-              <div className="border border-white/15 bg-white/10 p-5 backdrop-blur">
-                <p className="text-sm font-semibold text-warm">Desde {business.foundedYear}</p>
-                <p className="mt-2 text-[15px] leading-relaxed text-white/80">
-                  Medimos, fabricamos e instalamos nosotros. La misma gente que te atiende responde
-                  si hay que ajustar algo después.
-                </p>
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                <HeroMetric value="30+" label="años de oficio" />
-                <HeroMetric value="24-48h" label="respuesta habitual" />
-              </div>
-            </div>
-          </div>
+        {/* TRUST */}
+        <div className="mx-auto mt-9 grid max-w-[1180px] grid-cols-1 gap-3.5 px-5 pb-8 sm:px-8 sm:grid-cols-2 lg:grid-cols-4">
+          <TrustCard icon="★" value="4.8 / 5" label={`${business.rating.count} reseñas Google`} />
+          <TrustCard icon="39" value={`Desde ${business.foundedYear}`} label="Casi 40 años en la zona" />
+          <TrustCard icon="⚒" value="Fabricación propia" label="Cortamos y montamos nosotros" />
+          <TrustCard icon="⏱" value="24–48h" label="Respuesta habitual" />
         </div>
       </section>
 
-      <section className="border-b border-line bg-white">
-        <div className="mx-auto grid max-w-[1180px] grid-cols-2 gap-6 px-5 py-8 sm:px-8 md:grid-cols-4">
-          <Stat value="4.8/5" label={`${business.rating.count} reseñas de Google`} />
-          <Stat value="100%" label="Fabricación propia" />
-          <Stat value="Torrox" label="Costa y alrededores" />
-          <Stat value="A medida" label="Sin soluciones de catálogo" />
-        </div>
-      </section>
-
-      <section id="servicios" className="bg-bg py-16 sm:py-20">
+      {/* SERVICIOS */}
+      <section className="py-[52px]">
         <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
-          <div className="grid min-w-0 gap-8 md:grid-cols-[0.8fr_1.2fr] md:items-end">
-            <div className="min-w-0">
-              <p className="text-[13px] font-bold uppercase tracking-[0.16em] text-accent">
-                Servicios principales
-              </p>
-              <h2 className="mt-3 max-w-[18ch] font-display text-3xl font-bold leading-tight sm:max-w-none sm:text-4xl">
-                Lo que más se pide cuando una casa necesita funcionar mejor
-              </h2>
-            </div>
-            <p className="min-w-0 max-w-full text-[15.5px] leading-relaxed text-muted sm:max-w-[58ch] md:justify-self-end">
-              Ventanas que aíslan, terrazas que se aprovechan, baños que quedan limpios y exteriores
-              preparados para el sol de la costa. Medimos el hueco, proponemos opciones y dejamos el
-              trabajo instalado.
+          <div className="mx-auto mb-[30px] max-w-[60ch] text-center">
+            <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-accent">
+              Lo más pedido
+            </p>
+            <h2 className="mt-2.5 font-display text-[28px] font-bold leading-tight text-ink sm:text-3xl">
+              Los trabajos que más piden en la costa
+            </h2>
+            <p className="mt-2.5 text-[14.5px] leading-relaxed text-muted">
+              Cerramientos, cortinas de cristal y toldos — y hacemos muchos más: mamparas,
+              mosquiteras, rejas, reparaciones.
             </p>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
             {featuredServices.map((service) => (
-              <ServiceCard key={service.slug} service={service} />
+              <div
+                key={service.slug}
+                className="flex flex-col overflow-hidden rounded-md border border-line bg-white"
+              >
+                <PhotoSlot label={service.photoLabel} src={service.photoUrl} className="aspect-[4/3]" />
+                <div className="flex flex-1 flex-col p-5">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-accent">
+                    {service.tag}
+                  </p>
+                  <h3 className="mt-0.5 font-display text-[19px] text-ink">{service.title}</h3>
+                  <p className="mb-2 mt-1 text-[13.5px] leading-[1.5] text-muted">
+                    {service.shortDescription}
+                  </p>
+                  <Link
+                    href={`/productos#${service.slug}`}
+                    className="mt-auto text-[13px] font-bold text-accent hover:text-accent-dark"
+                  >
+                    Pedir presupuesto →
+                  </Link>
+                </div>
+              </div>
             ))}
           </div>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-[14px] text-muted">
-              También hacemos mosquiteras, rejas, enmarcado, reparaciones y vidrio a medida.
-            </p>
+          <div className="mt-7 text-center">
             <Link
               href="/productos"
-              className="inline-flex justify-center rounded-md border border-line bg-white px-6 py-3 text-[15px] font-semibold transition hover:border-accent hover:text-accent"
+              className="inline-flex rounded-md border-[1.5px] border-line px-6 py-3 text-[14.5px] font-bold text-ink hover:bg-cream"
             >
-              Ver catálogo completo
+              Ver todos los servicios →
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-16 sm:py-20">
-        <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-10 px-5 sm:px-8 lg:grid-cols-[1fr_1fr] lg:gap-16">
-          <ProjectPlaceholder label="Foto del taller o instalación pendiente" />
-          <div className="self-center">
-            <p className="text-[13px] font-bold uppercase tracking-[0.16em] text-accent">
+      {/* STORY */}
+      <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
+        <div className="grid grid-cols-1 items-center gap-9 rounded-[20px] bg-ink p-8 text-white sm:p-10 md:grid-cols-[0.9fr_1.1fr]">
+          <PhotoSlot label="Foto del taller" className="aspect-square rounded-md" />
+          <div>
+            <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-warm">
               Cómo trabajamos
             </p>
-            <h2 className="mt-3 font-display text-3xl font-bold leading-tight sm:text-4xl">
-              Oficio de taller, trato de barrio y medidas tomadas en serio
+            <h2 className="mt-2.5 font-display text-[26px] font-bold leading-tight">
+              Oficio de taller, trato de barrio
             </h2>
-            <p className="mt-4 text-[15.5px] leading-relaxed text-muted">
-              {business.story.intro} No vendemos de más: si una reparación basta, lo decimos. Si
-              hace falta fabricar, el presupuesto sale claro desde el principio.
+            <p className="mt-3 text-[14.5px] leading-[1.7] text-white/82">
+              Somos un negocio familiar de {business.address.locality}. Desde {business.foundedYear} fabricamos
+              e instalamos nosotros mismos, sin subcontratar: si algo falla, nos llamas y venimos.
             </p>
-            <div className="mt-7 grid gap-4">
-              <ProcessStep number="01" title="Visita y medición" text="Vemos el hueco, las necesidades reales y el acabado que encaja con la vivienda." />
-              <ProcessStep number="02" title="Fabricación propia" text="Cortamos y montamos en taller para controlar medidas, perfilería y herrajes." />
-              <ProcessStep number="03" title="Instalación y ajuste" text="Dejamos el trabajo instalado, probado y listo para usar sin perseguir a terceros." />
-            </div>
+            <p className="mt-2.5 text-[14.5px] leading-[1.7] text-white/82">
+              Preferimos explicarte las cosas claras antes que venderte de más.
+            </p>
+            <Link
+              href="/nosotros"
+              className="mt-6 inline-flex rounded-md bg-accent px-6 py-3.5 text-[14.5px] font-bold text-white hover:bg-accent-dark"
+            >
+              Conocer al equipo
+            </Link>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section id="resenas" className="bg-ink py-16 text-white sm:py-20">
+      {/* RESEÑAS */}
+      <section className="bg-cream py-[52px]">
         <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
-          <div className="mb-9 max-w-[44ch]">
-            <p className="text-[13px] font-bold uppercase tracking-[0.16em] text-warm">
-              Opiniones
-            </p>
-            <h2 className="mt-3 font-display text-3xl font-bold leading-tight sm:text-4xl">
-              Clientes de la zona que ya nos han dejado entrar en casa
+          <div className="mx-auto mb-6 max-w-[60ch] text-center">
+            <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-accent">Opiniones</p>
+            <h2 className="mt-2.5 font-display text-[28px] font-bold leading-tight text-ink sm:text-3xl">
+              Clientes que ya nos han dejado entrar en casa
             </h2>
-            <p className="mt-3 text-white/70">
-              Reseñas verificadas y trato directo en Torrox Costa y alrededores.
+            <p className="mt-2.5 text-[14.5px] text-muted">
+              {business.rating.value}/5 sobre {business.rating.count} reseñas en Google
             </p>
           </div>
-          <div className="mb-9 flex flex-wrap items-center gap-3.5">
-            <span className="text-lg text-warm">★★★★★</span>
-            <b className="text-lg">{business.rating.value} / 5</b>
-            <span className="text-sm text-white/60">
-              basado en más de {business.rating.count} reseñas de Google
-            </span>
-          </div>
-          <ReviewsCarousel
-            reviews={reviews}
-            rating={business.rating.value}
-            count={business.rating.count}
-            url={business.googleReviewsUrl}
-          />
+          <ReviewsCarousel reviews={reviews} url={business.googleReviewsUrl} />
         </div>
       </section>
 
-      <section id="contacto" className="bg-accent text-white">
-        <div className="mx-auto grid max-w-[1180px] gap-8 px-5 py-14 sm:px-8 md:grid-cols-[1fr_auto] md:items-center">
+      {/* FINAL CTA */}
+      <div className="mx-auto max-w-[1132px] px-5 pb-[52px] sm:px-8">
+        <div className="flex flex-wrap items-center justify-between gap-6 rounded-[20px] bg-tan p-8 sm:p-11">
           <div>
-            <p className="text-[13px] font-bold uppercase tracking-[0.16em] text-white/70">
-              Presupuesto sin compromiso
-            </p>
-            <h2 className="mt-2 font-display text-3xl font-bold leading-tight">
-              Cuéntanos qué hueco quieres cerrar, arreglar o mejorar
+            <h2 className="font-display text-[26px] font-bold text-ink">
+              ¿Qué hueco quieres cerrar o mejorar?
             </h2>
-            <p className="mt-3 max-w-[58ch] text-[15.5px] leading-relaxed text-white/85">
-              Te orientamos por teléfono o WhatsApp y, si hace falta, pasamos a medir.
+            <p className="mt-1.5 text-[14px] text-muted">
+              Te orientamos por teléfono o WhatsApp, sin compromiso · Respuesta en 24–48h
             </p>
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
+          <div className="flex flex-wrap gap-3">
             <a
               href={business.whatsapp}
               target="_blank"
               rel="noopener"
-              className="rounded-md bg-white px-6 py-3.5 text-center text-[15px] font-semibold text-accent-dark"
+              className="rounded-md bg-wa px-6 py-3.5 text-[14.5px] font-bold text-ink2 hover:brightness-95"
             >
-              Escribir por WhatsApp
+              WhatsApp
             </a>
             <a
               href={`tel:${business.phone}`}
-              className="rounded-md border border-white/55 px-6 py-3.5 text-center text-[15px] font-semibold hover:bg-white/10"
+              className="rounded-md bg-accent px-6 py-3.5 text-[14.5px] font-bold text-white hover:bg-accent-dark"
             >
-              Llamar {business.phoneDisplay}
+              Llamar
             </a>
+            <Link
+              href="/contacto"
+              className="rounded-md border-[1.5px] border-line bg-white px-6 py-3.5 text-[14.5px] font-bold text-ink hover:bg-cream"
+            >
+              Formulario
+            </Link>
           </div>
         </div>
-      </section>
+      </div>
 
       <Footer />
       <WhatsAppFloat />
@@ -219,73 +211,15 @@ export default function HomePage() {
   );
 }
 
-function ProjectPlaceholder({ label }: { label: string }) {
+function TrustCard({ icon, value, label }: { icon: string; value: string; label: string }) {
   return (
-    <div
-      className="relative min-h-[420px] overflow-hidden rounded-md border border-dashed border-line bg-panel"
-      role="img"
-      aria-label={label}
-    >
-      <div className="absolute inset-0 grid grid-cols-4 gap-px opacity-80">
-        {Array.from({ length: 20 }).map((_, index) => (
-          <span key={index} className="bg-white" />
-        ))}
+    <div className="flex items-center gap-3 rounded-xl border border-line bg-white p-[18px]">
+      <div className="flex h-[38px] w-[38px] flex-none items-center justify-center rounded-[9px] bg-tan text-[16px] font-extrabold text-accent-dark">
+        {icon}
       </div>
-      <div className="absolute inset-6 flex items-center justify-center border border-dashed border-line bg-panel/90 px-6 text-center text-xs font-semibold uppercase tracking-[0.14em] text-muted">
-        {label}
-      </div>
-    </div>
-  );
-}
-
-function HeroMetric({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="border border-white/15 bg-white/10 p-5 backdrop-blur">
-      <b className="block font-display text-3xl text-white">{value}</b>
-      <span className="mt-1 block text-[13px] text-white/66">{label}</span>
-    </div>
-  );
-}
-
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="min-w-0">
-      <b className="block font-display text-[27px] text-accent">{value}</b>
-      <span className="block max-w-[16ch] text-[13.5px] leading-snug text-muted sm:max-w-none">
-        {label}
-      </span>
-    </div>
-  );
-}
-
-function ServiceCard({ service }: { service: Service }) {
-  return (
-    <article className="group overflow-hidden rounded-md border border-line bg-white transition hover:-translate-y-1 hover:shadow-xl">
-      <PhotoSlot label={service.photoLabel} src={service.photoUrl} className="aspect-[4/3]" />
-      <div className="p-5">
-        <p className="text-[11.5px] font-bold uppercase tracking-[0.14em] text-accent">
-          {service.tag}
-        </p>
-        <h3 className="mt-2 text-[17px] font-semibold leading-tight">{service.title}</h3>
-        <p className="mt-2 text-[13.5px] leading-relaxed text-muted">{service.shortDescription}</p>
-        <Link
-          href={`/productos#${service.slug}`}
-          className="mt-4 inline-flex text-[13.5px] font-semibold text-accent group-hover:text-accent-dark"
-        >
-          Ver detalles
-        </Link>
-      </div>
-    </article>
-  );
-}
-
-function ProcessStep({ number, title, text }: { number: string; title: string; text: string }) {
-  return (
-    <div className="grid grid-cols-[52px_1fr] gap-4 border-t border-line pt-4">
-      <span className="font-display text-[22px] font-bold text-warm">{number}</span>
-      <div>
-        <h3 className="text-[16px] font-semibold">{title}</h3>
-        <p className="mt-1 text-[14.5px] leading-relaxed text-muted">{text}</p>
+      <div className="min-w-0">
+        <b className="block text-[14.5px] text-ink">{value}</b>
+        <span className="block text-xs text-muted">{label}</span>
       </div>
     </div>
   );

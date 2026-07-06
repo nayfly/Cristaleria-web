@@ -19,46 +19,64 @@ export default function ContactoPage() {
     <>
       <Header active="contacto" />
 
-      <section className="border-b border-line bg-panel py-14">
+      <section className="border-b border-line bg-cream py-11">
         <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
-          <p className="text-[13px] font-bold uppercase tracking-[0.14em] text-accent">Contacto</p>
-          <h1 className="mt-3 font-display text-3xl font-bold leading-tight sm:text-[40px]">
+          <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-accent">Contacto</p>
+          <h1 className="mt-2.5 font-display text-[32px] font-bold leading-tight text-ink sm:text-[36px]">
             Hablemos de tu proyecto
           </h1>
-          <p className="mt-2.5 max-w-[62ch] text-[16.5px] leading-relaxed text-muted">
+          <p className="mt-2 max-w-[60ch] text-[15.5px] leading-relaxed text-muted">
             Escríbenos, llama o pásate por el taller. Te respondemos el mismo día.
           </p>
+          <div className="mt-[22px] flex flex-wrap gap-3">
+            <a
+              href={business.whatsapp}
+              target="_blank"
+              rel="noopener"
+              className="rounded-md bg-wa px-6 py-3.5 text-[14.5px] font-bold text-ink2 hover:brightness-95"
+            >
+              WhatsApp ahora
+            </a>
+            <a
+              href={`tel:${business.phone}`}
+              className="rounded-md bg-accent px-6 py-3.5 text-[14.5px] font-bold text-white hover:bg-accent-dark"
+            >
+              Llamar {business.phoneDisplay}
+            </a>
+          </div>
         </div>
       </section>
 
-      <section className="py-16 sm:py-20">
-        <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-12 px-5 sm:px-8 md:grid-cols-[1.1fr_1fr] md:gap-16">
+      <section className="py-14 sm:py-[56px]">
+        <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-12 px-5 sm:px-8 md:grid-cols-[1.1fr_1fr] md:gap-14">
           <div>
-            <h2 className="mb-5 font-display text-2xl font-bold">Cuéntanos qué necesitas</h2>
+            <h2 className="mb-[18px] font-display text-[23px] font-bold text-ink">
+              Cuéntanos qué necesitas
+            </h2>
             <ContactForm />
           </div>
 
-          <div className="space-y-8">
-            <div className="rounded-2xl border border-line bg-white p-6">
-              <h3 className="mb-3.5 text-[13.5px] font-bold uppercase tracking-wide text-muted">
+          <div>
+            <div className="mb-5 rounded-2xl border border-line bg-cream p-6">
+              <h3 className="mb-3.5 text-[12.5px] font-bold uppercase tracking-[0.06em] text-muted">
                 Datos de contacto
               </h3>
               <ul className="grid gap-2.5 text-[15px] leading-relaxed">
                 <li>
-                  <a href={`tel:${business.phone}`} className="font-semibold hover:text-accent">
+                  <a href={`tel:${business.phone}`} className="font-bold text-ink hover:text-accent">
                     {business.phoneDisplay}
                   </a>
                 </li>
                 <li>
-                  <a href={`mailto:${business.email}`} className="font-semibold hover:text-accent">
+                  <a href={`mailto:${business.email}`} className="hover:text-accent">
                     {business.email}
                   </a>
                 </li>
-                <li className="text-muted">
+                <li>
                   {business.address.street}, {business.address.postalCode}{" "}
                   {business.address.locality} ({business.address.region})
                 </li>
-                <li className="text-muted">{business.hours.display}</li>
+                <li>{business.hours.display}</li>
               </ul>
             </div>
 
@@ -67,8 +85,8 @@ export default function ContactoPage() {
                 src={mapSrc}
                 title="Ubicación en el mapa"
                 width="100%"
-                height="320"
-                style={{ border: 0 }}
+                height="300"
+                style={{ border: 0, display: "block" }}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />

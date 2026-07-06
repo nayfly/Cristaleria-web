@@ -6,9 +6,9 @@ import { business } from "@/lib/business";
 
 const navItems = [
   { href: "/", label: "Inicio", key: "inicio" },
-  { href: "/productos", label: "Productos", key: "productos" },
+  { href: "/productos", label: "Servicios", key: "productos" },
   { href: "/galeria", label: "Galería", key: "galeria" },
-  { href: "/nosotros", label: "Quiénes somos", key: "nosotros" },
+  { href: "/nosotros", label: "Nosotros", key: "nosotros" },
   { href: "/contacto", label: "Contacto", key: "contacto" },
 ] as const;
 
@@ -21,27 +21,34 @@ export function Header({
 
   return (
     <>
-      <div className="bg-ink text-white text-[13px]">
+      <div className="bg-ink text-white text-[12.5px] font-bold">
         <div className="mx-auto flex max-w-[1180px] items-center justify-between gap-3 px-4 py-2 sm:px-8">
           <span className="min-w-0 truncate">
-            {business.address.locality}, {business.address.region} · {business.phoneDisplay}
+            {business.hours.shortDisplay} · {business.address.locality}
           </span>
-          <a href={`mailto:${business.email}`} className="hidden min-w-0 truncate opacity-85 hover:opacity-100 sm:block">
-            {business.email}
-          </a>
+          <div className="flex flex-none items-center gap-3.5">
+            <a href={`tel:${business.phone}`} className="hidden sm:inline">
+              📞 {business.phoneDisplay}
+            </a>
+            <a
+              href={business.whatsapp}
+              target="_blank"
+              rel="noopener"
+              className="rounded-md bg-wa px-3.5 py-1.5 text-ink2"
+            >
+              WhatsApp
+            </a>
+          </div>
         </div>
       </div>
 
-      <header className="sticky top-0 z-50 border-b border-line bg-white/90 backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-line bg-cream/95 backdrop-blur">
         <div className="mx-auto max-w-[1180px] px-4 sm:px-8">
           <nav className="flex min-w-0 items-center justify-between gap-4 py-4">
             <Link href="/" className="min-w-0 flex-1 font-display text-lg font-bold leading-tight text-ink sm:text-xl lg:flex-none">
               {business.shortName}
-              <span className="block truncate font-body text-xs font-medium uppercase text-muted">
-                {business.address.locality} · desde {business.foundedYear}
-              </span>
             </Link>
-            <ul className="hidden gap-8 text-[15px] font-semibold text-ink lg:flex">
+            <ul className="hidden gap-8 text-[14px] font-semibold text-[#3a3226] lg:flex">
               {navItems.map((item) => (
                 <li key={item.key}>
                   <Link
@@ -53,12 +60,14 @@ export function Header({
                 </li>
               ))}
             </ul>
-            <Link
-              href="/contacto"
-              className="hidden rounded-lg bg-accent px-6 py-3 text-[15px] font-semibold text-white hover:bg-accent-dark lg:inline-flex"
+            <a
+              href={business.whatsapp}
+              target="_blank"
+              rel="noopener"
+              className="hidden rounded-lg bg-accent px-5 py-2.5 text-[13.5px] font-bold text-white hover:bg-accent-dark lg:inline-flex"
             >
-              Pedir presupuesto
-            </Link>
+              WhatsApp
+            </a>
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
@@ -82,7 +91,7 @@ export function Header({
         </div>
 
         {open && (
-          <div className="border-t border-line bg-white lg:hidden">
+          <div className="border-t border-line bg-cream lg:hidden">
             <ul className="mx-auto flex max-w-[1180px] flex-col px-5 py-3 text-[15px] font-semibold text-ink sm:px-8">
               {navItems.map((item) => (
                 <li key={item.key} className="border-b border-line py-3 last:border-b-0">
@@ -97,13 +106,15 @@ export function Header({
               ))}
             </ul>
             <div className="px-5 pb-5 sm:px-8">
-              <Link
-                href="/contacto"
+              <a
+                href={business.whatsapp}
+                target="_blank"
+                rel="noopener"
                 onClick={() => setOpen(false)}
-                className="block rounded-lg bg-accent px-6 py-3 text-center text-[15px] font-semibold text-white hover:bg-accent-dark"
+                className="block rounded-lg bg-accent px-6 py-3 text-center text-[15px] font-bold text-white hover:bg-accent-dark"
               >
-                Pedir presupuesto
-              </Link>
+                WhatsApp
+              </a>
             </div>
           </div>
         )}

@@ -18,28 +18,28 @@ export default function NosotrosPage() {
     <>
       <Header active="nosotros" />
 
-      <section className="border-b border-line bg-panel py-14">
+      <section className="border-b border-line bg-cream py-11">
         <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
-          <p className="text-[13px] font-bold uppercase tracking-[0.14em] text-accent">
+          <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-accent">
             Desde {business.foundedYear}
           </p>
-          <h1 className="mt-3 font-display text-3xl font-bold leading-tight sm:text-[40px]">
+          <h1 className="mt-2.5 font-display text-[32px] font-bold leading-tight text-ink sm:text-[36px]">
             Quiénes somos
           </h1>
-          <p className="mt-2.5 max-w-[62ch] text-[16.5px] leading-relaxed text-muted">
+          <p className="mt-2 max-w-[60ch] text-[15.5px] leading-relaxed text-muted">
             {business.story.intro}
           </p>
         </div>
       </section>
 
-      <section className="py-16 sm:py-20">
-        <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-12 px-5 sm:px-8 md:grid-cols-2 md:gap-16">
+      <section className="py-14 sm:py-[56px]">
+        <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-9 px-5 sm:px-8 md:grid-cols-[1fr_1.1fr] md:gap-14">
           <PhotoSlot label="Foto del equipo o del taller" className="aspect-[5/4] rounded-2xl" />
           <div>
-            <h2 className="font-display text-2xl font-bold leading-tight sm:text-3xl">
+            <h2 className="font-display text-[28px] font-bold leading-tight text-ink">
               Casi 40 años en Torrox Costa
             </h2>
-            <div className="mt-4 space-y-3.5 text-[15.5px] leading-relaxed text-muted">
+            <div className="mt-3.5 space-y-3 text-[15.5px] leading-[1.7] text-muted">
               {business.story.paragraphs.map((p) => (
                 <p key={p}>{p}</p>
               ))}
@@ -48,43 +48,51 @@ export default function NosotrosPage() {
         </div>
       </section>
 
-      <section className="bg-ink py-16 text-white sm:py-20">
+      <section className="bg-ink2 py-14 text-white sm:py-[56px]">
         <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
-          <div className="mb-11 max-w-[40ch]">
-            <p className="text-[13px] font-bold uppercase tracking-[0.14em] text-warm">
-              Cómo trabajamos
-            </p>
-            <h2 className="mt-2.5 font-display text-3xl font-bold leading-tight">
-              Lo que puedes esperar de nosotros
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-warm">
+            Cómo trabajamos
+          </p>
+          <h2 className="mt-2.5 max-w-[18ch] font-display text-[28px] font-bold leading-tight">
+            Lo que puedes esperar de nosotros
+          </h2>
+          <div className="mt-[30px] grid grid-cols-1 gap-[18px] sm:grid-cols-2 lg:grid-cols-4">
             {business.values.map((v) => (
-              <div key={v.title} className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <h3 className="mb-2 text-[16px] font-semibold">{v.title}</h3>
-                <p className="text-[14px] leading-relaxed text-white/75">{v.description}</p>
+              <div key={v.title} className="rounded-md border border-white/[0.14] bg-white/5 p-[22px]">
+                <h3 className="mb-2 text-[16px] font-bold">{v.title}</h3>
+                <p className="text-[13.5px] leading-[1.6] text-white/72">{v.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-accent to-accent-dark py-14 text-white">
-        <div className="mx-auto flex max-w-[1180px] flex-wrap items-center justify-between gap-7 px-5 sm:px-8">
+      <div className="mx-auto max-w-[1132px] px-5 py-[52px] sm:px-8">
+        <div className="flex flex-wrap items-center justify-between gap-6 rounded-[20px] bg-tan p-8 sm:p-11">
           <div>
-            <h2 className="font-display text-2xl font-bold">¿Hablamos de tu proyecto?</h2>
-            <p className="mt-1.5 text-[15px] text-white/85">
-              Pide presupuesto sin compromiso, te respondemos en el mismo día.
+            <h2 className="font-display text-[26px] font-bold text-ink">¿Hablamos de tu proyecto?</h2>
+            <p className="mt-1.5 text-[14px] text-muted">
+              Pide presupuesto sin compromiso, te respondemos el mismo día.
             </p>
           </div>
-          <Link
-            href="/contacto"
-            className="rounded-lg bg-white px-6 py-3.5 text-[15px] font-semibold text-accent-dark"
-          >
-            Ir a contacto
-          </Link>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href={business.whatsapp}
+              target="_blank"
+              rel="noopener"
+              className="rounded-md bg-wa px-6 py-3.5 text-[14.5px] font-bold text-ink2 hover:brightness-95"
+            >
+              WhatsApp
+            </a>
+            <Link
+              href="/contacto"
+              className="rounded-md bg-accent px-6 py-3.5 text-[14.5px] font-bold text-white hover:bg-accent-dark"
+            >
+              Ir a contacto
+            </Link>
+          </div>
         </div>
-      </section>
+      </div>
 
       <Footer />
       <WhatsAppFloat />

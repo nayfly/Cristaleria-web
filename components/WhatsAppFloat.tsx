@@ -7,9 +7,9 @@ export function WhatsAppFloat() {
       target="_blank"
       rel="noopener"
       aria-label="Escribir por WhatsApp"
-      className="fixed bottom-6 right-6 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-2xl text-white shadow-lg"
+      className="fixed bottom-[22px] right-[22px] z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-wa text-[26px] text-ink2 shadow-lg"
     >
-      ☎
+      💬
     </a>
   );
 }

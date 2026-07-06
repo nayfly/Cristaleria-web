@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Public_Sans } from "next/font/google";
+import { Fraunces, Manrope } from "next/font/google";
 import "./globals.css";
 import { business } from "@/lib/business";
 import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 
-const display = Space_Grotesk({
+const display = Fraunces({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["500", "700"],
   variable: "--font-display",
 });
 
-const body = Public_Sans({
+const body = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-body",
 });
 

@@ -18,33 +18,33 @@ export default function GaleriaPage() {
     <>
       <Header active="galeria" />
 
-      <section className="border-b border-line bg-panel py-14">
+      <section className="border-b border-line bg-cream py-11">
         <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
-          <p className="text-[13px] font-bold uppercase tracking-[0.14em] text-accent">Galería</p>
-          <h1 className="mt-3 font-display text-3xl font-bold leading-tight sm:text-[40px]">
+          <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-accent">Galería</p>
+          <h1 className="mt-2.5 font-display text-[32px] font-bold leading-tight text-ink sm:text-[36px]">
             Algunos trabajos que hemos hecho
           </h1>
-          <p className="mt-2.5 max-w-[62ch] text-[16.5px] leading-relaxed text-muted">
+          <p className="mt-2 max-w-[60ch] text-[15.5px] leading-relaxed text-muted">
             Una muestra de proyectos reales en hogares y negocios de la zona. Cada trabajo lleva
             nuestra fabricación e instalación de principio a fin.
           </p>
         </div>
       </section>
 
-      <section className="py-16 sm:py-20">
+      <section className="py-[52px]">
         <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {galleryItems.map((item) => (
               <div
                 key={item.slug}
-                className="overflow-hidden rounded-2xl border border-line bg-white transition hover:-translate-y-1 hover:shadow-xl"
+                className="overflow-hidden rounded-md border border-line bg-white transition hover:-translate-y-[3px]"
               >
                 <PhotoSlot label={item.photoLabel} className="aspect-[4/3]" />
-                <div className="p-5">
-                  <p className="text-[12px] font-bold uppercase tracking-wide text-muted">
+                <div className="p-4">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-accent">
                     {item.tag}
                   </p>
-                  <h3 className="mt-1 text-[15.5px] font-semibold leading-snug">{item.title}</h3>
+                  <h3 className="mt-1 text-[15.5px] font-bold text-ink">{item.title}</h3>
                 </div>
               </div>
             ))}
@@ -52,32 +52,34 @@ export default function GaleriaPage() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-accent to-accent-dark py-14 text-white">
-        <div className="mx-auto flex max-w-[1180px] flex-wrap items-center justify-between gap-7 px-5 sm:px-8">
+      <div className="mx-auto max-w-[1132px] px-5 pb-[52px] sm:px-8">
+        <div className="flex flex-wrap items-center justify-between gap-6 rounded-[20px] bg-tan p-8 sm:p-11">
           <div>
-            <h2 className="font-display text-2xl font-bold">¿Quieres algo parecido en tu casa?</h2>
-            <p className="mt-1.5 text-[15px] text-white/85">
+            <h2 className="font-display text-[26px] font-bold text-ink">
+              ¿Quieres algo parecido en tu casa?
+            </h2>
+            <p className="mt-1.5 text-[14px] text-muted">
               Cuéntanos tu proyecto y te asesoramos sin compromiso.
             </p>
           </div>
-          <div className="flex flex-wrap gap-3.5">
-            <a
-              href={`tel:${business.phone}`}
-              className="rounded-lg bg-white px-6 py-3.5 text-[15px] font-semibold text-accent-dark"
-            >
-              Llamar: {business.phoneDisplay}
-            </a>
+          <div className="flex flex-wrap gap-3">
             <a
               href={business.whatsapp}
               target="_blank"
               rel="noopener"
-              className="rounded-lg border border-white/55 px-6 py-3.5 text-[15px] font-semibold hover:bg-white/10"
+              className="rounded-md bg-wa px-6 py-3.5 text-[14.5px] font-bold text-ink2 hover:brightness-95"
             >
               WhatsApp
             </a>
+            <a
+              href={`tel:${business.phone}`}
+              className="rounded-md bg-accent px-6 py-3.5 text-[14.5px] font-bold text-white hover:bg-accent-dark"
+            >
+              Llamar
+            </a>
           </div>
         </div>
-      </section>
+      </div>
 
       <Footer />
       <WhatsAppFloat />
