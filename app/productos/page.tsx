@@ -9,7 +9,7 @@ import { business, services } from "@/lib/business";
 export const metadata: Metadata = {
   title: "Servicios de carpintería, toldos y cristalería",
   description:
-    "Catálogo completo: cerramientos de terraza, toldos y persianas, cortinas de vidrio panorámicas, mamparas de baño, puertas acorazadas, protección de viviendas, mosquiteras y enmarcado de cuadros en Torrox Costa.",
+    "Catálogo completo: cerramientos de terraza, toldos y persianas, cortinas de vidrio panorámicas, barandillas de cristal, mamparas de baño, puertas acorazadas, protección de viviendas, mosquiteras y enmarcado de cuadros en Torrox Costa.",
   alternates: { canonical: "/productos" },
 };
 

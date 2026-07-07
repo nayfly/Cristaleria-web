@@ -128,7 +128,22 @@ export const services: Service[] = [
       "Vidrio templado de seguridad",
     ],
     photoLabel: "Cortina de vidrio panorámica",
-    photoUrl: "/images/services/cortinas-vidrio.webp",
+    photoUrl: "/images/services/cortinas-vidrio.jpg",
+  },
+  {
+    slug: "barandillas-de-cristal",
+    tag: "Cristalería",
+    title: "Barandillas de cristal",
+    shortDescription: "Barandillas transparentes para terrazas, balcones y piscinas.",
+    description:
+      "Barandillas de cristal a medida para terrazas, balcones, escaleras y zonas de piscina, con una instalación limpia y segura.",
+    bullets: [
+      "Vidrio de seguridad",
+      "Sistemas con perfil o herrajes",
+      "Vistas despejadas sin perder protección",
+    ],
+    photoLabel: "Barandilla de cristal",
+    photoUrl: "/images/services/barandillas-cristal.jpg",
   },
   {
     slug: "mamparas-de-bano",

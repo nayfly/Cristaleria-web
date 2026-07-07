@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { PhotoSlot } from "@/components/PhotoSlot";
 import { business } from "@/lib/business";
-import { galleryItems } from "@/lib/gallery";
+import { gallerySections } from "@/lib/gallery";
 
 export const metadata: Metadata = {
   title: "Galería de trabajos realizados",
@@ -33,25 +33,39 @@ export default function GaleriaPage() {
 
       <section className="py-[52px]">
         <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {galleryItems.map((item) => (
-              <div
-                key={item.slug}
-                className="overflow-hidden rounded-md border border-line bg-white transition hover:-translate-y-[3px]"
-              >
-                <PhotoSlot
-                  label={item.photoLabel}
-                  src={item.photoUrl}
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                  className="aspect-[4/3]"
-                />
-                <div className="p-4">
+          <div className="grid gap-12">
+            {gallerySections.map((section) => (
+              <section key={section.slug} id={section.slug} className="scroll-mt-24">
+                <div className="mb-5 max-w-[66ch]">
                   <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-accent">
-                    {item.tag}
+                    {section.tag}
                   </p>
-                  <h3 className="mt-1 text-[15.5px] font-bold text-ink">{item.title}</h3>
+                  <h2 className="mt-1 font-display text-[24px] font-bold leading-tight text-ink">
+                    {section.title}
+                  </h2>
+                  <p className="mt-1.5 text-[14px] leading-relaxed text-muted">
+                    {section.description}
+                  </p>
                 </div>
-              </div>
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  {section.items.map((item) => (
+                    <div
+                      key={item.slug}
+                      className="overflow-hidden rounded-md border border-line bg-white transition hover:-translate-y-[3px]"
+                    >
+                      <PhotoSlot
+                        label={item.photoLabel}
+                        src={item.photoUrl}
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="aspect-[4/3]"
+                      />
+                      <div className="p-4">
+                        <h3 className="text-[15.5px] font-bold text-ink">{item.title}</h3>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
             ))}
           </div>
         </div>

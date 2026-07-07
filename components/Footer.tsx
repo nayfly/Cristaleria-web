@@ -30,6 +30,11 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/productos#barandillas-de-cristal" className="hover:text-white">
+                Barandillas de cristal
+              </Link>
+            </li>
+            <li>
               <Link href="/productos#toldos-y-persianas" className="hover:text-white">
                 Toldos y persianas
               </Link>
