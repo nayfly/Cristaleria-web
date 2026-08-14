@@ -33,15 +33,21 @@ export function ReviewsCarousel({ reviews, url }: { reviews: SiteReview[]; url: 
         {visibleReviews.map((review, cardIndex) => (
           <article
             key={`${review.who}-${review.date}`}
-            className={`rounded-md border border-line bg-white p-5 ${
-              cardIndex > 0 ? "hidden md:block" : ""
+            className={`flex flex-col rounded-md border border-line bg-white p-5 ${
+              cardIndex > 0 ? "hidden md:flex" : ""
             }`}
           >
             <p className="mb-2 text-sm text-accent">{"★".repeat(Math.round(review.rating ?? 5))}</p>
-            <p lang={review.lang} className="text-[13.5px] leading-[1.55] text-[#3a3226]">
+            {/* Las reseñas van de una línea a un párrafo largo, y al ir en fila
+                todas las tarjetas crecen hasta la más alta. Se recortan a seis
+                líneas; el texto entero sigue estando en Google, a un clic. */}
+            <p
+              lang={review.lang}
+              className="line-clamp-6 text-[13.5px] leading-[1.55] text-[#3a3226]"
+            >
               “{review.text}”
             </p>
-            <div className="mt-3 flex items-center gap-2.5">
+            <div className="mt-auto flex items-center gap-2.5 pt-3.5">
               {review.photoUrl && (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
