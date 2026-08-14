@@ -64,19 +64,30 @@ export function ReviewsCarousel({ reviews, url }: { reviews: SiteReview[]; url: 
       </div>
 
       <div className="mt-6 flex flex-wrap items-center justify-center gap-5">
-        <div className="flex gap-2">
-          {reviews.map((r, i) => (
-            <button
-              key={`${r.who}-${i}`}
-              type="button"
-              aria-label={`Ir a la reseña ${i + 1}`}
-              onClick={() => goTo(i)}
-              className={`h-2.5 w-2.5 rounded-full transition ${
-                i === index ? "bg-accent" : "bg-line hover:bg-muted/40"
-              }`}
-            />
-          ))}
-        </div>
+        {/* Con pocas reseñas los puntos orientan; pasada la decena se
+            convierten en una fila de confeti que no dice nada. */}
+        {reviews.length <= 8 ? (
+          <div className="flex gap-2">
+            {reviews.map((r, i) => (
+              <button
+                key={`${r.who}-${i}`}
+                type="button"
+                aria-label={`Ir a la reseña ${i + 1}`}
+                onClick={() => goTo(i)}
+                className={`h-2.5 w-2.5 rounded-full transition ${
+                  i === index ? "bg-accent" : "bg-line hover:bg-muted/40"
+                }`}
+              />
+            ))}
+          </div>
+        ) : (
+          <p
+            aria-live="polite"
+            className="text-[13px] font-bold tabular-nums text-muted"
+          >
+            <span className="text-ink">{index + 1}</span> / {reviews.length}
+          </p>
+        )}
         <div className="flex gap-2">
           <button
             type="button"
