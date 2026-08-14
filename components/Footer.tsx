@@ -104,6 +104,17 @@ export function Footer() {
         <span>© {new Date().getFullYear()} {business.name}</span>
         <span>{business.address.region} · España</span>
       </div>
+      <div className="mx-auto mt-3 max-w-[1180px] px-5 text-center text-xs text-white/45 sm:px-8">
+        Powered by{" "}
+        <a
+          href="https://robertsoftware.com"
+          target="_blank"
+          rel="noopener"
+          className="font-semibold text-[#c084fc] hover:text-[#d8b4fe]"
+        >
+          RobertSoftware
+        </a>
+      </div>
     </footer>
   );
 }

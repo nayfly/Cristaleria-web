@@ -16,8 +16,9 @@ se enseña para dar el visto bueno, todavía no sustituye a la web en producció
 
 ## Ya resuelto
 
-- **Fotos reales**: las 10 fichas de servicio y los 39 trabajos de la galería
-  apuntan a ficheros que existen en `/public/images/`, organizado en
+- **Fotos reales**: no queda ningún `PhotoSlot` sin foto. Las 10 fichas de
+  servicio y los 39 trabajos de la galería apuntan a ficheros que existen en
+  `/public/images/`, organizado en
   `brand/` (logo), `services/` (una imagen por servicio) y `gallery/` (una
   subcarpeta por categoría, más `hero-home.webp` y `tienda-taller.webp`).
 - **SEO**: metadatos Open Graph, sitemap.xml, robots.txt y structured data
@@ -26,18 +27,15 @@ se enseña para dar el visto bueno, todavía no sustituye a la web en producció
 
 ## Pendiente antes de publicar
 
-1. **Foto de `/nosotros`**: es el único `PhotoSlot` que sigue sin `src`
-   (`app/nosotros/page.tsx`, "Foto del equipo o del taller"). Pásale una foto
-   de `/public/images/` o quita el bloque.
-2. **Formulario de contacto**: en `/contacto` no hay backend de email — el
+1. **Formulario de contacto**: en `/contacto` no hay backend de email — el
    formulario (`components/ContactForm.tsx`) construye un mensaje de
    WhatsApp o un `mailto:` con lo escrito. Si se quiere que llegue de verdad a
    un buzón sin pasar por WhatsApp, hay que añadir un proveedor tipo Formspree
    o Resend.
-3. **Valoración de Google**: en `lib/business.ts`, `rating.count` está puesto
+2. **Valoración de Google**: en `lib/business.ts`, `rating.count` está puesto
    como aproximado (101). Pon la cifra exacta que tengáis en Google Business,
    porque va al JSON-LD.
-4. **Dominio**: `siteUrl` en `lib/business.ts` ya apunta al dominio real
+3. **Dominio**: `siteUrl` en `lib/business.ts` ya apunta al dominio real
    (`www.cristaleriayaluminiostorroxcosta.com`), no al de Vercel. Mientras la
    web viva solo en `.vercel.app`, el canonical, el sitemap y el JSON-LD
    señalan a un dominio que todavía no la sirve.

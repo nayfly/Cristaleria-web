@@ -34,10 +34,15 @@ export default function NosotrosPage() {
 
       <section className="py-14 sm:py-[56px]">
         <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-9 px-5 sm:px-8 md:grid-cols-[1fr_1.1fr] md:gap-14">
-          <PhotoSlot label="Foto del equipo o del taller" className="aspect-[5/4] rounded-2xl" />
+          <PhotoSlot
+            label="Nuestro taller de aluminio y cristalería en Torrox Costa"
+            src="/images/gallery/tienda-taller.webp"
+            sizes="(min-width: 768px) 45vw, 100vw"
+            className="aspect-[5/4] rounded-2xl"
+          />
           <div>
             <h2 className="font-display text-[28px] font-bold leading-tight text-ink">
-              Casi 40 años en Torrox Costa
+              40 años en Torrox Costa
             </h2>
             <div className="mt-3.5 space-y-3 text-[15.5px] leading-[1.7] text-muted">
               {business.story.paragraphs.map((p) => (

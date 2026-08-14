@@ -48,7 +48,7 @@ export const business = {
     intro:
       "Somos un negocio familiar de Torrox Costa. Desde 1986 instalamos carpintería de aluminio, PVC y cristalería para vecinos y negocios de toda la zona: lo que podemos, lo fabricamos en nuestro taller; lo que no, lo traemos de proveedores de confianza.",
     paragraphs: [
-      "Empezamos como un pequeño taller de barrio y, casi 40 años después, seguimos siendo eso: gente de aquí arreglando, instalando y fabricando para gente de aquí. Conocemos las casas, los edificios y el clima de la Costa del Sol, y eso se nota en cada trabajo que sale del taller.",
+      "Empezamos como un pequeño taller de barrio y, 40 años después, seguimos siendo eso: gente de aquí arreglando, instalando y fabricando para gente de aquí. Conocemos las casas, los edificios y el clima de la Costa del Sol, y eso se nota en cada trabajo que sale del taller.",
       "No subcontratamos el trabajo: medimos, instalamos y ajustamos nosotros mismos (y fabricamos a medida lo que sale de nuestro taller), así que respondemos de principio a fin de cada presupuesto. Si algo falla, no tienes que perseguir a nadie: nos llamas y venimos.",
       "Preferimos explicarte las cosas claras antes que venderte de más. Si un arreglo pequeño te soluciona el problema, te lo decimos, aunque una instalación nueva nos convenga más a nosotros.",
     ],
@@ -68,7 +68,7 @@ export const business = {
     },
     {
       title: "Aquí toda la vida",
-      description: "Casi 40 años en Torrox Costa. Si algo falla después, seguimos aquí para arreglarlo.",
+      description: "40 años en Torrox Costa. Si algo falla después, seguimos aquí para arreglarlo.",
     },
   ],
 } as const;

@@ -26,7 +26,7 @@ export default function ProductosPage() {
           </h1>
           <p className="mt-2 max-w-[60ch] text-[15.5px] leading-relaxed text-muted">
             Instalación propia de principio a fin, fabricando a medida en nuestro taller lo que
-            podemos. Pide presupuesto para cualquiera de estos trabajos y te respondemos en 24–48h.
+            podemos. Pide presupuesto para cualquiera de estos trabajos y te respondemos rápido.
           </p>
         </div>
       </section>

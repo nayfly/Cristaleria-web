@@ -34,7 +34,7 @@ export default function HomePage() {
           </h1>
           <p className="mx-auto mt-[18px] max-w-[52ch] text-[16.5px] leading-relaxed text-muted">
             Instalamos aluminio, PVC, vidrio, toldos y persianas a medida, fabricando en
-            nuestro taller lo que podemos. Presupuesto claro en 24–48h, sin intermediarios.
+            nuestro taller lo que podemos. Presupuesto claro y rápido, sin intermediarios.
           </p>
           <div className="mx-auto mt-[26px] grid w-full max-w-[330px] grid-cols-1 justify-center gap-3 sm:max-w-none sm:grid-cols-none sm:flex sm:flex-wrap">
             <a
@@ -59,7 +59,7 @@ export default function HomePage() {
             </Link>
           </div>
           <p className="mt-3.5 text-[12.5px] text-muted/80">
-            Respuesta habitual en 24–48h · Sin compromiso
+            Respuesta rápida · Sin compromiso
           </p>
         </div>
 
@@ -76,9 +76,9 @@ export default function HomePage() {
         {/* TRUST */}
         <div className="mx-auto mt-9 grid max-w-[1180px] grid-cols-1 gap-3.5 px-5 pb-8 sm:px-8 sm:grid-cols-2 lg:grid-cols-4">
           <TrustCard icon="★" value="4.8 / 5" label={`${business.rating.count} reseñas Google`} />
-          <TrustCard icon="39" value={`Desde ${business.foundedYear}`} label="Casi 40 años en la zona" />
+          <TrustCard icon="40" value={`Desde ${business.foundedYear}`} label="40 años en la zona" />
           <TrustCard icon="⚒" value="Instalación propia" label="Medimos y montamos nosotros mismos" />
-          <TrustCard icon="⏱" value="24–48h" label="Respuesta habitual" />
+          <TrustCard icon="⏱" value="Respuesta rápida" label="Te contestamos lo antes posible" />
         </div>
       </section>
 
@@ -193,7 +193,7 @@ export default function HomePage() {
               ¿Qué hueco quieres cerrar o mejorar?
             </h2>
             <p className="mt-1.5 text-[14px] text-muted">
-              Te orientamos por teléfono o WhatsApp, sin compromiso · Respuesta en 24–48h
+              Te orientamos por teléfono o WhatsApp, sin compromiso · Respuesta rápida
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
