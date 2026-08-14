@@ -97,6 +97,19 @@ export function Footer() {
       </div>
       <div className="mx-auto mt-8 flex max-w-[1180px] flex-wrap justify-between gap-2 border-t border-white/10 px-5 pt-[18px] text-xs text-white/45 sm:px-8">
         <span>© {new Date().getFullYear()} {business.name}</span>
+        <nav className="flex flex-wrap items-center gap-x-3 gap-y-1">
+          <Link href="/aviso-legal" className="hover:text-white">
+            Aviso legal
+          </Link>
+          <span aria-hidden>·</span>
+          <Link href="/privacidad" className="hover:text-white">
+            Privacidad
+          </Link>
+          <span aria-hidden>·</span>
+          <Link href="/cookies" className="hover:text-white">
+            Cookies
+          </Link>
+        </nav>
         <span>{business.address.region} · España</span>
       </div>
       <div className="mx-auto mt-3 max-w-[1180px] px-5 text-center text-xs text-white/45 sm:px-8">

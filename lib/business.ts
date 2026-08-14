@@ -60,6 +60,19 @@ export const business = {
   googleMapsUrl: "https://www.google.com/maps/place/?q=place_id:ChIJH5TCLGSkLxURUzspBgKLPfM",
   googleReviewsUrl: "https://search.google.com/local/reviews?placeid=ChIJH5TCLGSkLxURUzspBgKLPfM",
   siteUrl: "https://www.cristaleriayaluminiostorroxcosta.com",
+  // Datos para el aviso legal y la política de privacidad. Los exige el
+  // artículo 10 de la LSSI, y tienen que ser los del titular real del negocio.
+  //
+  // OJO: los dos primeros están SIN RELLENAR a propósito. Salen tal cual en las
+  // páginas legales, así que se ven a la primera y no se publica por descuido
+  // un dato inventado. Rellénalos antes de sacar la web del .vercel.app.
+  legal: {
+    titular: "[PENDIENTE: nombre y apellidos, o razón social]",
+    nif: "[PENDIENTE: NIF o CIF]",
+    // Solo si el negocio es una sociedad (S.L., S.A.). Si es autónomo, null.
+    registroMercantil: null as string | null,
+    ultimaActualizacion: "14 de agosto de 2026",
+  },
   story: {
     intro:
       "Somos un negocio familiar de Torrox Costa. Desde 1986 instalamos carpintería de aluminio, PVC y cristalería para vecinos y negocios de toda la zona: lo que podemos, lo fabricamos en nuestro taller; lo que no, lo traemos de proveedores de confianza.",

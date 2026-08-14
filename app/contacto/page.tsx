@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { ContactForm } from "@/components/ContactForm";
+import { MapEmbed } from "@/components/MapEmbed";
 import { business } from "@/lib/business";
 
 export const metadata: Metadata = {
@@ -13,8 +14,6 @@ export const metadata: Metadata = {
 };
 
 export default function ContactoPage() {
-  const mapSrc = `https://www.google.com/maps?q=${business.geo.lat},${business.geo.lng}&z=16&output=embed`;
-
   return (
     <>
       <Header active="contacto" />
@@ -81,15 +80,7 @@ export default function ContactoPage() {
             </div>
 
             <div className="overflow-hidden rounded-2xl border border-line">
-              <iframe
-                src={mapSrc}
-                title="Ubicación en el mapa"
-                width="100%"
-                height="300"
-                style={{ border: 0, display: "block" }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+              <MapEmbed />
             </div>
           </div>
         </div>
