@@ -50,7 +50,12 @@ Detalles que conviene saber:
   mes: muy por debajo de las 1.000 gratuitas. A partir de ahí son 25 $/1.000.
 - Con la API activa, la valoración y el número de reseñas de la portada y del
   JSON-LD salen de Google, así que ya no se quedan desfasados a mano.
-- La clave se usa **solo en el servidor**, nunca llega al navegador.
+- La clave se usa **solo en el servidor**, nunca llega al navegador (no lleva
+  prefijo `NEXT_PUBLIC_`). En Google Cloud restringe la clave por API a la
+  Places API, pero deja las restricciones de aplicación en "Ninguno": por
+  referrer no vale (el servidor no manda `Referer`) y por IP tampoco (en Vercel
+  la IP de salida solo es fija en Pro con Static IPs, 100 $/mes). Lo que acota
+  el riesgo de verdad es ponerle tope de cuota a la API.
 
 ## Pendiente antes de publicar
 
