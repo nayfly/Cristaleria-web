@@ -1,13 +1,39 @@
 // Busca el GOOGLE_PLACE_ID de la ficha del negocio.
 //
-//   GOOGLE_PLACES_API_KEY=xxx node scripts/find-place-id.mjs
+//   npm run place-id
 //
-// Imprime los candidatos con su dirección y su valoración, para que pegues en
-// las variables de entorno el id del que sea realmente vuestra ficha.
+// Lee la clave de .env.local (o del entorno, si la tienes puesta ahí). Imprime
+// los candidatos con su dirección y su valoración, para que pegues en las
+// variables de entorno el id del que sea realmente vuestra ficha.
+
+import { readFileSync } from "node:fs";
+
+// Carga mínima de .env.local: Next lo lee solo al arrancar, pero un script
+// suelto no, y no merece la pena traerse dotenv para tres líneas.
+function cargarEnvLocal() {
+  let contenido;
+  try {
+    contenido = readFileSync(new URL("../.env.local", import.meta.url), "utf8");
+  } catch {
+    return; // no existe: se usará lo que haya en el entorno
+  }
+  for (const linea of contenido.split("\n")) {
+    const limpia = linea.trim();
+    if (!limpia || limpia.startsWith("#")) continue;
+    const corte = limpia.indexOf("=");
+    if (corte === -1) continue;
+    const clave = limpia.slice(0, corte).trim();
+    const valor = limpia.slice(corte + 1).trim().replace(/^["']|["']$/g, "");
+    if (valor && !process.env[clave]) process.env[clave] = valor;
+  }
+}
+
+cargarEnvLocal();
 
 const key = process.env.GOOGLE_PLACES_API_KEY;
 if (!key) {
-  console.error("Falta GOOGLE_PLACES_API_KEY en el entorno.");
+  console.error("Falta GOOGLE_PLACES_API_KEY.");
+  console.error("Copia .env.example a .env.local y pon ahí la clave.");
   process.exit(1);
 }
 
