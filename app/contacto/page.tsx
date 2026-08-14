@@ -44,7 +44,10 @@ export default function ContactoPage() {
             <h2 className="mb-[18px] font-display text-[23px] font-bold text-ink">
               Cuéntanos qué necesitas
             </h2>
-            <ContactForm />
+            {/* Si no hay clave de Resend, el formulario vuelve solo al mailto
+                de siempre. Se decide en el servidor para no hacer un viaje de
+                ida y vuelta inútil al pulsar enviar. */}
+            <ContactForm envioActivo={Boolean(process.env.RESEND_API_KEY)} />
           </div>
 
           <div>

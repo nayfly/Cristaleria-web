@@ -60,15 +60,11 @@ export const business = {
   googleReviewsUrl: "https://search.google.com/local/reviews?placeid=ChIJH5TCLGSkLxURUzspBgKLPfM",
   siteUrl: "https://www.cristaleriayaluminiostorroxcosta.com",
   // Datos para el aviso legal y la política de privacidad. Los exige el
-  // artículo 10 de la LSSI, y tienen que ser los del titular real del negocio.
-  //
-  // OJO: los dos primeros están SIN RELLENAR a propósito. Salen tal cual en las
-  // páginas legales, así que se ven a la primera y no se publica por descuido
-  // un dato inventado. Rellénalos antes de sacar la web del .vercel.app.
+  // artículo 10 de la LSSI, y son los del titular real del negocio.
   legal: {
-    titular: "[PENDIENTE: nombre y apellidos, o razón social]",
-    nif: "[PENDIENTE: NIF o CIF]",
-    // Solo si el negocio es una sociedad (S.L., S.A.). Si es autónomo, null.
+    titular: "Juan Antonio Valle Ales",
+    nif: "52584635B",
+    // Autónomo, no sociedad: no hay datos registrales que publicar.
     registroMercantil: null as string | null,
     ultimaActualizacion: "14 de agosto de 2026",
   },

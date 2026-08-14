@@ -12,6 +12,10 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacidadPage() {
+  // El formulario se comporta de dos maneras según esté configurado el envío
+  // por servidor. El texto se adapta para no describir algo que no ocurre.
+  const envioActivo = Boolean(process.env.RESEND_API_KEY);
+
   return (
     <LegalPage
       titulo="Política de privacidad"
@@ -19,11 +23,24 @@ export default function PrivacidadPage() {
     >
       <h2>Lo importante, primero</h2>
       <p>
-        Esta web <strong>no tiene base de datos ni almacena información de sus visitantes</strong>.
-        Es un sitio estático. El formulario de contacto no envía nada a ningún servidor nuestro: lo
-        que escribes se usa en tu propio dispositivo para redactar un correo, y no sale de ahí
-        hasta que tú le das a enviar en tu programa de correo.
+        Esta web <strong>no tiene base de datos ni guarda un registro de sus visitantes</strong>. No
+        te seguimos el rastro, no sabemos qué páginas miras y no creamos ninguna ficha tuya por el
+        hecho de entrar.
       </p>
+      {envioActivo ? (
+        <p>
+          Cuando rellenas el formulario de contacto, lo que escribes viaja cifrado hasta nuestro
+          servidor, que <strong>lo convierte en un correo y nos lo envía</strong>. No se guarda en
+          ninguna base de datos: el mensaje acaba en nuestro buzón, como si nos hubieras escrito un
+          correo normal, y ahí se queda.
+        </p>
+      ) : (
+        <p>
+          El formulario de contacto ni siquiera envía nada a un servidor nuestro: lo que escribes se
+          usa en tu propio dispositivo para redactar un correo, y no sale de ahí hasta que tú le das
+          a enviar en tu programa de correo.
+        </p>
+      )}
       <p>
         Eso significa que, mientras no nos escribas, no tenemos ningún dato tuyo. Cuando nos
         escribes, tratamos lo que nos cuentes para responderte, y nada más.
@@ -95,11 +112,17 @@ export default function PrivacidadPage() {
           <strong>Nuestro proveedor de correo.</strong> Si nos escribes por email, el mensaje queda
           en nuestro buzón alojado por el proveedor correspondiente.
         </li>
+        {envioActivo && (
+          <li>
+            <strong>Resend (Plus Five Five, Inc.),</strong> el servicio que entrega los mensajes del
+            formulario en nuestro buzón. Actúa como encargado del tratamiento: procesa el envío por
+            cuenta nuestra y no usa tus datos para nada más.
+          </li>
+        )}
         <li>
           <strong>Vercel Inc.,</strong> que aloja esta web. Como cualquier servidor, procesa las
           peticiones técnicas necesarias para servirte las páginas y puede registrar direcciones IP
-          en sus registros de seguridad. No recibe el contenido del formulario, porque el formulario
-          no se envía a ningún servidor.
+          en sus registros de seguridad.
         </li>
         <li>
           <strong>Google,</strong> únicamente si abres el mapa de la página de contacto o pulsas
