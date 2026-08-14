@@ -135,14 +135,11 @@ export default async function HomePage() {
 
       {/* STORY */}
       <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
-        <div className="grid grid-cols-1 items-center gap-9 rounded-[20px] bg-ink p-8 text-white sm:p-10 md:grid-cols-[0.9fr_1.1fr]">
-          <PhotoSlot
-            label="Taller de aluminio y cristaleria"
-            src="/images/gallery/tienda-taller.webp"
-            sizes="(min-width: 768px) 45vw, 100vw"
-            className="aspect-square rounded-md"
-          />
-          <div>
+        {/* Sin foto por decisión del negocio: en vez de dejar la rejilla de dos
+            columnas coja, el bloque pasa a una sola columna con el texto a
+            ancho de lectura. */}
+        <div className="rounded-[20px] bg-ink p-8 text-white sm:p-10">
+          <div className="max-w-[62ch]">
             <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-warm">
               Cómo trabajamos
             </p>
@@ -173,7 +170,7 @@ export default async function HomePage() {
           <div className="mx-auto mb-6 max-w-[60ch] text-center">
             <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-accent">Opiniones</p>
             <h2 className="mt-2.5 font-display text-[28px] font-bold leading-tight text-ink sm:text-3xl">
-              Clientes que ya nos han dejado entrar en casa
+              Esto no lo decimos nosotros
             </h2>
             <p className="mt-2.5 text-[14.5px] text-muted">
               {opiniones.rating}/5 sobre {opiniones.count} reseñas en Google
@@ -182,34 +179,6 @@ export default async function HomePage() {
           <ReviewsCarousel reviews={opiniones.reviews} url={opiniones.mapsUrl} />
         </div>
       </section>
-
-      {/* FINAL CTA */}
-      <div className="mx-auto max-w-[1132px] px-5 pb-[52px] sm:px-8">
-        <div className="flex flex-wrap items-center justify-between gap-6 rounded-[20px] bg-tan p-8 sm:p-11">
-          <div>
-            <h2 className="font-display text-[26px] font-bold text-ink">
-              ¿Qué hueco quieres cerrar o mejorar?
-            </h2>
-            <p className="mt-1.5 text-[14px] text-muted">
-              Te orientamos por teléfono o correo, sin compromiso · Respuesta rápida
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <a
-              href={`tel:${business.phone}`}
-              className="rounded-md bg-accent px-6 py-3.5 text-[14.5px] font-bold text-white hover:bg-accent-dark"
-            >
-              Llamar
-            </a>
-            <Link
-              href="/contacto"
-              className="rounded-md border-[1.5px] border-line bg-white px-6 py-3.5 text-[14.5px] font-bold text-ink hover:bg-cream"
-            >
-              Formulario
-            </Link>
-          </div>
-        </div>
-      </div>
 
       <Footer />
       <CallFloat />
