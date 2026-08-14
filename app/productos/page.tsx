@@ -5,6 +5,14 @@ import { Footer } from "@/components/Footer";
 import { CallFloat } from "@/components/CallFloat";
 import { PhotoSlot } from "@/components/PhotoSlot";
 import { business, services } from "@/lib/business";
+import { gallerySections } from "@/lib/gallery";
+
+// Cada servicio con su categoría de galería, para poder enlazar el catálogo con
+// los trabajos ya hechos. Se deriva de lib/gallery.ts, así que si allí cambia un
+// slug esto no se queda desincronizado.
+const galeriaPorServicio: Record<string, string> = Object.fromEntries(
+  gallerySections.map((s) => [s.serviceSlug, s.slug]),
+);
 
 export const metadata: Metadata = {
   title: "Cerramientos, toldos y mamparas",
@@ -54,6 +62,14 @@ export default function ProductosPage() {
                       <li key={b}>· {b}</li>
                     ))}
                   </ul>
+                  {galeriaPorServicio[s.slug] && (
+                    <Link
+                      href={`/galeria#${galeriaPorServicio[s.slug]}`}
+                      className="mb-3.5 text-[13px] font-bold text-accent hover:text-accent-dark"
+                    >
+                      Ver trabajos hechos →
+                    </Link>
+                  )}
                   <div className="mt-auto flex flex-wrap gap-2.5">
                     <a
                       href={`tel:${business.phone}`}

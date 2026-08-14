@@ -4,13 +4,16 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  /* clip y no hidden: hidden convierte la raíz en contenedor de scroll y eso
+     rompe el position:sticky de la cabecera. clip corta igual el desbordamiento
+     horizontal sin crear ese contenedor. */
+  overflow-x: clip;
 }
 
 body {
   background-color: theme(colors.bg);
   color: theme(colors.ink);
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 a:focus-visible,

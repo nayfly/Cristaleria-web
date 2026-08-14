@@ -17,7 +17,7 @@ se enseña para dar el visto bueno, todavía no sustituye a la web en producció
 ## Ya resuelto
 
 - **Fotos reales**: no queda ningún `PhotoSlot` sin foto. Las 10 fichas de
-  servicio y los 39 trabajos de la galería apuntan a ficheros que existen en
+  servicio y los 37 trabajos de la galería apuntan a ficheros que existen en
   `/public/images/`, organizado en
   `brand/` (logo), `services/` (una imagen por servicio) y `gallery/` (una
   subcarpeta por categoría, más `hero-home.webp` y `tienda-taller.webp`).
@@ -71,6 +71,15 @@ Detalles que conviene saber:
    (`www.cristaleriayaluminiostorroxcosta.com`), no al de Vercel. Mientras la
    web viva solo en `.vercel.app`, el canonical, el sitemap y el JSON-LD
    señalan a un dominio que todavía no la sirve.
+
+## Galería
+
+`/galeria` filtra por categoría y amplía las fotos en un visor (flechas del
+teclado para pasar, Escape para cerrar). Cada categoría enlaza con su servicio
+en `/productos` y viceversa; la correspondencia vive en el campo `serviceSlug`
+de cada sección en `lib/gallery.ts`, así que se cambia en un solo sitio.
+
+Se puede enlazar a una categoría concreta desde fuera: `/galeria#mamparas-bano`.
 
 ## Al editar contenido
 

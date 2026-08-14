@@ -7,6 +7,9 @@ export type GalleryItem = {
 
 export type GallerySection = {
   slug: string;
+  /** Slug del servicio equivalente en lib/business.ts, para enlazar las dos
+      páginas en los dos sentidos. */
+  serviceSlug: string;
   tag: string;
   title: string;
   description: string;
@@ -16,6 +19,7 @@ export type GallerySection = {
 export const gallerySections: GallerySection[] = [
   {
     slug: "cerramientos-terrazas",
+    serviceSlug: "cerramientos-de-terrazas",
     tag: "Exterior",
     title: "Cerramientos de terrazas",
     description: "Trabajos de cerramiento para ganar espacio útil y proteger terrazas o balcones.",
@@ -48,6 +52,7 @@ export const gallerySections: GallerySection[] = [
   },
   {
     slug: "cortinas-vidrio",
+    serviceSlug: "cortinas-de-vidrio-panoramicas",
     tag: "Cristalería",
     title: "Cortinas de vidrio panorámicas",
     description: "Cerramientos plegables sin perfiles verticales para mantener las vistas.",
@@ -80,6 +85,7 @@ export const gallerySections: GallerySection[] = [
   },
   {
     slug: "barandillas-cristal",
+    serviceSlug: "barandillas-de-cristal",
     tag: "Cristalería",
     title: "Barandillas de cristal",
     description: "Barandillas transparentes para balcones, terrazas, escaleras y piscinas.",
@@ -118,6 +124,7 @@ export const gallerySections: GallerySection[] = [
   },
   {
     slug: "toldos-persianas",
+    serviceSlug: "toldos-y-persianas",
     tag: "Exterior",
     title: "Toldos y persianas",
     description: "Instalaciones para sombra, protección solar y mejora de fachadas.",
@@ -150,6 +157,7 @@ export const gallerySections: GallerySection[] = [
   },
   {
     slug: "mamparas-bano",
+    serviceSlug: "mamparas-de-bano",
     tag: "Baño",
     title: "Mamparas de baño",
     description: "Mamparas a medida en vidrio templado para duchas y bañeras.",
@@ -182,6 +190,7 @@ export const gallerySections: GallerySection[] = [
   },
   {
     slug: "canceles-puertas",
+    serviceSlug: "canceles-y-puertas",
     tag: "Carpintería",
     title: "Canceles y puertas",
     description: "Puertas, canceles y soluciones de carpintería para accesos.",
@@ -214,6 +223,7 @@ export const gallerySections: GallerySection[] = [
   },
   {
     slug: "proteccion-viviendas",
+    serviceSlug: "proteccion-de-viviendas",
     tag: "Seguridad",
     title: "Protección de viviendas y locales",
     description: "Rejas, cerramientos y soluciones para mejorar la seguridad.",
@@ -246,6 +256,7 @@ export const gallerySections: GallerySection[] = [
   },
   {
     slug: "mosquiteras",
+    serviceSlug: "mosquiteras",
     tag: "Confort",
     title: "Mosquiteras",
     description: "Mosquiteras fijas, correderas y enrollables para puertas y ventanas.",
@@ -278,6 +289,7 @@ export const gallerySections: GallerySection[] = [
   },
   {
     slug: "enmarcados",
+    serviceSlug: "enmarcado-de-cuadros",
     tag: "Cristalería",
     title: "Enmarcados",
     description: "Cristal, espejos y marcos a medida para piezas decorativas.",
