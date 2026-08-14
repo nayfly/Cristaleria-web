@@ -52,10 +52,13 @@ export const business = {
     "Torre del Mar",
     "Cómpeta",
   ],
-  // Enlace a la ficha real de Google Maps (búsqueda por nombre + dirección
-  // exactos, para llevar siempre a la ficha oficial y sus reseñas).
-  googleReviewsUrl:
-    "https://www.google.com/maps/search/?api=1&query=Cristaler%C3%ADa+y+Aluminios+Torrox+Costa+Av.+de+Andaluc%C3%ADa+24+Torrox+Costa+M%C3%A1laga",
+  // Identificador de la ficha en Google. No es secreto: identifica un negocio
+  // público, y tenerlo aquí evita configurarlo como variable de entorno.
+  googlePlaceId: "ChIJH5TCLGSkLxURUzspBgKLPfM",
+  // Ficha oficial en Maps y listado completo de reseñas, ambos por place id
+  // para que no dependan de que una búsqueda por nombre acierte.
+  googleMapsUrl: "https://www.google.com/maps/place/?q=place_id:ChIJH5TCLGSkLxURUzspBgKLPfM",
+  googleReviewsUrl: "https://search.google.com/local/reviews?placeid=ChIJH5TCLGSkLxURUzspBgKLPfM",
   siteUrl: "https://www.cristaleriayaluminiostorroxcosta.com",
   story: {
     intro:

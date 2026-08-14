@@ -49,7 +49,6 @@ type PlacesResponse = {
   reviews?: PlacesReview[];
   rating?: number;
   userRatingCount?: number;
-  googleMapsUri?: string;
 };
 
 const FALLBACK: ReviewsData = {
@@ -60,9 +59,14 @@ const FALLBACK: ReviewsData = {
   live: false,
 };
 
+// La ficha en Maps es el perfil; googleReviewsUrl abre el listado completo de
+// reseñas. Son sitios distintos y conviene no confundirlos.
+
 export async function getReviews(): Promise<ReviewsData> {
   const key = process.env.GOOGLE_PLACES_API_KEY;
-  const placeId = process.env.GOOGLE_PLACE_ID;
+  // El id vive en business.ts; la variable de entorno solo existe por si algún
+  // día hace falta apuntar a otra ficha sin tocar código.
+  const placeId = process.env.GOOGLE_PLACE_ID || business.googlePlaceId;
   if (!key || !placeId) return FALLBACK;
 
   try {
@@ -71,7 +75,7 @@ export async function getReviews(): Promise<ReviewsData> {
       {
         headers: {
           "X-Goog-Api-Key": key,
-          "X-Goog-FieldMask": "reviews,rating,userRatingCount,googleMapsUri",
+          "X-Goog-FieldMask": "reviews,rating,userRatingCount",
         },
         // Google permite cachear los datos de una ficha hasta 30 días; con
         // revalidar una vez al día son ~30 peticiones al mes, muy por debajo
@@ -102,14 +106,17 @@ export async function getReviews(): Promise<ReviewsData> {
       })
       .filter((r): r is SiteReview => r !== null);
 
-    if (mapped.length === 0) return FALLBACK;
-
+    // Google devuelve la nota y el recuento de esta ficha, pero no el texto de
+    // las reseñas (array vacío, sin error). Cuando pase eso aprovechamos igual
+    // los números en vivo y solo los textos caen al respaldo.
     return {
-      reviews: mapped,
+      reviews: mapped.length > 0 ? mapped : FALLBACK.reviews,
       rating: data.rating ?? business.rating.value,
       count: data.userRatingCount ?? business.rating.count,
-      mapsUrl: data.googleMapsUri ?? business.googleReviewsUrl,
-      live: true,
+      // Siempre al listado de reseñas, no a la ficha: es lo que el visitante
+      // espera al pulsar "Ver reseñas en Google".
+      mapsUrl: business.googleReviewsUrl,
+      live: mapped.length > 0,
     };
   } catch (error) {
     console.error("No se pudieron traer las reseñas de Google:", error);

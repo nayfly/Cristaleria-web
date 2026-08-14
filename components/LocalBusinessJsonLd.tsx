@@ -24,7 +24,7 @@ export async function LocalBusinessJsonLd() {
     email: business.email,
     priceRange: "€€",
     currenciesAccepted: "EUR",
-    hasMap: business.googleReviewsUrl,
+    hasMap: business.googleMapsUrl,
     areaServed: business.areaServed.map((name) => ({
       "@type": "City",
       name,
@@ -62,7 +62,7 @@ export async function LocalBusinessJsonLd() {
       opens: spec.opens,
       closes: spec.closes,
     })),
-    sameAs: [business.social.facebook, business.social.youtube, business.googleReviewsUrl],
+    sameAs: [business.social.facebook, business.social.youtube, business.googleMapsUrl],
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: opiniones.rating,

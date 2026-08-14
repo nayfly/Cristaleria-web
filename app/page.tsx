@@ -14,6 +14,10 @@ const featuredServices = featuredServiceSlugs
 // La portada no declara title/description propios: hereda los del layout, que
 // son la fuente única y ya vienen recortados a lo que Google muestra sin cortar.
 
+// Se regenera una vez al día para refrescar la valoración de Google. Explícito
+// y no heredado del fetch, para que se vea de un vistazo cada cuánto cambia.
+export const revalidate = 86400;
+
 export default async function HomePage() {
   const opiniones = await getReviews();
 

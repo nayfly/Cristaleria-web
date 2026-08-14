@@ -43,7 +43,7 @@ function YoutubeIcon() {
 
 const links = [
   { key: "facebook", href: business.social.facebook, label: "Facebook", Icon: FacebookIcon },
-  { key: "google", href: business.googleReviewsUrl, label: "Perfil de Google", Icon: GoogleIcon },
+  { key: "google", href: business.googleMapsUrl, label: "Perfil de Google", Icon: GoogleIcon },
   { key: "youtube", href: business.social.youtube, label: "YouTube", Icon: YoutubeIcon },
 ] as const;
 
