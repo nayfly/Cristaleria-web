@@ -9,26 +9,44 @@ npm install
 npm run dev
 ```
 
-## Antes de publicar
+## Dónde está publicada
 
-1. **Fotos reales**: cada bloque con el icono 📷 (componente `PhotoSlot`) es un
-   marcador. Sustitúyelo por `<Image src="/fotos/xxx.jpg" alt="..." fill />`
-   con la foto real guardada en `/public/fotos/`.
-2. **Datos del negocio**: todo el contenido (teléfono, email, horario, redes,
-   reseñas, valoración) sale de `lib/business.ts`. Cambia ahí, no en las páginas.
-3. **Valoración de Google**: en `lib/business.ts`, `rating.count` está puesto
-   como aproximado (+100). Pon la cifra exacta que tengáis en Google Business.
-4. **Dominio**: `siteUrl` en `lib/business.ts` debe coincidir con el dominio
-   real antes de desplegar (afecta al sitemap, robots.txt y JSON-LD).
-5. **SEO ya incluido**: metadatos Open Graph, sitemap.xml, robots.txt y
-   structured data (JSON-LD `HomeAndConstructionBusiness`) con dirección,
-   geolocalización, horario y valoración — nada de esto lo tiene la web actual.
+Desplegada de prueba en https://cristaleria-web.vercel.app — es la versión que
+se enseña para dar el visto bueno, todavía no sustituye a la web en producción.
 
-6. **Formulario de contacto**: en `/contacto` no hay backend de email — el
+## Ya resuelto
+
+- **Fotos reales**: las 10 fichas de servicio y los 39 trabajos de la galería
+  apuntan a ficheros que existen en `/public/images/`, organizado en
+  `brand/` (logo), `services/` (una imagen por servicio) y `gallery/` (una
+  subcarpeta por categoría, más `hero-home.webp` y `tienda-taller.webp`).
+- **SEO**: metadatos Open Graph, sitemap.xml, robots.txt y structured data
+  (JSON-LD `HomeAndConstructionBusiness`) con dirección, geolocalización,
+  horario y valoración — nada de esto lo tiene la web actual.
+
+## Pendiente antes de publicar
+
+1. **Foto de `/nosotros`**: es el único `PhotoSlot` que sigue sin `src`
+   (`app/nosotros/page.tsx`, "Foto del equipo o del taller"). Pásale una foto
+   de `/public/images/` o quita el bloque.
+2. **Formulario de contacto**: en `/contacto` no hay backend de email — el
    formulario (`components/ContactForm.tsx`) construye un mensaje de
-   WhatsApp o un `mailto:` con lo escrito. Si más adelante se quiere que
-   llegue de verdad a un buzón sin pasar por WhatsApp, hay que añadir un
-   proveedor tipo Formspree o Resend.
+   WhatsApp o un `mailto:` con lo escrito. Si se quiere que llegue de verdad a
+   un buzón sin pasar por WhatsApp, hay que añadir un proveedor tipo Formspree
+   o Resend.
+3. **Valoración de Google**: en `lib/business.ts`, `rating.count` está puesto
+   como aproximado (101). Pon la cifra exacta que tengáis en Google Business,
+   porque va al JSON-LD.
+4. **Dominio**: `siteUrl` en `lib/business.ts` ya apunta al dominio real
+   (`www.cristaleriayaluminiostorroxcosta.com`), no al de Vercel. Mientras la
+   web viva solo en `.vercel.app`, el canonical, el sitemap y el JSON-LD
+   señalan a un dominio que todavía no la sirve.
+
+## Al editar contenido
+
+Todo el contenido del negocio (teléfono, email, horario, redes, reseñas,
+valoración, servicios) sale de `lib/business.ts`, y los trabajos de la galería
+de `lib/gallery.ts`. Cambia ahí, no en las páginas.
 
 ## Estructura
 
