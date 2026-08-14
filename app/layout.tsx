@@ -16,22 +16,39 @@ const body = Manrope({
   variable: "--font-body",
 });
 
+const defaultTitle = `${business.name} | Aluminio, PVC y cristalería`;
+const defaultDescription =
+  "Aluminio, PVC y cristalería en Torrox Costa. Cerramientos, toldos, persianas, mamparas y mosquiteras. Taller propio desde 1986. Presupuesto sin compromiso.";
+const shareImage = "/images/gallery/hero-home.webp";
+
 export const metadata: Metadata = {
   metadataBase: new URL(business.siteUrl),
   title: {
-    default: `${business.name} | Carpintería de aluminio, PVC y cristalería`,
-    template: `%s | ${business.shortName}`,
+    default: defaultTitle,
+    template: "%s | Aluminios Torrox Costa",
   },
-  description:
-    "Instalación y fabricación propia de persianas, toldos, mosquiteras, cristalería y cerrajería en Torrox Costa, Málaga. Más de 30 años de experiencia. Presupuesto gratis.",
+  description: defaultDescription,
   keywords: [
-    "cristalería Torrox Costa",
+    "aluminios Torrox",
+    "aluminio Torrox",
     "aluminios Torrox Costa",
-    "toldos Málaga",
-    "persianas de seguridad Málaga",
-    "mosquiteras a medida",
+    "cristalería Torrox",
+    "cristalería Torrox Costa",
+    "carpintería de aluminio Torrox",
+    "cerramientos de terraza Torrox",
+    "cortinas de vidrio Torrox Costa",
+    "toldos Torrox",
+    "persianas Torrox",
+    "mamparas de baño Torrox",
+    "mosquiteras Torrox",
+    "cristalero Torrox Costa",
+    "aluminios Axarquía",
     "carpintería de aluminio Costa del Sol",
   ],
+  authors: [{ name: business.name }],
+  creator: business.name,
+  publisher: business.name,
+  category: "Carpintería de aluminio y cristalería",
   alternates: {
     canonical: "/",
   },
@@ -40,13 +57,36 @@ export const metadata: Metadata = {
     locale: "es_ES",
     url: business.siteUrl,
     siteName: business.name,
-    title: `${business.name} | Carpintería de aluminio, PVC y cristalería`,
-    description:
-      "Instalación y fabricación propia de persianas, toldos, mosquiteras, cristalería y cerrajería en Torrox Costa, Málaga desde 1986.",
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [
+      {
+        url: shareImage,
+        width: 1600,
+        height: 600,
+        alt: `Cerramiento de terraza instalado por ${business.name}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [shareImage],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  formatDetection: {
+    telephone: true,
+    address: true,
   },
 };
 

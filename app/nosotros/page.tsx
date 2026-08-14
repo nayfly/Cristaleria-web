@@ -7,9 +7,9 @@ import { PhotoSlot } from "@/components/PhotoSlot";
 import { business } from "@/lib/business";
 
 export const metadata: Metadata = {
-  title: "Quiénes somos",
+  title: "Quiénes somos: 40 años en Torrox",
   description:
-    "Conoce a Cristalería y Aluminios Torrox Costa: negocio familiar desde 1986, instalación y fabricación propia de carpintería de aluminio, PVC y cristalería en la Costa del Sol.",
+    "Negocio familiar en Torrox Costa desde 1986: instalación y fabricación propia de carpintería de aluminio, PVC y cristalería en toda la Axarquía.",
   alternates: { canonical: "/nosotros" },
 };
 
@@ -77,7 +77,7 @@ export default function NosotrosPage() {
           <div>
             <h2 className="font-display text-[26px] font-bold text-ink">¿Hablamos de tu proyecto?</h2>
             <p className="mt-1.5 text-[14px] text-muted">
-              Pide presupuesto sin compromiso, te respondemos el mismo día.
+              Pide presupuesto sin compromiso, te respondemos lo antes posible.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">

@@ -6,7 +6,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { business } from "@/lib/business";
 
 export const metadata: Metadata = {
-  title: "Contacto",
+  title: "Contacto y presupuesto",
   description:
     "Pide presupuesto sin compromiso a Cristalería y Aluminios Torrox Costa. Teléfono, WhatsApp, email, dirección y horario en Torrox Costa, Málaga.",
   alternates: { canonical: "/contacto" },
@@ -26,7 +26,7 @@ export default function ContactoPage() {
             Hablemos de tu proyecto
           </h1>
           <p className="mt-2 max-w-[60ch] text-[15.5px] leading-relaxed text-muted">
-            Escríbenos, llama o pásate por el taller. Te respondemos el mismo día.
+            Escríbenos, llama o pásate por el taller. Te respondemos lo antes posible.
           </p>
           <div className="mt-[22px] flex flex-wrap gap-3">
             <a

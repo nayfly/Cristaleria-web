@@ -1,24 +1,22 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { PhotoSlot } from "@/components/PhotoSlot";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
-import { business, services, featuredServiceSlugs, reviews } from "@/lib/business";
+import { business, services, featuredServiceSlugs } from "@/lib/business";
+import { getReviews } from "@/lib/google-reviews";
 
 const featuredServices = featuredServiceSlugs
   .map((slug) => services.find((s) => s.slug === slug))
   .filter((s): s is (typeof services)[number] => Boolean(s));
 
-export const metadata: Metadata = {
-  title: `${business.name} | Carpintería de aluminio, PVC y cristalería en Torrox Costa`,
-  description:
-    "Ventanas, toldos, persianas, mosquiteras y cristalería a medida en Torrox Costa, Málaga. Instalación y fabricación propia desde 1986. Pide presupuesto gratis por WhatsApp o llamada.",
-  alternates: { canonical: "/" },
-};
+// La portada no declara title/description propios: hereda los del layout, que
+// son la fuente única y ya vienen recortados a lo que Google muestra sin cortar.
 
-export default function HomePage() {
+export default async function HomePage() {
+  const opiniones = await getReviews();
+
   return (
     <>
       <Header active="inicio" />
@@ -75,7 +73,11 @@ export default function HomePage() {
 
         {/* TRUST */}
         <div className="mx-auto mt-9 grid max-w-[1180px] grid-cols-1 gap-3.5 px-5 pb-8 sm:px-8 sm:grid-cols-2 lg:grid-cols-4">
-          <TrustCard icon="★" value="4.8 / 5" label={`${business.rating.count} reseñas Google`} />
+          <TrustCard
+            icon="★"
+            value={`${opiniones.rating} / 5`}
+            label={`${opiniones.count} reseñas Google`}
+          />
           <TrustCard icon="40" value={`Desde ${business.foundedYear}`} label="40 años en la zona" />
           <TrustCard icon="⚒" value="Instalación propia" label="Medimos y montamos nosotros mismos" />
           <TrustCard icon="⏱" value="Respuesta rápida" label="Te contestamos lo antes posible" />
@@ -178,10 +180,10 @@ export default function HomePage() {
               Clientes que ya nos han dejado entrar en casa
             </h2>
             <p className="mt-2.5 text-[14.5px] text-muted">
-              {business.rating.value}/5 sobre {business.rating.count} reseñas en Google
+              {opiniones.rating}/5 sobre {opiniones.count} reseñas en Google
             </p>
           </div>
-          <ReviewsCarousel reviews={reviews} url={business.googleReviewsUrl} />
+          <ReviewsCarousel reviews={opiniones.reviews} url={opiniones.mapsUrl} />
         </div>
       </section>
 

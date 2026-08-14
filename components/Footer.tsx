@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { business } from "@/lib/business";
+import { SocialLinks } from "./SocialLinks";
 
 export function Footer() {
   return (
@@ -88,14 +89,8 @@ export function Footer() {
               {business.address.street}, {business.address.locality}
             </li>
             <li>{business.hours.shortDisplay}</li>
-            <li>
-              <a href={business.social.facebook} target="_blank" rel="noopener" className="hover:text-white">
-                Facebook
-              </a>{" "}
-              ·{" "}
-              <a href={business.social.youtube} target="_blank" rel="noopener" className="hover:text-white">
-                YouTube
-              </a>
+            <li className="pt-1.5">
+              <SocialLinks />
             </li>
           </ul>
         </div>

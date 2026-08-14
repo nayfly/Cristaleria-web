@@ -1,15 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import type { SiteReview } from "@/lib/google-reviews";
 
-type Review = {
-  text: string;
-  who: string;
-  date: string;
-  rating?: number;
-};
-
-export function ReviewsCarousel({ reviews, url }: { reviews: Review[]; url: string }) {
+export function ReviewsCarousel({ reviews, url }: { reviews: SiteReview[]; url: string }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -43,9 +37,28 @@ export function ReviewsCarousel({ reviews, url }: { reviews: Review[]; url: stri
               cardIndex > 0 ? "hidden md:block" : ""
             }`}
           >
-            <p className="mb-2 text-sm text-accent">{"★".repeat(review.rating ?? 5)}</p>
+            <p className="mb-2 text-sm text-accent">{"★".repeat(Math.round(review.rating ?? 5))}</p>
             <p className="text-[13.5px] leading-[1.55] text-[#3a3226]">“{review.text}”</p>
-            <b className="mt-2.5 block text-[12.5px] text-ink">{review.who}</b>
+            <div className="mt-3 flex items-center gap-2.5">
+              {review.photoUrl && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={review.photoUrl}
+                  alt=""
+                  width={28}
+                  height={28}
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                  className="h-7 w-7 flex-none rounded-full object-cover"
+                />
+              )}
+              <div className="min-w-0">
+                <b className="block truncate text-[12.5px] text-ink">{review.who}</b>
+                {review.date && (
+                  <span className="block text-[11.5px] text-muted">{review.date}</span>
+                )}
+              </div>
+            </div>
           </article>
         ))}
       </div>

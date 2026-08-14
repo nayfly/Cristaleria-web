@@ -7,7 +7,7 @@ import { business } from "@/lib/business";
 import { gallerySections } from "@/lib/gallery";
 
 export const metadata: Metadata = {
-  title: "Galería de trabajos realizados",
+  title: "Galería de trabajos en aluminio",
   description:
     "Proyectos de carpintería de aluminio, PVC y cristalería realizados en Torrox Costa y la Costa del Sol: puertas, toldos, cerramientos, mamparas y más.",
   alternates: { canonical: "/galeria" },

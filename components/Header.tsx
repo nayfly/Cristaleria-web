@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { business } from "@/lib/business";
+import { SocialLinks } from "./SocialLinks";
 
 const navItems = [
   { href: "/", label: "Inicio", key: "inicio" },
@@ -28,6 +29,7 @@ export function Header({
             {business.hours.shortDisplay} · {business.address.locality}
           </span>
           <div className="hidden flex-none items-center gap-3.5 sm:flex">
+            <SocialLinks />
             <a href={`tel:${business.phone}`} className="hidden sm:inline">
               📞 {business.phoneDisplay}
             </a>
@@ -120,6 +122,7 @@ export function Header({
               >
                 WhatsApp
               </a>
+              <SocialLinks className="mt-4 justify-center [&>a]:border [&>a]:border-line" />
             </div>
           </div>
         )}

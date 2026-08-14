@@ -32,13 +32,26 @@ export const business = {
     ],
   },
   social: {
-    facebook: "https://www.facebook.com/profile.php?id=100064627428354",
+    facebook: "https://www.facebook.com/p/Cristaleria-y-Aluminios-Torrox-Costa-100064627428354/",
     youtube: "https://www.youtube.com/@cristaleriayaluminios.torr7231",
   },
   rating: {
     value: 4.8,
-    count: 101,
+    count: 140,
   },
+  // Municipios de la Axarquía a los que se desplaza el taller. Sale en el
+  // JSON-LD como areaServed: quita los que no cubráis, porque decir que se
+  // trabaja en un sitio al que no se va perjudica más que ayuda.
+  areaServed: [
+    "Torrox",
+    "Torrox Costa",
+    "Nerja",
+    "Frigiliana",
+    "Algarrobo",
+    "Vélez-Málaga",
+    "Torre del Mar",
+    "Cómpeta",
+  ],
   // Enlace a la ficha real de Google Maps (búsqueda por nombre + dirección
   // exactos, para llevar siempre a la ficha oficial y sus reseñas).
   googleReviewsUrl:
