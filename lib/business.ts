@@ -7,7 +7,6 @@ export const business = {
   foundedYear: 1986,
   phone: "+34683117711",
   phoneDisplay: "683 11 77 11",
-  whatsapp: "https://wa.me/34683117711",
   email: "alucrisvr@gmail.com",
   address: {
     street: "Av. de Andalucía, n°24, bj",

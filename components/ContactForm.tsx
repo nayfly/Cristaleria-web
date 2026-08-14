@@ -21,13 +21,10 @@ export function ContactForm() {
     return lines.join("\n");
   }
 
-  function handleWhatsApp(e: React.FormEvent) {
+  // El formulario no manda nada a ningún servidor: compone el mensaje y se lo
+  // pasa al programa de correo del visitante, que es quien lo envía.
+  function handleEmail(e: React.FormEvent) {
     e.preventDefault();
-    const text = encodeURIComponent(buildText());
-    window.open(`${business.whatsapp}?text=${text}`, "_blank", "noopener");
-  }
-
-  function handleEmail() {
     const subject = encodeURIComponent(`Presupuesto — ${name || "consulta desde la web"}`);
     const body = encodeURIComponent(buildText());
     window.location.href = `mailto:${business.email}?subject=${subject}&body=${body}`;
@@ -37,7 +34,7 @@ export function ContactForm() {
     "rounded-md border border-line bg-white px-3.5 py-3 text-[14.5px] outline-none focus:border-accent focus:outline focus:outline-2 focus:outline-accent/40";
 
   return (
-    <form className="grid gap-4" onSubmit={handleWhatsApp}>
+    <form className="grid gap-4" onSubmit={handleEmail}>
       <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
         <div className="grid gap-1.5">
           <label htmlFor="name" className="text-[13px] font-bold text-ink">
@@ -115,15 +112,18 @@ export function ContactForm() {
         type="submit"
         className="w-full rounded-md bg-accent px-6 py-3.5 text-[15px] font-bold text-white hover:bg-accent-dark"
       >
-        Enviar solicitud
+        Enviar por correo
       </button>
-      <button
-        type="button"
-        onClick={handleEmail}
-        className="text-center text-[13.5px] font-semibold text-accent hover:text-accent-dark"
-      >
-        o envíalo por email
-      </button>
+      <p className="text-center text-[12.5px] leading-[1.5] text-muted">
+        Se abrirá tu programa de correo con el mensaje ya escrito. Si prefieres llamar,{" "}
+        <a
+          href={`tel:${business.phone}`}
+          className="font-bold text-accent hover:text-accent-dark"
+        >
+          {business.phoneDisplay}
+        </a>
+        .
+      </p>
     </form>
   );
 }

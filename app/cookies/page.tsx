@@ -48,10 +48,9 @@ export default function CookiesPage() {
 
       <h3>Enlaces a otras páginas</h3>
       <p>
-        Los iconos de Facebook, Google y YouTube, y el botón de WhatsApp, son simples enlaces. No
-        cargan nada de esos servicios mientras estás aquí. Ahora bien, en cuanto pulsas uno sales de
-        esta web y entras en la suya, donde sí habrá cookies y donde manda su política, no la
-        nuestra.
+        Los iconos de Facebook, Google y YouTube son simples enlaces. No cargan nada de esos
+        servicios mientras estás aquí. Ahora bien, en cuanto pulsas uno sales de esta web y entras
+        en la suya, donde sí habrá cookies y donde manda su política, no la nuestra.
       </p>
 
       <h2>Sobre las tipografías</h2>

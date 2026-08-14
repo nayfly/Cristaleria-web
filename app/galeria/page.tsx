@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { CallFloat } from "@/components/CallFloat";
 import { PhotoSlot } from "@/components/PhotoSlot";
 import { business } from "@/lib/business";
 import { gallerySections } from "@/lib/gallery";
@@ -83,14 +83,6 @@ export default function GaleriaPage() {
           </div>
           <div className="flex flex-wrap gap-3">
             <a
-              href={business.whatsapp}
-              target="_blank"
-              rel="noopener"
-              className="rounded-md bg-wa px-6 py-3.5 text-[14.5px] font-bold text-ink2 hover:brightness-95"
-            >
-              WhatsApp
-            </a>
-            <a
               href={`tel:${business.phone}`}
               className="rounded-md bg-accent px-6 py-3.5 text-[14.5px] font-bold text-white hover:bg-accent-dark"
             >
@@ -101,7 +93,7 @@ export default function GaleriaPage() {
       </div>
 
       <Footer />
-      <WhatsAppFloat />
+      <CallFloat />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { CallFloat } from "@/components/CallFloat";
 import { PhotoSlot } from "@/components/PhotoSlot";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { business, services, featuredServiceSlugs } from "@/lib/business";
@@ -39,14 +39,6 @@ export default async function HomePage() {
             nuestro taller lo que podemos. Presupuesto claro y rápido, sin intermediarios.
           </p>
           <div className="mx-auto mt-[26px] grid w-full max-w-[330px] grid-cols-1 justify-center gap-3 sm:max-w-none sm:grid-cols-none sm:flex sm:flex-wrap">
-            <a
-              href={business.whatsapp}
-              target="_blank"
-              rel="noopener"
-              className="inline-flex items-center justify-center rounded-md bg-wa px-6 py-3.5 text-[14.5px] font-bold text-ink2 hover:brightness-95"
-            >
-              WhatsApp ahora
-            </a>
             <a
               href={`tel:${business.phone}`}
               className="inline-flex items-center justify-center rounded-md bg-accent px-6 py-3.5 text-[14.5px] font-bold text-white hover:bg-accent-dark"
@@ -199,18 +191,10 @@ export default async function HomePage() {
               ¿Qué hueco quieres cerrar o mejorar?
             </h2>
             <p className="mt-1.5 text-[14px] text-muted">
-              Te orientamos por teléfono o WhatsApp, sin compromiso · Respuesta rápida
+              Te orientamos por teléfono o correo, sin compromiso · Respuesta rápida
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <a
-              href={business.whatsapp}
-              target="_blank"
-              rel="noopener"
-              className="rounded-md bg-wa px-6 py-3.5 text-[14.5px] font-bold text-ink2 hover:brightness-95"
-            >
-              WhatsApp
-            </a>
             <a
               href={`tel:${business.phone}`}
               className="rounded-md bg-accent px-6 py-3.5 text-[14.5px] font-bold text-white hover:bg-accent-dark"
@@ -228,7 +212,7 @@ export default async function HomePage() {
       </div>
 
       <Footer />
-      <WhatsAppFloat />
+      <CallFloat />
     </>
   );
 }

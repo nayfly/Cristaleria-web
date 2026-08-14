@@ -53,7 +53,7 @@ export default function AvisoLegalPage() {
       <p>
         Este sitio es informativo: enseña los trabajos que hacemos y facilita ponerse en contacto
         con nosotros. No es una tienda: aquí no se vende nada, no se cobra nada y no hay pasarela de
-        pago. Cualquier presupuesto se acuerda después, por teléfono, WhatsApp, correo o en el
+        pago. Cualquier presupuesto se acuerda después, por teléfono, correo o en el
         propio taller.
       </p>
 
@@ -94,7 +94,7 @@ export default function AvisoLegalPage() {
 
       <h2>Enlaces a otras webs</h2>
       <p>
-        Enlazamos a sitios de terceros (Google, Facebook, YouTube y WhatsApp). No controlamos su
+        Enlazamos a sitios de terceros (Google, Facebook y YouTube). No controlamos su
         contenido ni sus condiciones, así que cuando sales de esta web pasas a regirte por las suyas.
       </p>
 

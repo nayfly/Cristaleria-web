@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { CallFloat } from "@/components/CallFloat";
 import { PhotoSlot } from "@/components/PhotoSlot";
 import { business, services } from "@/lib/business";
 
@@ -56,19 +56,17 @@ export default function ProductosPage() {
                   </ul>
                   <div className="mt-auto flex flex-wrap gap-2.5">
                     <a
-                      href={business.whatsapp}
-                      target="_blank"
-                      rel="noopener"
-                      className="rounded-md bg-accent px-4 py-2.5 text-[13px] font-bold text-white hover:bg-accent-dark"
-                    >
-                      WhatsApp
-                    </a>
-                    <a
                       href={`tel:${business.phone}`}
-                      className="rounded-md border-[1.5px] border-line px-4 py-2.5 text-[13px] font-bold text-ink hover:bg-cream"
+                      className="rounded-md bg-accent px-4 py-2.5 text-[13px] font-bold text-white hover:bg-accent-dark"
                     >
                       Llamar
                     </a>
+                    <Link
+                      href="/contacto"
+                      className="rounded-md border-[1.5px] border-line px-4 py-2.5 text-[13px] font-bold text-ink hover:bg-cream"
+                    >
+                      Correo
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -89,14 +87,6 @@ export default function ProductosPage() {
           </div>
           <div className="flex flex-wrap gap-3">
             <a
-              href={business.whatsapp}
-              target="_blank"
-              rel="noopener"
-              className="rounded-md bg-wa px-6 py-3.5 text-[14.5px] font-bold text-ink2 hover:brightness-95"
-            >
-              WhatsApp
-            </a>
-            <a
               href={`tel:${business.phone}`}
               className="rounded-md bg-accent px-6 py-3.5 text-[14.5px] font-bold text-white hover:bg-accent-dark"
             >
@@ -113,7 +103,7 @@ export default function ProductosPage() {
       </div>
 
       <Footer />
-      <WhatsAppFloat />
+      <CallFloat />
     </>
   );
 }

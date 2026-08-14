@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { CallFloat } from "@/components/CallFloat";
 import { business } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Tejidos para toldos",
   description:
-    "Catálogo de tejidos y colores de nuestros proveedores de toldos en Torrox Costa. Próximamente disponible: mientras tanto, pregúntanos por WhatsApp.",
+    "Catálogo de tejidos y colores de nuestros proveedores de toldos en Torrox Costa. Próximamente disponible: mientras tanto, pregúntanos por teléfono o correo.",
   alternates: { canonical: "/tejidos" },
 };
 
@@ -43,20 +44,18 @@ export default function TejidosPage() {
               presupuesto. Mientras tanto, si buscas un tejido o color concreto, dínoslo y te lo
               confirmamos directamente.
             </p>
-            <a
-              href={business.whatsapp}
-              target="_blank"
-              rel="noopener"
-              className="mt-6 inline-flex rounded-md bg-wa px-6 py-3.5 text-[14.5px] font-bold text-ink2 hover:brightness-95"
+            <Link
+              href="/contacto"
+              className="mt-6 inline-flex rounded-md bg-accent px-6 py-3.5 text-[14.5px] font-bold text-white hover:bg-accent-dark"
             >
-              Preguntar por WhatsApp
-            </a>
+              Preguntar por el tejido que buscas
+            </Link>
           </div>
         </div>
       </section>
 
       <Footer />
-      <WhatsAppFloat />
+      <CallFloat />
     </>
   );
 }

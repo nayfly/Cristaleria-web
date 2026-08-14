@@ -14,7 +14,6 @@ const config: Config = {
         line: "#ecdfc9",
         accent: "#c1652f",
         "accent-dark": "#a8501f",
-        wa: "#25d366",
         warm: "#f0a35f",
       },
       fontFamily: {

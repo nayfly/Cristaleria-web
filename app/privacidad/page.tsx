@@ -21,8 +21,8 @@ export default function PrivacidadPage() {
       <p>
         Esta web <strong>no tiene base de datos ni almacena información de sus visitantes</strong>.
         Es un sitio estático. El formulario de contacto no envía nada a ningún servidor nuestro: lo
-        que escribes se usa en tu propio dispositivo para redactar un mensaje de WhatsApp o un
-        correo, y no sale de ahí hasta que tú le das a enviar en tu aplicación.
+        que escribes se usa en tu propio dispositivo para redactar un correo, y no sale de ahí
+        hasta que tú le das a enviar en tu programa de correo.
       </p>
       <p>
         Eso significa que, mientras no nos escribas, no tenemos ningún dato tuyo. Cuando nos
@@ -91,11 +91,6 @@ export default function PrivacidadPage() {
         terceros, y conviene que sepas cuáles:
       </p>
       <ul>
-        <li>
-          <strong>WhatsApp (Meta Platforms Ireland).</strong> Si nos escribes por WhatsApp, la
-          conversación pasa por sus sistemas y se rige por su propia política de privacidad, igual
-          que cualquier otro chat que tengas.
-        </li>
         <li>
           <strong>Nuestro proveedor de correo.</strong> Si nos escribes por email, el mensaje queda
           en nuestro buzón alojado por el proveedor correspondiente.

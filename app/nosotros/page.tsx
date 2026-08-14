@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { CallFloat } from "@/components/CallFloat";
 import { PhotoSlot } from "@/components/PhotoSlot";
 import { business } from "@/lib/business";
 
@@ -82,16 +82,14 @@ export default function NosotrosPage() {
           </div>
           <div className="flex flex-wrap gap-3">
             <a
-              href={business.whatsapp}
-              target="_blank"
-              rel="noopener"
-              className="rounded-md bg-wa px-6 py-3.5 text-[14.5px] font-bold text-ink2 hover:brightness-95"
+              href={`tel:${business.phone}`}
+              className="rounded-md bg-accent px-6 py-3.5 text-[14.5px] font-bold text-white hover:bg-accent-dark"
             >
-              WhatsApp
+              Llamar {business.phoneDisplay}
             </a>
             <Link
               href="/contacto"
-              className="rounded-md bg-accent px-6 py-3.5 text-[14.5px] font-bold text-white hover:bg-accent-dark"
+              className="rounded-md border-[1.5px] border-line bg-white px-6 py-3.5 text-[14.5px] font-bold text-ink hover:bg-cream"
             >
               Ir a contacto
             </Link>
@@ -100,7 +98,7 @@ export default function NosotrosPage() {
       </div>
 
       <Footer />
-      <WhatsAppFloat />
+      <CallFloat />
     </>
   );
 }

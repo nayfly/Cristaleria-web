@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { CallFloat } from "@/components/CallFloat";
 import { ContactForm } from "@/components/ContactForm";
 import { MapEmbed } from "@/components/MapEmbed";
 import { business } from "@/lib/business";
@@ -9,7 +9,7 @@ import { business } from "@/lib/business";
 export const metadata: Metadata = {
   title: "Contacto y presupuesto",
   description:
-    "Pide presupuesto sin compromiso a Cristalería y Aluminios Torrox Costa. Teléfono, WhatsApp, email, dirección y horario en Torrox Costa, Málaga.",
+    "Pide presupuesto sin compromiso a Cristalería y Aluminios Torrox Costa. Teléfono, email, dirección y horario en Torrox Costa, Málaga.",
   alternates: { canonical: "/contacto" },
 };
 
@@ -28,14 +28,6 @@ export default function ContactoPage() {
             Escríbenos, llama o pásate por el taller. Te respondemos lo antes posible.
           </p>
           <div className="mt-[22px] flex flex-wrap gap-3">
-            <a
-              href={business.whatsapp}
-              target="_blank"
-              rel="noopener"
-              className="rounded-md bg-wa px-6 py-3.5 text-[14.5px] font-bold text-ink2 hover:brightness-95"
-            >
-              WhatsApp ahora
-            </a>
             <a
               href={`tel:${business.phone}`}
               className="rounded-md bg-accent px-6 py-3.5 text-[14.5px] font-bold text-white hover:bg-accent-dark"
@@ -87,7 +79,7 @@ export default function ContactoPage() {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
+      <CallFloat />
     </>
   );
 }
