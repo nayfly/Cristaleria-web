@@ -21,6 +21,9 @@ se enseña para dar el visto bueno, todavía no sustituye a la web en producció
   `/public/images/`, organizado en
   `brand/` (logo), `services/` (una imagen por servicio) y `gallery/` (una
   subcarpeta por categoría, más `hero-home.webp` y `tienda-taller.webp`).
+- **Legales**: aviso legal, privacidad y cookies, con los datos del titular
+  rellenos. La web no instala cookies: el mapa de Google carga solo si el
+  visitante pulsa, así que no hace falta banner de consentimiento.
 - **SEO**: metadatos Open Graph y Twitter, sitemap.xml, robots.txt, favicon
   generado del logo y structured data (JSON-LD `HomeAndConstructionBusiness`)
   con dirección, geolocalización, horario, valoración, catálogo de servicios y
@@ -44,8 +47,13 @@ En Vercel las dos variables van en Settings → Environment Variables.
 
 Detalles que conviene saber:
 
-- Google devuelve **como mucho 5 reseñas** por ficha. No hay forma de sacar las
-  140 por API; el botón "Ver reseñas en Google" sigue llevando al resto.
+- **Google no devuelve el texto de las reseñas de esta ficha.** Responde 200 con
+  la nota y el recuento, pero el array `reviews` viene vacío; comprobado con y
+  sin `languageCode`, en inglés y pidiendo solo ese campo. Por eso las 20
+  reseñas del carrusel están copiadas literalmente a mano en `lib/business.ts`.
+  Lo que sí sale de la API, y se refresca solo, es la valoración y el número
+  total.
+- Aunque las devolviera, el máximo por ficha son 5.
 - La respuesta se cachea 24 h (`revalidate: 86400`), o sea ~30 peticiones al
   mes: muy por debajo de las 1.000 gratuitas. A partir de ahí son 25 $/1.000.
 - Con la API activa, la valoración y el número de reseñas de la portada y del
@@ -59,18 +67,26 @@ Detalles que conviene saber:
 
 ## Pendiente antes de publicar
 
-1. **Formulario de contacto**: en `/contacto` no hay backend de email — el
-   formulario (`components/ContactForm.tsx`) construye un mensaje de
-   WhatsApp o un `mailto:` con lo escrito. Si se quiere que llegue de verdad a
-   un buzón sin pasar por WhatsApp, hay que añadir un proveedor tipo Formspree
-   o Resend.
-2. **Avisos legales**: no hay página de privacidad, aviso legal ni cookies.
-   Hoy la web no pone cookies propias, pero el mapa de `/contacto` es un iframe
-   de Google.
-3. **Dominio**: `siteUrl` en `lib/business.ts` ya apunta al dominio real
+1. **Dominio**: `siteUrl` en `lib/business.ts` apunta al dominio real
    (`www.cristaleriayaluminiostorroxcosta.com`), no al de Vercel. Mientras la
    web viva solo en `.vercel.app`, el canonical, el sitemap y el JSON-LD
    señalan a un dominio que todavía no la sirve.
+2. **Variables en Vercel**: ni las reseñas en vivo ni el envío del formulario
+   están activos en producción hasta configurar `GOOGLE_PLACES_API_KEY` y
+   `RESEND_API_KEY` (ver `.env.example`). Sin ellas la web funciona igual, con
+   los valores de respaldo y el `mailto`. Cambiar variables en Vercel **no
+   redespliega solo**: hay que lanzar un despliegue después.
+
+## Formulario de contacto
+
+`/contacto` envía a `app/api/contacto/route.ts`, que entrega el mensaje por
+correo con Resend (por `fetch`, sin SDK ni dependencias). Lleva validación y
+límites de longitud en el servidor, un campo trampa para bots y `reply_to` con
+el correo del cliente, para poder contestarle dando a Responder.
+
+Sin `RESEND_API_KEY` la ruta devuelve 503 y el formulario cae al `mailto` de
+siempre. La política de privacidad se adapta sola a las dos situaciones, así
+que nunca describe un tratamiento que no está ocurriendo.
 
 ## Galería
 
@@ -90,13 +106,15 @@ de `lib/gallery.ts`. Cambia ahí, no en las páginas.
 ## Estructura
 
 - `app/page.tsx` — Inicio
-- `app/productos/page.tsx` — Catálogo de productos
-- `app/galeria/page.tsx` — Galería de trabajos realizados (`lib/gallery.ts`)
+- `app/productos/page.tsx` — Catálogo de servicios
+- `app/galeria/page.tsx` — Galería, con filtros y visor (`components/GalleryBrowser.tsx`)
 - `app/nosotros/page.tsx` — Quiénes somos (historia y valores, en `lib/business.ts`)
 - `app/contacto/page.tsx` — Contacto: formulario, mapa y datos
-- `components/` — Header, Footer, botón flotante de WhatsApp, formulario de contacto, marcador de fotos
+- `app/aviso-legal`, `app/privacidad`, `app/cookies` — legales (`components/LegalPage.tsx`)
+- `app/api/contacto/route.ts` — envío del formulario por Resend
+- `components/` — cabecera, pie, redes, flotante de llamada, formulario, mapa bajo demanda
 - `lib/business.ts` — única fuente de verdad de datos y contenido de la empresa
-- `lib/gallery.ts` — proyectos mostrados en la galería
-- `lib/google-reviews.ts` — reseñas en vivo de Google, con respaldo estático
+- `lib/gallery.ts` — trabajos de la galería, con `serviceSlug` para enlazar con los servicios
+- `lib/google-reviews.ts` — valoración en vivo de Google, con respaldo estático
 - `app/icon.png`, `app/apple-icon.png` — favicon, generados del logo
 - `scripts/find-place-id.mjs` — busca el id de la ficha de Google
