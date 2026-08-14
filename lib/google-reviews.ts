@@ -15,6 +15,8 @@ export type SiteReview = {
   who: string;
   date: string;
   rating?: number;
+  /** Código ISO del idioma, solo si no está en castellano. */
+  lang?: string;
   /** Foto de perfil del autor en Google. Su atribución es obligatoria. */
   photoUrl?: string;
   /** Enlace a la reseña concreta en Google Maps. */

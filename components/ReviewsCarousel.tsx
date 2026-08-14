@@ -38,7 +38,9 @@ export function ReviewsCarousel({ reviews, url }: { reviews: SiteReview[]; url: 
             }`}
           >
             <p className="mb-2 text-sm text-accent">{"★".repeat(Math.round(review.rating ?? 5))}</p>
-            <p className="text-[13.5px] leading-[1.55] text-[#3a3226]">“{review.text}”</p>
+            <p lang={review.lang} className="text-[13.5px] leading-[1.55] text-[#3a3226]">
+              “{review.text}”
+            </p>
             <div className="mt-3 flex items-center gap-2.5">
               {review.photoUrl && (
                 // eslint-disable-next-line @next/next/no-img-element

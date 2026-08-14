@@ -241,41 +241,58 @@ export const featuredServiceSlugs = [
   "toldos-y-persianas",
 ];
 
+// Reseñas copiadas literalmente de la ficha de Google, sin corregir redacción,
+// ortografía ni puntuación: son palabras de sus autores, no nuestras.
+//
+// Las fechas de Google son relativas ("hace 2 semanas"), y guardarlas así
+// envejecería mal, así que van convertidas al mes en que se publicaron. La
+// conversión tiene un margen de unos días en las más antiguas.
+//
+// `lang` solo hace falta cuando la reseña no está en castellano: marca el
+// idioma en el HTML para lectores de pantalla y buscadores.
 export const reviews = [
   {
-    text: "Destaca la rapidez, el buen trabajo realizado y el trato amable y profesional.",
-    who: "Mari Carmen Rodríguez García",
-    date: "Julio 2023",
+    text: "Wonderful service from start to finish. Very professional, friendly, and excellent communication throughout. They did a really lovely job, and I'm very happy with the results. Thank you for a great service. I would highly recommend!",
+    who: "Emma Gibson",
+    date: "Agosto 2026",
+    rating: 5,
+    lang: "en",
+  },
+  {
+    text: "Muy satisfecho con el trabajo realizado. Además, Juan estuvo muy disponible e hizo el trabajo más rápido de lo esperado. Especialmente para los 2 toldos, porque sabía que tomaríamos posesión del apartamento en julio. También reemplazó 2 puertas ventanas : trabajo limpio y cuidadoso. Estamos muy contentos con el resultado. Nos pondremos en contacto con él nuevamente para otras transformaciones.",
+    who: "Marc DGAC",
+    date: "Agosto 2026",
     rating: 5,
   },
   {
-    text: "Valora la puntualidad, la calidad del producto y la buena solución ante imprevistos.",
-    who: "Sonia García Ruiz",
-    date: "Junio 2023",
+    text: "Gran trabajo realizado en mi estudio. Reparación de tres persianas, un trabajo impecable, super profesionales. Recomendable 100%",
+    who: "Alberto Gómez",
+    date: "Julio 2026",
     rating: 5,
   },
   {
-    text: "Repite con ellos por la rapidez al resolver una persiana y el buen asesoramiento.",
-    who: "Begoña Fernandez",
-    date: "Junio 2023",
+    text: "Estoy contenta con el trabajo, un trabajo muy rapido y bueno",
+    who: "Marta Patzeltova",
+    date: "Julio 2026",
     rating: 5,
   },
   {
-    text: "Recomienda la empresa por un servicio rápido, eficiente, educado y muy resolutivo.",
-    who: "Marilla Stevens",
-    date: "Junio 2023",
+    text: "Excelentes profesionales. Muy buen servicio y calidad. Atención personalizada, sin duda lo recomiendo.",
+    who: "Isabel Lebrero Martinez",
+    date: "Julio 2026",
     rating: 5,
   },
   {
-    text: "Subraya un acabado cuidado, trato agradable y ejecución rápida del trabajo.",
-    who: "Karin Pontén",
-    date: "Abril 2023",
+    text: "Esta es mi experiencia con CRISTALERÍA Y ALUMINIOS TORROX COSTA, Trabajan de forma conciensuda, son puntuales y de forma muy profesional, además sus honorarios son muy aceptables en comparación a otras empresas locales. LA RECOMIENDO 🌟🌟🌟🌟🌟",
+    who: "Elsy Luna",
+    date: "Julio 2026",
     rating: 5,
   },
   {
-    text: "Resume la experiencia como profesional, perfecta y entregada en la fecha acordada.",
-    who: "francisco alcalde",
-    date: "Marzo 2023",
+    text: "Sehr gute Arbeit, schnelle Umsetzung, auf Maß gefertigt und zu einem fairen Preis. Absolut empfehlenswert",
+    who: "Laila Pohlmann",
+    date: "Julio 2026",
     rating: 5,
+    lang: "de",
   },
 ];
