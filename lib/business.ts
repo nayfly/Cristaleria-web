@@ -44,6 +44,17 @@ export const business = {
   googleReviewsUrl:
     "https://www.google.com/maps/search/?api=1&query=Cristaler%C3%ADa+y+Aluminios+Torrox+Costa+Av.+de+Andaluc%C3%ADa+24+Torrox+Costa+M%C3%A1laga",
   siteUrl: "https://www.cristaleriayaluminiostorroxcosta.com",
+  // Zonas donde trabajáis. Solo se usa en el structured data (JSON-LD) para
+  // SEO local: ayuda a Google a saber a qué pueblos dais servicio.
+  // REVISAR: quita los que no os encajen y añade los que falten.
+  areaServed: [
+    "Torrox Costa",
+    "Torrox",
+    "Nerja",
+    "Frigiliana",
+    "Algarrobo",
+    "Vélez-Málaga",
+  ],
   story: {
     intro:
       "Somos un negocio familiar de Torrox Costa. Desde 1986 instalamos carpintería de aluminio, PVC y cristalería para vecinos y negocios de toda la zona: lo que podemos, lo fabricamos en nuestro taller; lo que no, lo traemos de proveedores de confianza.",

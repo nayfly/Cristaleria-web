@@ -12,9 +12,13 @@ const featuredServices = featuredServiceSlugs
   .filter((s): s is (typeof services)[number] => Boolean(s));
 
 export const metadata: Metadata = {
-  title: `${business.name} | Carpintería de aluminio, PVC y cristalería en Torrox Costa`,
+  // Título absoluto (sin plantilla) y por debajo de ~60 caracteres para que
+  // Google no lo trunque en los resultados.
+  title: {
+    absolute: "Cristalería y Aluminios en Torrox Costa | Toldos y cristal",
+  },
   description:
-    "Ventanas, toldos, persianas, mosquiteras y cristalería a medida en Torrox Costa, Málaga. Instalación y fabricación propia desde 1986. Pide presupuesto gratis por WhatsApp o llamada.",
+    "Toldos, persianas, cerramientos de terraza, mosquiteras y cristalería a medida en Torrox Costa, Málaga. Instalación propia desde 1986. Presupuesto gratis por WhatsApp o llamada.",
   alternates: { canonical: "/" },
 };
 

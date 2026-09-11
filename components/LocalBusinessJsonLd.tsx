@@ -5,12 +5,22 @@ export function LocalBusinessJsonLd() {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
     name: business.name,
-    image: `${business.siteUrl}/fotos/fachada.jpg`,
+    image: [
+      `${business.siteUrl}/og.jpg`,
+      `${business.siteUrl}/images/gallery/tienda-taller.webp`,
+      `${business.siteUrl}/images/gallery/hero-home.webp`,
+    ],
+    logo: `${business.siteUrl}/images/brand/logo.png`,
     "@id": business.siteUrl,
     url: business.siteUrl,
     telephone: business.phone,
     email: business.email,
     priceRange: "€€",
+    hasMap: business.googleReviewsUrl,
+    areaServed: business.areaServed.map((name) => ({
+      "@type": "Place",
+      name,
+    })),
     address: {
       "@type": "PostalAddress",
       streetAddress: business.address.street,
@@ -31,11 +41,11 @@ export function LocalBusinessJsonLd() {
       closes: spec.closes,
     })),
     sameAs: [business.social.facebook, business.social.youtube],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: business.rating.value,
-      reviewCount: business.rating.count,
-    },
+    // Nota: no marcamos aggregateRating. Google no permite reseñas
+    // "autodeclaradas" en LocalBusiness (las estrellas de la ficha de Google
+    // las pone Google, no la web), así que marcarlas aquí no da estrellas en
+    // los resultados y sí puede acarrear una penalización manual.
+    // Las reseñas siguen visibles en la página: solo se quita del marcado.
     foundingDate: `${business.foundedYear}`,
   };
 
