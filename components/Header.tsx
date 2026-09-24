@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { business } from "@/lib/business";
 import { SocialLinks } from "./SocialLinks";
 
@@ -26,7 +27,18 @@ export function Header({
       <div className="bg-ink text-white text-[12.5px] font-bold">
         <div className="mx-auto flex max-w-[1180px] items-center justify-between gap-3 px-4 py-2 sm:px-8">
           <span className="min-w-0 flex-1 truncate">
-            {business.hours.shortDisplay} · {business.address.locality}
+            {/* En móvil solo cabe el horario de oficina, que es el que busca
+                quien quiere contactar. Los montajes y el aviso de los sábados
+                van apareciendo según hay sitio. */}
+            {business.hours.office.label} {business.hours.office.short}
+            <span className="hidden sm:inline">
+              {" · "}
+              {business.hours.assembly.label} {business.hours.assembly.short}
+            </span>
+            <span className="hidden lg:inline">
+              {" · "}
+              {business.hours.assembly.shortNote}
+            </span>
           </span>
           <div className="hidden flex-none items-center gap-3.5 sm:flex">
             <SocialLinks />
@@ -44,9 +56,12 @@ export function Header({
         <div className="mx-auto max-w-[1180px] px-4 sm:px-8">
           <nav className="flex min-w-0 items-center justify-between gap-4 py-4">
             <Link href="/" className="flex min-w-0 flex-1 items-center lg:flex-none">
-              <img
+              <Image
                 src="/images/brand/logo.png"
                 alt={business.name}
+                width={130}
+                height={113}
+                priority
                 className="h-12 w-[56px] object-contain sm:h-14 sm:w-[65px]"
               />
             </Link>
