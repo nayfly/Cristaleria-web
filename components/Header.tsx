@@ -26,7 +26,18 @@ export function Header({
       <div className="bg-ink text-white text-[12.5px] font-bold">
         <div className="mx-auto flex max-w-[1180px] items-center justify-between gap-3 px-4 py-2 sm:px-8">
           <span className="min-w-0 flex-1 truncate">
-            {business.hours.shortDisplay} · {business.address.locality}
+            {/* En móvil solo cabe el horario de oficina, que es el que busca
+                quien quiere contactar. Los montajes y el aviso de los sábados
+                van apareciendo según hay sitio. */}
+            {business.hours.office.label} {business.hours.office.short}
+            <span className="hidden sm:inline">
+              {" · "}
+              {business.hours.assembly.label} {business.hours.assembly.short}
+            </span>
+            <span className="hidden lg:inline">
+              {" · "}
+              {business.hours.assembly.shortNote}
+            </span>
           </span>
           <div className="hidden flex-none items-center gap-3.5 sm:flex">
             <SocialLinks />

@@ -20,13 +20,38 @@ export const business = {
     lng: -3.9619791,
   },
   hours: {
-    display: "Lunes a sábado: 10:30–13:30 · Domingo: cerrado",
-    shortDisplay: "Lun–Sáb 10:30–13:30",
+    // Son dos horarios distintos y conviene no mezclarlos: el equipo sale a
+    // montar por la mañana, y la oficina atiende en dos tramos (mañana y
+    // tarde). Se muestran por separado en la barra superior, el pie y la
+    // página de contacto.
+    office: {
+      label: "Oficina",
+      display: "Lunes a viernes: 10:00–13:00 y 18:00–20:00",
+      short: "L–V 10–13 y 18–20",
+      note: "Por la tarde, mejor llamar por teléfono.",
+    },
+    assembly: {
+      label: "Montajes",
+      display: "Lunes a viernes: 8:00–16:00",
+      short: "L–V 8–16",
+      note: "Sábados, con cita previa.",
+      shortNote: "Sáb. con cita previa",
+    },
+    // Al structured data solo va el horario de OFICINA: es cuando se puede
+    // contactar con el negocio, que es lo que Google enseña en la ficha.
+    // Los montajes son trabajo fuera, y los sábados con cita previa no son
+    // horario de apertura: si se marcaran, Google diría que abrís el sábado
+    // sin más y la gente se plantaría en la puerta.
     openingHoursSpec: [
       {
-        days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        opens: "10:30",
-        closes: "13:30",
+        days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "10:00",
+        closes: "13:00",
+      },
+      {
+        days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "18:00",
+        closes: "20:00",
       },
     ],
   },

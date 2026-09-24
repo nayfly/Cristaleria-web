@@ -70,7 +70,20 @@ export default function ContactoPage() {
                   {business.address.street}, {business.address.postalCode}{" "}
                   {business.address.locality} ({business.address.region})
                 </li>
-                <li>{business.hours.display}</li>
+                <li className="mt-1 border-t border-line pt-2.5">
+                  <span className="font-bold text-ink">{business.hours.office.label}</span>
+                  <br />
+                  {business.hours.office.display}
+                  <br />
+                  <span className="text-[13.5px] text-muted">{business.hours.office.note}</span>
+                </li>
+                <li>
+                  <span className="font-bold text-ink">{business.hours.assembly.label}</span>
+                  <br />
+                  {business.hours.assembly.display}
+                  <br />
+                  <span className="text-[13.5px] text-muted">{business.hours.assembly.note}</span>
+                </li>
               </ul>
             </div>
 

@@ -88,7 +88,13 @@ export function Footer() {
             <li>
               {business.address.street}, {business.address.locality}
             </li>
-            <li>{business.hours.shortDisplay}</li>
+            <li>
+              {business.hours.office.label}: {business.hours.office.short}
+            </li>
+            <li>
+              {business.hours.assembly.label}: {business.hours.assembly.short} ·{" "}
+              {business.hours.assembly.shortNote}
+            </li>
             <li className="pt-1.5">
               <SocialLinks />
             </li>
