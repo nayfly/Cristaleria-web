@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { business } from "@/lib/business";
 import { SocialLinks } from "./SocialLinks";
 
@@ -7,9 +8,11 @@ export function Footer() {
     <footer className="bg-ink2 py-11 text-white/75">
       <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-8 px-5 sm:px-8 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
-          <img
+          <Image
             src="/images/brand/logo.png"
             alt={business.name}
+            width={184}
+            height={160}
             className="h-20 w-[92px] object-contain"
           />
           <p className="mt-2.5 max-w-[34ch] text-[13.5px] leading-[1.6]">

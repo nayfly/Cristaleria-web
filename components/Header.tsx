@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { business } from "@/lib/business";
 import { SocialLinks } from "./SocialLinks";
 
@@ -55,9 +56,12 @@ export function Header({
         <div className="mx-auto max-w-[1180px] px-4 sm:px-8">
           <nav className="flex min-w-0 items-center justify-between gap-4 py-4">
             <Link href="/" className="flex min-w-0 flex-1 items-center lg:flex-none">
-              <img
+              <Image
                 src="/images/brand/logo.png"
                 alt={business.name}
+                width={130}
+                height={113}
+                priority
                 className="h-12 w-[56px] object-contain sm:h-14 sm:w-[65px]"
               />
             </Link>
