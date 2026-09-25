@@ -258,16 +258,18 @@ export const services: Service[] = [
     slug: "cerrajeria",
     tag: "Cerrajería",
     title: "Cerrajería",
-    shortDescription: "Rejas, puertas y estructuras metálicas a medida.",
+    shortDescription: "Cambio de cerraduras y aperturas de puerta por emergencia.",
     description:
-      "Trabajos de cerrajería a medida para viviendas, comunidades y negocios: rejas, puertas y estructuras metálicas, además de reparaciones y ajustes sobre lo que ya está instalado.",
+      "Instalación y cambio de cerraduras, apertura de puertas cuando te has quedado fuera y los trabajos de cerrajería del día a día, en viviendas, comunidades y negocios.",
     bullets: [
-      "Rejas y puertas metálicas a medida",
+      "Instalación y cambio de cerraduras",
+      "Apertura de puertas por emergencia",
       "Viviendas, comunidades y negocios",
-      "Reparaciones y ajustes",
     ],
-    photoLabel: "Trabajo de cerrajería",
-    photoUrl: "",
+    photoLabel: "Cerrajería: cerraduras y aperturas",
+    // Ilustración provisional en la paleta de la web, hasta que haya una foto
+    // real de un trabajo de cerrajería.
+    photoUrl: "/images/services/cerrajeria.webp",
   },
   {
     slug: "mosquiteras",

@@ -33,11 +33,11 @@ export default async function HomePage() {
             {business.address.locality} · Desde {business.foundedYear}
           </p>
           <h1 className="mx-auto mt-4 max-w-[14ch] font-display text-[40px] font-bold leading-[1.02] tracking-[-0.02em] text-ink sm:max-w-[16ch] sm:text-[62px] lg:text-[74px]">
-            Cerramientos que se notan por cómo encajan
+            Cerramientos de aluminio y PVC
           </h1>
           <p className="mx-auto mt-6 max-w-[52ch] text-[16.5px] leading-relaxed text-muted">
-            Instalamos aluminio, PVC, vidrio, toldos y persianas a medida, fabricando en
-            nuestro taller lo que podemos. Presupuesto claro y rápido, sin intermediarios.
+            Instalamos aluminio, PVC, vidrio, toldos y persianas a medida. Presupuesto claro y
+            rápido, sin intermediarios.
           </p>
           <div className="mx-auto mt-8 grid w-full max-w-[330px] grid-cols-1 justify-center gap-3 sm:max-w-none sm:grid-cols-none sm:flex sm:flex-wrap sm:justify-center">
             <a
