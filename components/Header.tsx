@@ -26,16 +26,15 @@ export function Header({
     <>
       <div className="bg-ink text-white text-[12.5px] font-bold">
         <div className="mx-auto flex max-w-[1180px] items-center justify-between gap-3 px-4 py-2 sm:px-8">
-          <span className="min-w-0 flex-1 truncate">
-            {/* En móvil solo cabe el horario de oficina, que es el que busca
-                quien quiere contactar. Los montajes y el aviso de los sábados
-                van apareciendo según hay sitio. */}
+          <span className="min-w-0 flex-1 leading-snug xl:truncate">
+            {/* Los dos horarios se ven siempre. En móvil y tablet la barra
+                ocupa dos líneas en vez de cortar el texto, que es lo que
+                pasaba antes. El aviso de los sábados solo entra en pantallas
+                anchas, donde cabe todo en una línea. */}
             {business.hours.office.label} {business.hours.office.short}
-            <span className="hidden sm:inline">
-              {" · "}
-              {business.hours.assembly.label} {business.hours.assembly.short}
-            </span>
-            <span className="hidden lg:inline">
+            {" · "}
+            {business.hours.assembly.label} {business.hours.assembly.short}
+            <span className="hidden xl:inline">
               {" · "}
               {business.hours.assembly.shortNote}
             </span>

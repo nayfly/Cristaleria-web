@@ -26,14 +26,14 @@ export const business = {
     // página de contacto.
     office: {
       label: "Oficina",
-      display: "Lunes a viernes: 10:00–13:00 y 18:00–20:00",
-      short: "L–V 10–13 y 18–20",
+      display: "Lunes a viernes: 10:00h–13:00h y 18:00h–20:00h",
+      short: "L–V 10:00h–13:00h y 18:00h–20:00h",
       note: "Por la tarde, mejor llamar por teléfono.",
     },
     assembly: {
       label: "Montajes",
-      display: "Lunes a viernes: 8:00–16:00",
-      short: "L–V 8–16",
+      display: "Lunes a viernes: 8:00h–16:00h",
+      short: "L–V 8:00h–16:00h",
       note: "Sábados, con cita previa.",
       shortNote: "Sáb. con cita previa",
     },

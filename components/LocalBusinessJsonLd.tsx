@@ -1,11 +1,6 @@
 import { business, services } from "@/lib/business";
-import { getReviews } from "@/lib/google-reviews";
 
-export async function LocalBusinessJsonLd() {
-  // Misma llamada cacheada que usa la portada: Next la deduplica, así que esto
-  // no gasta una petición extra a Google.
-  const opiniones = await getReviews();
-
+export function LocalBusinessJsonLd() {
   const data = {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
@@ -63,11 +58,11 @@ export async function LocalBusinessJsonLd() {
       closes: spec.closes,
     })),
     sameAs: [business.social.facebook, business.social.youtube, business.googleMapsUrl],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: opiniones.rating,
-      reviewCount: opiniones.count,
-    },
+    // Sin aggregateRating a propósito. Google no admite reseñas
+    // "autodeclaradas" en LocalBusiness: las estrellas de los resultados las
+    // pone Google desde su propia ficha, no desde este marcado, así que
+    // ponerlo aquí no aporta nada y expone a una penalización manual.
+    // Las reseñas siguen visibles en la web, que es lo que ve el cliente.
     foundingDate: `${business.foundedYear}`,
   };
 
