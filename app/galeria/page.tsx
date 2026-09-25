@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CallFloat } from "@/components/CallFloat";
@@ -18,26 +19,26 @@ export default function GaleriaPage() {
     <>
       <Header active="galeria" />
 
-      <section className="border-b border-line bg-cream py-11">
+      <section className="border-b border-line bg-cream py-14 sm:py-16">
         <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
           <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-accent">Galería</p>
           <h1 className="mt-3 font-display text-[40px] font-bold leading-[1.03] tracking-[-0.015em] text-ink sm:text-[56px]">
             Algunos trabajos que hemos hecho
           </h1>
-          <p className="mt-2 max-w-[60ch] text-[15.5px] leading-relaxed text-muted">
+          <p className="mt-4 max-w-[60ch] text-[15.5px] leading-relaxed text-muted">
             Una muestra de proyectos reales en hogares y negocios de la zona. Cada trabajo lleva
             nuestra instalación de principio a fin, y fabricación propia cuando el trabajo lo permite.
           </p>
         </div>
       </section>
 
-      <section className="py-[52px]">
+      <section className="py-[72px]">
         <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
           <GalleryBrowser sections={gallerySections} />
         </div>
       </section>
 
-      <div className="mx-auto max-w-[1132px] px-5 pb-[52px] sm:px-8">
+      <div className="mx-auto max-w-[1132px] px-5 pb-[72px] sm:px-8">
         <div className="flex flex-wrap items-center justify-between gap-6 rounded-[20px] bg-tan p-8 sm:p-11">
           <div>
             <h2 className="font-display text-[28px] font-bold leading-[1.05] tracking-[-0.01em] text-ink sm:text-[34px]">
@@ -50,10 +51,16 @@ export default function GaleriaPage() {
           <div className="flex flex-wrap gap-3">
             <a
               href={`tel:${business.phone}`}
-              className="rounded-md bg-accent px-6 py-3.5 text-[14.5px] font-bold text-white hover:bg-accent-dark"
+              className="rounded-md bg-accent px-6 py-3.5 text-[14.5px] font-bold text-white transition hover:bg-accent-dark"
             >
               Llamar
             </a>
+            <Link
+              href="/contacto"
+              className="rounded-md border-[1.5px] border-line bg-white px-6 py-3.5 text-[14.5px] font-bold text-ink transition hover:bg-cream"
+            >
+              Formulario
+            </Link>
           </div>
         </div>
       </div>

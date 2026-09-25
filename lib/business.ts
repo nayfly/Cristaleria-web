@@ -258,17 +258,15 @@ export const services: Service[] = [
     slug: "cerrajeria",
     tag: "Cerrajería",
     title: "Cerrajería",
-    shortDescription: "Cambio de cerraduras y aperturas de puerta por emergencia.",
+    shortDescription: "Cambio de cerraduras y aperturas de puerta de urgencia.",
     description:
-      "Instalación y cambio de cerraduras, apertura de puertas cuando te has quedado fuera y los trabajos de cerrajería del día a día, en viviendas, comunidades y negocios.",
+      "Instalación y cambio de cerraduras, aperturas de urgencia cuando te has quedado fuera y los trabajos de cerrajería del día a día, en viviendas, comunidades y negocios.",
     bullets: [
       "Instalación y cambio de cerraduras",
-      "Apertura de puertas por emergencia",
+      "Aperturas de puerta de urgencia",
       "Viviendas, comunidades y negocios",
     ],
-    photoLabel: "Cerrajería: cerraduras y aperturas",
-    // Ilustración provisional en la paleta de la web, hasta que haya una foto
-    // real de un trabajo de cerrajería.
+    photoLabel: "Cerradura de una puerta acorazada instalada en Torrox Costa",
     photoUrl: "/images/services/cerrajeria.webp",
   },
   {

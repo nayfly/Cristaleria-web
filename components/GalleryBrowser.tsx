@@ -73,8 +73,13 @@ export function GalleryBrowser({ sections }: { sections: GallerySection[] }) {
 
   return (
     <>
-      {/* FILTROS */}
-      <div className="mb-8 flex flex-wrap gap-2" role="group" aria-label="Filtrar por tipo de trabajo">
+      {/* FILTROS. En móvil, una fila que se desliza: diez chips apilados
+          empujaban las fotos media pantalla hacia abajo. */}
+      <div
+        className="-mx-5 mb-10 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0"
+        role="group"
+        aria-label="Filtrar por tipo de trabajo"
+      >
         <Chip activo={filtro === "todos"} onClick={() => cambiarFiltro("todos")}>
           Todos
         </Chip>
@@ -85,30 +90,32 @@ export function GalleryBrowser({ sections }: { sections: GallerySection[] }) {
         ))}
       </div>
 
-      <div className="grid gap-12">
+      <div className="grid gap-16 sm:gap-20">
         {visibles.map((section) => (
           <section key={section.slug} id={section.slug} className="scroll-mt-28">
-            <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
-              <div className="max-w-[66ch]">
-                <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-accent">
+            <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+              <div className="max-w-[60ch]">
+                <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-accent">
                   {section.tag}
                 </p>
-                <h2 className="mt-1 font-display text-[24px] font-bold leading-tight text-ink">
+                <h2 className="mt-2 font-display text-[28px] font-bold leading-[1.05] tracking-[-0.015em] text-ink sm:text-[36px]">
                   {section.title}
                 </h2>
-                <p className="mt-1.5 text-[14px] leading-relaxed text-muted">
+                <p className="mt-2.5 text-[14.5px] leading-relaxed text-muted">
                   {section.description}
                 </p>
               </div>
               <Link
                 href={`/productos#${section.serviceSlug}`}
-                className="text-[13.5px] font-bold text-accent hover:text-accent-dark"
+                className="text-[13.5px] font-bold text-accent transition hover:text-accent-dark"
               >
                 Ver el servicio →
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Cuatro columnas en pantalla ancha: casi todas las categorías
+                tienen cuatro fotos, así que cada una ocupa una fila limpia. */}
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {section.items.map((item) => {
                 const indice = planas.findIndex(
                   (f) => f.seccion.slug === section.slug && f.item.slug === item.slug,
@@ -119,20 +126,22 @@ export function GalleryBrowser({ sections }: { sections: GallerySection[] }) {
                     type="button"
                     onClick={() => setAbierta(indice)}
                     aria-label={`Ampliar: ${item.photoLabel}`}
-                    className="group overflow-hidden rounded-md border border-line bg-white text-left transition hover:-translate-y-[3px] hover:shadow-md"
+                    className="group relative aspect-[4/3] overflow-hidden rounded-[14px] text-left"
                   >
-                    <div className="relative aspect-[4/3] overflow-hidden">
-                      <Image
-                        src={item.photoUrl}
-                        alt={item.photoLabel}
-                        fill
-                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                        className="object-cover transition duration-300 group-hover:scale-[1.04]"
-                      />
-                    </div>
-                    <div className="p-4">
-                      <h3 className="text-[15.5px] font-bold text-ink">{item.title}</h3>
-                    </div>
+                    <Image
+                      src={item.photoUrl}
+                      alt={item.photoLabel}
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover transition duration-500 group-hover:scale-[1.06]"
+                    />
+                    {/* El título va encima de la foto, sobre un degradado, en
+                        vez de en una banda blanca debajo: la foto ocupa toda la
+                        tarjeta, que es de lo que va una galería. */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink2/85 via-ink2/15 to-transparent" />
+                    <h3 className="absolute inset-x-0 bottom-0 p-4 text-[14.5px] font-bold leading-snug text-white">
+                      {item.title}
+                    </h3>
                   </button>
                 );
               })}
@@ -222,7 +231,7 @@ function Chip({
       type="button"
       onClick={onClick}
       aria-pressed={activo}
-      className={`rounded-full border px-4 py-2 text-[13.5px] font-bold transition ${
+      className={`flex-none whitespace-nowrap rounded-full border px-4 py-2 text-[13.5px] font-bold transition ${
         activo
           ? "border-accent bg-accent text-white"
           : "border-line bg-white text-ink hover:border-accent hover:text-accent"
