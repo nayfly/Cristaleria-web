@@ -7,6 +7,7 @@ export function PhotoSlot({
   sizes = "(min-width: 1024px) 33vw, 100vw",
   priority = false,
   imgClassName = "",
+  objectPosition,
 }: {
   label: string;
   className?: string;
@@ -15,6 +16,9 @@ export function PhotoSlot({
   priority?: boolean;
   /** Clases extra sobre la propia imagen, para efectos como el zoom del hero. */
   imgClassName?: string;
+  /** Punto de la foto que se conserva al recortar, p. ej. "50% 30%". Sirve
+      cuando lo importante está arriba y el recorte centrado se lo come. */
+  objectPosition?: string;
 }) {
   if (src?.startsWith("/")) {
     return (
@@ -26,6 +30,7 @@ export function PhotoSlot({
           sizes={sizes}
           priority={priority}
           className={`object-cover ${imgClassName}`}
+          style={objectPosition ? { objectPosition } : undefined}
         />
       </div>
     );

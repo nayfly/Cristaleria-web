@@ -140,6 +140,9 @@ export type Service = {
   bullets: string[];
   photoLabel: string;
   photoUrl: string;
+  /** Punto que se conserva al recortar la foto. Solo hace falta cuando el
+      recorte centrado deja fuera lo importante. */
+  photoPosition?: string;
 };
 
 export const services: Service[] = [
@@ -172,6 +175,9 @@ export const services: Service[] = [
     ],
     photoLabel: "Toldos y persianas",
     photoUrl: "/images/services/toldos-persianas.webp",
+    // El toldo ocupa la mitad superior de la foto: con el recorte centrado
+    // desaparece y solo se ve la carretera de abajo.
+    photoPosition: "50% 26%",
   },
   {
     slug: "cortinas-de-vidrio-panoramicas",

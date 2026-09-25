@@ -154,6 +154,7 @@ export default async function HomePage() {
                       label={service.photoLabel}
                       src={service.photoUrl}
                       sizes="(min-width: 768px) 50vw, 100vw"
+                      objectPosition={service.photoPosition}
                       className="aspect-[4/3] rounded-[20px]"
                     />
                   </div>

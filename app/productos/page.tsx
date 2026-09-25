@@ -51,7 +51,12 @@ export default function ProductosPage() {
                 id={s.slug}
                 className="flex h-full scroll-mt-24 flex-col overflow-hidden rounded-md border border-line bg-white"
               >
-                <PhotoSlot label={s.photoLabel} src={s.photoUrl} className="aspect-[4/3]" />
+                <PhotoSlot
+                  label={s.photoLabel}
+                  src={s.photoUrl}
+                  objectPosition={s.photoPosition}
+                  className="aspect-[4/3]"
+                />
                 <div className="flex flex-1 flex-col p-5">
                   <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-accent">
                     {s.tag}
