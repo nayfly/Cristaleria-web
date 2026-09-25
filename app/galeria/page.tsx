@@ -21,7 +21,7 @@ export default function GaleriaPage() {
       <section className="border-b border-line bg-cream py-11">
         <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
           <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-accent">Galería</p>
-          <h1 className="mt-2.5 font-display text-[32px] font-bold leading-tight text-ink sm:text-[36px]">
+          <h1 className="mt-3 font-display text-[40px] font-bold leading-[1.03] tracking-[-0.015em] text-ink sm:text-[56px]">
             Algunos trabajos que hemos hecho
           </h1>
           <p className="mt-2 max-w-[60ch] text-[15.5px] leading-relaxed text-muted">
@@ -40,7 +40,7 @@ export default function GaleriaPage() {
       <div className="mx-auto max-w-[1132px] px-5 pb-[52px] sm:px-8">
         <div className="flex flex-wrap items-center justify-between gap-6 rounded-[20px] bg-tan p-8 sm:p-11">
           <div>
-            <h2 className="font-display text-[26px] font-bold text-ink">
+            <h2 className="font-display text-[28px] font-bold leading-[1.05] tracking-[-0.01em] text-ink sm:text-[34px]">
               ¿Quieres algo parecido en tu casa?
             </h2>
             <p className="mt-1.5 text-[14px] text-muted">

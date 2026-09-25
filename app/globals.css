@@ -21,3 +21,52 @@ button:focus-visible {
   outline: 2px solid theme(colors.accent);
   outline-offset: 2px;
 }
+
+/* --- Aparición al hacer scroll ---------------------------------------------
+   El elemento arranca oculto y la clase .is-visible la pone un
+   IntersectionObserver desde <Reveal>. Dos salvaguardas para no dejar
+   contenido invisible a nadie:
+   - Si el visitante pide menos movimiento, se ve todo desde el principio.
+   - Si no hay JavaScript, el <noscript> del layout anula el estado oculto. */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Zoom lento de la foto del hero: da sensación de vídeo sin serlo. */
+@keyframes heroZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.07);
+  }
+}
+
+.hero-zoom {
+  animation: heroZoom 20s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero-zoom {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

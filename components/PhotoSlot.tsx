@@ -6,12 +6,15 @@ export function PhotoSlot({
   src,
   sizes = "(min-width: 1024px) 33vw, 100vw",
   priority = false,
+  imgClassName = "",
 }: {
   label: string;
   className?: string;
   src?: string;
   sizes?: string;
   priority?: boolean;
+  /** Clases extra sobre la propia imagen, para efectos como el zoom del hero. */
+  imgClassName?: string;
 }) {
   if (src?.startsWith("/")) {
     return (
@@ -22,7 +25,7 @@ export function PhotoSlot({
           fill
           sizes={sizes}
           priority={priority}
-          className="object-cover"
+          className={`object-cover ${imgClassName}`}
         />
       </div>
     );

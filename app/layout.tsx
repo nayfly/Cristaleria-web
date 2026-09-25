@@ -79,6 +79,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className={`${display.variable} ${body.variable}`}>
+      <head>
+        {/* Sin JavaScript nadie añade .is-visible, así que los bloques que
+            aparecen al hacer scroll se quedarían invisibles para siempre.
+            Esto los deja visibles de entrada en ese caso. */}
+        <noscript>
+          {/* eslint-disable-next-line react/no-danger */}
+          <style dangerouslySetInnerHTML={{ __html: ".reveal{opacity:1;transform:none}" }} />
+        </noscript>
+      </head>
       <body className="font-body">
         <LocalBusinessJsonLd />
         {children}

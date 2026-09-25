@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CallFloat } from "@/components/CallFloat";
+import { Reveal } from "@/components/Reveal";
 import { business, yearsInBusiness } from "@/lib/business";
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export default function NosotrosPage() {
           <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-accent">
             Desde {business.foundedYear}
           </p>
-          <h1 className="mt-2.5 font-display text-[32px] font-bold leading-tight text-ink sm:text-[36px]">
+          <h1 className="mt-3 font-display text-[40px] font-bold leading-[1.03] tracking-[-0.015em] text-ink sm:text-[56px]">
             Quiénes somos
           </h1>
           <p className="mt-2 max-w-[60ch] text-[15.5px] leading-relaxed text-muted">
@@ -52,7 +53,7 @@ export default function NosotrosPage() {
             </p>
           </div>
           <div>
-            <h2 className="font-display text-[28px] font-bold leading-tight text-ink">
+            <h2 className="font-display text-[32px] font-bold leading-[1.05] tracking-[-0.015em] text-ink sm:text-[40px]">
               {yearsInBusiness} años en Torrox Costa
             </h2>
             <div className="mt-3.5 space-y-3 text-[15.5px] leading-[1.7] text-muted">
@@ -69,15 +70,17 @@ export default function NosotrosPage() {
           <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-warm">
             Cómo trabajamos
           </p>
-          <h2 className="mt-2.5 max-w-[18ch] font-display text-[28px] font-bold leading-tight">
+          <h2 className="mt-3 max-w-[18ch] font-display text-[32px] font-bold leading-[1.05] tracking-[-0.015em] sm:text-[42px]">
             Lo que puedes esperar de nosotros
           </h2>
           <div className="mt-[30px] grid grid-cols-1 gap-[18px] sm:grid-cols-2 lg:grid-cols-4">
-            {business.values.map((v) => (
-              <div key={v.title} className="rounded-md border border-white/[0.14] bg-white/5 p-[22px]">
+            {business.values.map((v, i) => (
+              <Reveal key={v.title} delay={i * 80} className="h-full">
+              <div className="h-full rounded-md border border-white/[0.14] bg-white/5 p-[22px]">
                 <h3 className="mb-2 text-[16px] font-bold">{v.title}</h3>
                 <p className="text-[13.5px] leading-[1.6] text-white/72">{v.description}</p>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -86,7 +89,7 @@ export default function NosotrosPage() {
       <div className="mx-auto max-w-[1132px] px-5 py-[52px] sm:px-8">
         <div className="flex flex-wrap items-center justify-between gap-6 rounded-[20px] bg-tan p-8 sm:p-11">
           <div>
-            <h2 className="font-display text-[26px] font-bold text-ink">¿Hablamos de tu proyecto?</h2>
+            <h2 className="font-display text-[28px] font-bold leading-[1.05] tracking-[-0.01em] text-ink sm:text-[34px]">¿Hablamos de tu proyecto?</h2>
             <p className="mt-1.5 text-[14px] text-muted">
               Pide presupuesto sin compromiso, te respondemos lo antes posible.
             </p>

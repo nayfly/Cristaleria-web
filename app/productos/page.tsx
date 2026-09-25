@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CallFloat } from "@/components/CallFloat";
 import { PhotoSlot } from "@/components/PhotoSlot";
+import { Reveal } from "@/components/Reveal";
 import { business, services } from "@/lib/business";
 import { gallerySections } from "@/lib/gallery";
 
@@ -29,7 +30,7 @@ export default function ProductosPage() {
       <section className="border-b border-line bg-cream py-11">
         <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
           <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-accent">Servicios</p>
-          <h1 className="mt-2.5 font-display text-[32px] font-bold leading-tight text-ink sm:text-[36px]">
+          <h1 className="mt-3 font-display text-[40px] font-bold leading-[1.03] tracking-[-0.015em] text-ink sm:text-[56px]">
             Todo lo que hacemos en aluminio, PVC y cristal
           </h1>
           <p className="mt-2 max-w-[60ch] text-[15.5px] leading-relaxed text-muted">
@@ -42,11 +43,13 @@ export default function ProductosPage() {
       <section className="py-[52px]">
         <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((s) => (
+            {services.map((s, i) => (
+              // El retardo va por columna, no por posición absoluta: con diez
+              // tarjetas, escalonarlas todas haría esperar demasiado a la última.
+              <Reveal key={s.slug} delay={(i % 3) * 80} className="h-full">
               <div
-                key={s.slug}
                 id={s.slug}
-                className="flex scroll-mt-24 flex-col overflow-hidden rounded-md border border-line bg-white"
+                className="flex h-full scroll-mt-24 flex-col overflow-hidden rounded-md border border-line bg-white"
               >
                 <PhotoSlot label={s.photoLabel} src={s.photoUrl} className="aspect-[4/3]" />
                 <div className="flex flex-1 flex-col p-5">
@@ -86,6 +89,7 @@ export default function ProductosPage() {
                   </div>
                 </div>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -94,7 +98,7 @@ export default function ProductosPage() {
       <div className="mx-auto max-w-[1132px] px-5 pb-[52px] sm:px-8">
         <div className="flex flex-wrap items-center justify-between gap-6 rounded-[20px] bg-tan p-8 sm:p-11">
           <div>
-            <h2 className="font-display text-[26px] font-bold text-ink">
+            <h2 className="font-display text-[28px] font-bold leading-[1.05] tracking-[-0.01em] text-ink sm:text-[34px]">
               ¿No ves tu trabajo en la lista?
             </h2>
             <p className="mt-1.5 text-[14px] text-muted">

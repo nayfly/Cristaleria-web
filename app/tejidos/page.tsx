@@ -20,7 +20,7 @@ export default function TejidosPage() {
       <section className="border-b border-line bg-cream py-11">
         <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
           <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-accent">Tejidos</p>
-          <h1 className="mt-2.5 font-display text-[32px] font-bold leading-tight text-ink sm:text-[36px]">
+          <h1 className="mt-3 font-display text-[40px] font-bold leading-[1.03] tracking-[-0.015em] text-ink sm:text-[56px]">
             Tejidos y colores para tu toldo
           </h1>
           <p className="mt-2 max-w-[60ch] text-[15.5px] leading-relaxed text-muted">
