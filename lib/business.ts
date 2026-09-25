@@ -97,9 +97,13 @@ export const business = {
     intro:
       "Somos un negocio familiar de Torrox Costa. Desde 1986 instalamos carpintería de aluminio, PVC y cristalería para vecinos y negocios de toda la zona: lo que podemos, lo fabricamos en nuestro taller; lo que no, lo traemos de proveedores de confianza.",
     paragraphs: [
-      "Empezamos como un pequeño taller de barrio y, 40 años después, seguimos siendo eso: gente de aquí arreglando, instalando y fabricando para gente de aquí. Conocemos las casas, los edificios y el clima de la Costa del Sol, y eso se nota en cada trabajo que sale del taller.",
-      "No subcontratamos el trabajo: medimos, instalamos y ajustamos nosotros mismos (y fabricamos a medida lo que sale de nuestro taller), así que respondemos de principio a fin de cada presupuesto. Si algo falla, no tienes que perseguir a nadie: nos llamas y venimos.",
-      "Preferimos explicarte las cosas claras antes que venderte de más. Si un arreglo pequeño te soluciona el problema, te lo decimos, aunque una instalación nueva nos convenga más a nosotros.",
+      "Empezamos como un pequeño taller de barrio y, 40 años después, seguimos trabajando con la misma idea: hacer las cosas bien y responder por nuestro trabajo.",
+      "Somos especialistas en carpintería de aluminio, PVC, vidrio y cerrajería, realizando trabajos a medida tanto para viviendas como para comunidades y negocios.",
+      "Trabajamos de principio a fin: medimos, asesoramos, fabricamos, instalamos y ajustamos nosotros mismos. Esto nos permite controlar todo el proceso y ofrecer soluciones adaptadas a cada vivienda, edificio y necesidad.",
+      "Conocemos especialmente las condiciones de la Costa del Sol: orientación, exposición al sol, viento, humedad, salitre y las características de las construcciones de la zona. Por eso no nos limitamos a colocar un producto; buscamos que la solución sea adecuada para cada caso.",
+      "Trabajamos con diferentes sistemas y materiales, desde ventanas y puertas de aluminio y PVC hasta acristalamientos, Climalit, vidrios de seguridad, cerramientos, cortinas de cristal, mamparas, mosquiteras, persianas y trabajos de cerrajería, siempre fabricados o adaptados a las medidas reales de cada obra.",
+      "No subcontratamos la instalación. El mismo equipo que estudia el trabajo conoce la solución que se ha instalado y puede responder ante cualquier ajuste, reparación o incidencia posterior.",
+      "40 años de oficio, experiencia local y un principio muy sencillo: recomendar lo que realmente creemos que necesita cada cliente, no vender por vender.",
     ],
   },
   values: [
@@ -121,6 +125,11 @@ export const business = {
     },
   ],
 } as const;
+
+// Años de actividad, calculados en cada build para que no se queden viejos.
+// "Desde 1986" es de lo más potente que tiene el negocio y aparece en varios
+// sitios: mejor que salga de un único cálculo que ir corrigiendo números a mano.
+export const yearsInBusiness = new Date().getFullYear() - business.foundedYear;
 
 export type Service = {
   slug: string;

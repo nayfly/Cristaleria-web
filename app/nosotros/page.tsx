@@ -3,8 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CallFloat } from "@/components/CallFloat";
-import { PhotoSlot } from "@/components/PhotoSlot";
-import { business } from "@/lib/business";
+import { business, yearsInBusiness } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Quiénes somos: 40 años en Torrox",
@@ -33,16 +32,28 @@ export default function NosotrosPage() {
       </section>
 
       <section className="py-14 sm:py-[56px]">
-        <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-9 px-5 sm:px-8 md:grid-cols-[1fr_1.1fr] md:gap-14">
-          <PhotoSlot
-            label="Nuestro taller de aluminio y cristalería en Torrox Costa"
-            src="/images/gallery/tienda-taller.webp"
-            sizes="(min-width: 768px) 45vw, 100vw"
-            className="aspect-[5/4] rounded-2xl"
-          />
+        <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-start gap-9 px-5 sm:px-8 md:grid-cols-[0.8fr_1.2fr] md:gap-14">
+          {/* Donde antes iba la foto del taller. Se destaca "Desde 1986"
+              porque 40 años de actividad no los puede decir cualquiera, y
+              acompaña a la explicación en lugar de quedar suelto arriba. */}
+          <div className="rounded-2xl border border-line bg-cream p-8 md:sticky md:top-24">
+            <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-accent">
+              Desde {business.foundedYear}
+            </p>
+            <p className="mt-3 font-display text-[68px] font-bold leading-none text-ink">
+              {yearsInBusiness}
+            </p>
+            <p className="mt-1 font-display text-[22px] font-bold leading-tight text-ink">
+              años de oficio
+            </p>
+            <p className="mt-4 text-[14.5px] leading-relaxed text-muted">
+              En {business.address.locality} desde {business.foundedYear}, con taller propio e
+              instalación sin subcontratar.
+            </p>
+          </div>
           <div>
             <h2 className="font-display text-[28px] font-bold leading-tight text-ink">
-              40 años en Torrox Costa
+              {yearsInBusiness} años en Torrox Costa
             </h2>
             <div className="mt-3.5 space-y-3 text-[15.5px] leading-[1.7] text-muted">
               {business.story.paragraphs.map((p) => (
