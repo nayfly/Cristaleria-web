@@ -249,6 +249,21 @@ export const services: Service[] = [
     photoUrl: "/images/services/proteccion-viviendas.webp",
   },
   {
+    slug: "cerrajeria",
+    tag: "Cerrajería",
+    title: "Cerrajería",
+    shortDescription: "Rejas, puertas y estructuras metálicas a medida.",
+    description:
+      "Trabajos de cerrajería a medida para viviendas, comunidades y negocios: rejas, puertas y estructuras metálicas, además de reparaciones y ajustes sobre lo que ya está instalado.",
+    bullets: [
+      "Rejas y puertas metálicas a medida",
+      "Viviendas, comunidades y negocios",
+      "Reparaciones y ajustes",
+    ],
+    photoLabel: "Trabajo de cerrajería",
+    photoUrl: "",
+  },
+  {
     slug: "mosquiteras",
     tag: "Confort",
     title: "Mosquiteras",

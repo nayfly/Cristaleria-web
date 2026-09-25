@@ -18,7 +18,7 @@ const body = Manrope({
 
 const defaultTitle = `${business.name} | Aluminio, PVC y cristalería`;
 const defaultDescription =
-  "Aluminio, PVC y cristalería en Torrox Costa. Cerramientos, toldos, persianas, mamparas y mosquiteras. Taller propio desde 1986. Presupuesto sin compromiso.";
+  "Aluminio, PVC, cristalería y cerrajería en Torrox Costa. Cerramientos, toldos, persianas, mamparas y mosquiteras. Taller propio desde 1986. Presupuesto gratis.";
 // Imagen de las previsualizaciones al compartir el enlace. Tiene que ser JPG
 // o PNG y en proporción 1.91:1 (1200x630): WhatsApp y Facebook no renderizan
 // WebP de forma fiable, y el hero es 1600x600, que además les queda recortado.
